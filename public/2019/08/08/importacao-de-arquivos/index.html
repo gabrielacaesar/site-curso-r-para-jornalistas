@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Instalação do R e do RStudio :: A Hugo website</title>
+    <title>Importação de arquivos :: A Hugo website</title>
 
     
     <link href="/css/nucleus.css?1565311727" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2019/08/08/instalacao-r-e-rstudio/">
+  <body class="" data-url="/2019/08/08/importacao-de-arquivos/">
     <nav id="sidebar" class="">
 
 
@@ -116,7 +116,7 @@
  
   
     
-      <li data-nav-id="/2019/08/08/importacao-de-arquivos/" title="Importação de arquivos" class="dd-item ">
+      <li data-nav-id="/2019/08/08/importacao-de-arquivos/" title="Importação de arquivos" class="dd-item active">
         <a href="/2019/08/08/importacao-de-arquivos/">
         Importação de arquivos
         
@@ -135,7 +135,7 @@
  
   
     
-      <li data-nav-id="/2019/08/08/instalacao-r-e-rstudio/" title="Instalação do R e do RStudio" class="dd-item active">
+      <li data-nav-id="/2019/08/08/instalacao-r-e-rstudio/" title="Instalação do R e do RStudio" class="dd-item ">
         <a href="/2019/08/08/instalacao-r-e-rstudio/">
         Instalação do R e do RStudio
         
@@ -261,7 +261,7 @@
             
           
           
-            <a href='/'>A Hugo website</a> > <a href='/post/'>Posts</a> > Instalação do R e do RStudio
+            <a href='/'>A Hugo website</a> > <a href='/post/'>Posts</a> > Importação de arquivos
           
          
           
@@ -274,29 +274,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#windows">Windows</a>
-<ul>
-<li>
-<ul>
-<li><a href="#r">R</a></li>
-<li><a href="#rstudio">RStudio</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#mac">Mac</a>
-<ul>
-<li>
-<ul>
-<li><a href="#r-1">R</a></li>
-<li><a href="#rstudio-1">RStudio</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -312,6 +290,12 @@
 
   <a class="tag-link" href="/tags/rstudio">rstudio</a>
 
+  <a class="tag-link" href="/tags/data.table">data.table</a>
+
+  <a class="tag-link" href="/tags/base">base</a>
+
+  <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
+
 </div>
 
         </div>
@@ -320,7 +304,7 @@
           
             <h1>
               
-              Instalação do R e do RStudio
+              Importação de arquivos
             </h1>
           
 
@@ -328,39 +312,26 @@
 
 
 
+<p>No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.</p>
 
+<p>Caso nós fôssemos usar um arquivo que está no nosso computador, nós teríamos que ver onde ele está e informar esse caminho (path) para o RStudio. Ou teríamos de clicar em &ldquo;File&rdquo; &gt; “Import Dataset” e achar o arquivo.</p>
 
-<p>Caso você não tenha o R e o RStudio na sua máquina, por favor siga o passo a passo deste tutorial para Mac ou Windows.</p>
+<p>Abaixo, usamos a função data.table::fread() para importar o arquivo.</p>
 
-<p>Também recomendo que você baixe um editor de texto, como o <a href="https://www.sublimetext.com/download">Sublime</a>.</p>
+<pre><code class="language-r">cota_senado &lt;- fread(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019&quot;)
+</code></pre>
 
-<h2 id="windows">Windows</h2>
+<p>Esta não é a única forma de importar o arquivo. Há várias formas. Abaixo, por exemplo, nós já informamos os nomes das colunas (&ldquo;col.names&rdquo;), bem como o separador de colunas (&ldquo;sep&rdquo;), o cabeçalho (&ldquo;header&rdquo;) e a codificação (&ldquo;encoding&rdquo;).</p>
 
-<h4 id="r">R</h4>
+<p>Observação: nós usamos outro nome (cota_senado2) para não sobrescrever o arquivo anterior.</p>
 
-<p>1) Faça o download do R neste link: <a href="http://cran.us.r-project.org/">http://cran.us.r-project.org/</a>;<br />
-2) Clique em &ldquo;Download R for Windows&rdquo; e em &ldquo;install R for the first time&rdquo;;<br />
-3) Mantenha as configurações padrões.</p>
+<pre><code class="language-r">cota_senado2 &lt;- fread(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019&quot;, sep = “;”, header = TRUE, encoding = “UTF-8”, col.names = c(“ano”, “mes”, “senador”, “categoria”, “cnpj_cpj”, “empresa”, “n_documento”, “data”, “detalhamento”, “valor_reembolso”))
+</code></pre>
 
-<h4 id="rstudio">RStudio</h4>
+<p>E ainda com outra biblioteca (&ldquo;read.table&rdquo;). Perceba que nós estamos importando um arquivo CSV, mas há outras bibliotecas que importam arquivos Excel, por exemplo, ou outros formatos.</p>
 
-<p>1) Faça o download do RStudio para Desktop para Mac no site oficial do RStudio: <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a>;<br />
-2) Clique em &ldquo;RStudio 1.2.1335 - Windows 7+ (64-bit)&rdquo; (ou uma versão mais nova);<br />
-3) Mantenha as configurações padrões.</p>
-
-<h2 id="mac">Mac</h2>
-
-<h4 id="r-1">R</h4>
-
-<p>1) Faça o download do R neste link:      <a href="http://cran.us.r-project.org/">http://cran.us.r-project.org/</a>;<br />
-2) Clique em &ldquo;Download R for (Mac) OS X&rdquo; e também em &ldquo;R-3.6.1.pkg&rdquo; (ou uma versão mais nova);<br />
-3) Mantenha as configurações padrões.</p>
-
-<h4 id="rstudio-1">RStudio</h4>
-
-<p>1) Faça o download do RStudio para Desktop para Mac no site oficial do RStudio: <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a>;<br />
-2) Clique em &ldquo;RStudio 1.2.1335 - macOS 10.12+ (64-bit)&rdquo;;<br />
-3) Mantenha as configurações padrões.</p>
+<pre><code class="language-r">cota_senado3 &lt;- read.csv(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019&quot;)
+</code></pre>
 
 
 <footer class=" footline" >
@@ -415,22 +386,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -450,6 +405,22 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -506,10 +477,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/2019/08/08/importacao-de-arquivos/" title="Importação de arquivos"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/post/" title="Posts"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2019/08/08/instalacao-r-e-rstudio/" title="Instalação do R e do RStudio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

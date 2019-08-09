@@ -28,8 +28,7 @@ Também recomendo que você baixe um editor de texto, como o [Sublime](https://w
 ## Mac          
 #### R          
 1) Faça o download do R neste link:      [http://cran.us.r-project.org/](http://cran.us.r-project.org/);     
-2) Clique em "Download R for (Mac) OS X" e também em "
-R-3.6.1.pkg" (ou uma versão mais nova);          
+2) Clique em "Download R for (Mac) OS X" e também em "R-3.6.1.pkg" (ou uma versão mais nova);          
 3) Mantenha as configurações padrões.          
 
 #### RStudio          
