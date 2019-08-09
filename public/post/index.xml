@@ -6,10 +6,24 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Dec 2016 21:49:57 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Instalação do R e do RStudio</title>
+      <link>/2019/08/08/instalacao-r-e-rstudio/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/08/instalacao-r-e-rstudio/</guid>
+      <description>Caso você não tenha o R e o RStudio na sua máquina, por favor siga o passo a passo deste tutorial para Mac ou Windows.
+Também recomendo que você baixe um editor de texto, como o Sublime.
+Windows R 1) Faça o download do R neste link: http://cran.us.r-project.org/;
+2) Clique em &amp;ldquo;Download R for Windows&amp;rdquo; e em &amp;ldquo;install R for the first time&amp;rdquo;;
+3) Mantenha as configurações padrões.
+RStudio 1) Faça o download do RStudio para Desktop para Mac no site oficial do RStudio: https://www.</description>
+    </item>
     
     <item>
       <title>A Plain Markdown Post</title>
