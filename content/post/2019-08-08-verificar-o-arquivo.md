@@ -8,12 +8,50 @@ tags: [r, rstudio, ]
 weight: 5
 ---
 
+## getwd()
+Saber onde está o arquivo
+
+```{r}
+
+```
+
+## setwd()
+Informar onde está o arquivo
+
+```{r}
+
+```
+## fread(), read_csv(), read.xlsx()
+
+Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+## glimpse()
+Olhar o arquivo
+
+```{r}
+
+```
+
+# head()
+
 Por padrão, a função "head( )" mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: "head(cota_senado, 15)" ou "head(cota_senado, 3)".
 
 ```{r}
 head(cota_senado)
 ```
-[img]
+# tail()
 
 A função "tail( )" funciona da forma semelhante. Ela mostra as seis últimas linhas do arquivo. Também podemos indicar o número de linhas que queremos ver.
 ```{r}
@@ -24,7 +62,7 @@ tail(cota_senado)
 ```{r}
 tail(cota_senado, 15)
 ```
-[img]
+# summary()
 
 A função "summary( )" é bastante interessante para usar com arquivos que tenham números. Ela reúne informações básicas sobre a coluna, como valor mínimo, valor máximo, média, mediana, primeiro quartil e terceiro quartil.
 
@@ -33,14 +71,14 @@ Ao mesmo tempo, em colunas de texto, ela mostra o tamanho da coluna, que abaixo 
 ```{r}
 summary(cota_senado)
 ```
-[img]
+# colnames()
 
 A função "colnames( )" nos informa quais são os nomes das colunas do nosso arquivo.
 
 ```{r}
 colnames(cota_senado)
 ```
-[img]
+# str()
 
 Abaixo, nós vemos a classe e o nome de cada coluna e também temos noções de como é o nosso arquivo. Ele tem 10 colunas e 4.477 linhas.
 - int significa “inteiro”, ou seja, número
@@ -51,7 +89,7 @@ Outras classes básicas possíveis são: numeric, logical e complex. Leia mais n
 ```{r}
 str(cota_senado)
 ```
-[img]
+# typeof()
 
 Abaixo, usamos "typeof( )" para saber qual é a classe da coluna indicada.
 A coluna “VALOR_REEMBOLSO” do arquivo “cota_senado” foi considerada uma coluna de texto. Isso é algo em que futuramente precisaremos mexer.
@@ -60,5 +98,6 @@ A coluna “VALOR_REEMBOLSO” do arquivo “cota_senado” foi considerada uma 
 typeof(cota_senado$VALOR_REEMBOLSADO)
 ```
 [img]
+
 
 

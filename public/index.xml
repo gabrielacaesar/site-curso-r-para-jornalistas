@@ -41,12 +41,12 @@ RStudio 1) Faça o download do RStudio para Desktop para Mac no site oficial do 
       <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/08/08/verificar-o-arquivo/</guid>
-      <description>Por padrão, a função &amp;ldquo;head( )&amp;rdquo; mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: &amp;ldquo;head(cota_senado, 15)&amp;rdquo; ou &amp;ldquo;head(cota_senado, 3)&amp;ldquo;.
-head(cota_senado)  [img]
-A função &amp;ldquo;tail( )&amp;rdquo; funciona da forma semelhante. Ela mostra as seis últimas linhas do arquivo. Também podemos indicar o número de linhas que queremos ver.
-tail(cota_senado)  [img]
-tail(cota_senado, 15)  [img]
-A função &amp;ldquo;summary( )&amp;rdquo; é bastante interessante para usar com arquivos que tenham números.</description>
+      <description>getwd() Saber onde está o arquivo
+ setwd() Informar onde está o arquivo
+ fread(), read_csv(), read.xlsx() Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
+   glimpse() Olhar o arquivo
+ head() Por padrão, a função &amp;ldquo;head( )&amp;rdquo; mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: &amp;ldquo;head(cota_senado, 15)&amp;rdquo; ou &amp;ldquo;head(cota_senado, 3)&amp;ldquo;.
+head(cota_senado)  tail() A função &amp;ldquo;tail( )&amp;rdquo; funciona da forma semelhante.</description>
     </item>
     
     <item>
