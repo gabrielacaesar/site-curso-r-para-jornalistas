@@ -12,18 +12,18 @@
     <title>Importação de arquivos :: A Hugo website</title>
 
     
-    <link href="/css/nucleus.css?1566258906" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1566258906" rel="stylesheet">
-    <link href="/css/hybrid.css?1566258906" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1566258906" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1566258906" rel="stylesheet">
-    <link href="/css/auto-complete.css?1566258906" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1566258906" rel="stylesheet">
-    <link href="/css/theme.css?1566258906" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1566258906" rel="stylesheet">
+    <link href="/css/nucleus.css?1566259126" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1566259126" rel="stylesheet">
+    <link href="/css/hybrid.css?1566259126" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1566259126" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1566259126" rel="stylesheet">
+    <link href="/css/auto-complete.css?1566259126" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1566259126" rel="stylesheet">
+    <link href="/css/theme.css?1566259126" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1566259126" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1566258906"></script>
+    <script src="/js/jquery-3.3.1.min.js?1566259126"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -68,14 +68,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1566258906"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1566258906"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1566259126"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1566259126"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1566258906"></script>
+<script type="text/javascript" src="/js/search.js?1566259126"></script>
 
     
   </div>
@@ -293,7 +293,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#getwd">getwd()</a></li>
+<li><a href="#setwd">setwd()</a></li>
+<li><a href="#fread-read-csv-read-xlsx">fread(), read_csv(), read.xlsx()</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -330,6 +339,35 @@
         
 
 
+
+
+
+<h2 id="getwd">getwd()</h2>
+
+<p>Saber onde está o arquivo</p>
+
+<pre><code class="language-r">getwd()
+</code></pre>
+
+<h2 id="setwd">setwd()</h2>
+
+<p>Informar onde está o arquivo</p>
+
+<pre><code class="language-r">setwd()
+</code></pre>
+
+<h2 id="fread-read-csv-read-xlsx">fread(), read_csv(), read.xlsx()</h2>
+
+<p>Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.</p>
+
+<pre><code class="language-r">fread()
+</code></pre>
+
+<pre><code class="language-r">read_csv()
+</code></pre>
+
+<pre><code class="language-r">read.xlsx()
+</code></pre>
 
 <p>No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.</p>
 
@@ -525,20 +563,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566258906"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566258906"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566258906"></script>
-    <script src="/js/jquery.sticky.js?1566258906"></script>
-    <script src="/js/featherlight.min.js?1566258906"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566258906"></script>
-    <script src="/js/highlight.pack.js?1566258906"></script>
+    <script src="/js/clipboard.min.js?1566259126"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566259126"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566259126"></script>
+    <script src="/js/jquery.sticky.js?1566259126"></script>
+    <script src="/js/featherlight.min.js?1566259126"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566259126"></script>
+    <script src="/js/highlight.pack.js?1566259126"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566258906"></script>
-    <script src="/js/learn.js?1566258906"></script>
-    <script src="/js/hugo-learn.js?1566258906"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566259126"></script>
+    <script src="/js/learn.js?1566259126"></script>
+    <script src="/js/hugo-learn.js?1566259126"></script>
 
-    <link href="/mermaid/mermaid.css?1566258906" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566258906"></script>
+    <link href="/mermaid/mermaid.css?1566259126" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566259126"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

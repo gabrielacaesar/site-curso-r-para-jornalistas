@@ -8,6 +8,36 @@ tags: [r, rstudio, data.table, base, tidyverse]
 weight: 2
 ---
 
+## getwd()
+Saber onde está o arquivo
+
+```{r}
+getwd()
+```
+
+## setwd()
+Informar onde está o arquivo
+
+```{r}
+setwd()
+```
+## fread(), read_csv(), read.xlsx()
+
+Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
+
+```{r}
+fread()
+```
+
+```{r}
+read_csv()
+```
+
+```{r}
+read.xlsx()
+```
+
+
 No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.
 
 Caso nós fôssemos usar um arquivo que está no nosso computador, nós teríamos que ver onde ele está e informar esse caminho (path) para o RStudio. Ou teríamos de clicar em "File" > “Import Dataset” e achar o arquivo. 
