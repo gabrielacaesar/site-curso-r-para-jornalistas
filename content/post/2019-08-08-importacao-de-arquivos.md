@@ -5,7 +5,7 @@ date: '2019-08-08'
 slug: importacao-de-arquivos
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
-weight: 5
+weight: 2
 ---
 
 No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.

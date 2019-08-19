@@ -12,16 +12,6 @@
     
     
     <item>
-      <title>Importação de arquivos</title>
-      <link>/2019/08/08/importacao-de-arquivos/</link>
-      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/08/08/importacao-de-arquivos/</guid>
-      <description>No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.
-Caso nós fôssemos usar um arquivo que está no nosso computador, nós teríamos que ver onde ele está e informar esse caminho (path) para o RStudio. Ou teríamos de clicar em &amp;ldquo;File&amp;rdquo; &amp;gt; “Import Dataset” e achar o arquivo.</description>
-    </item>
-    
-    <item>
       <title>Instalação do R e do RStudio</title>
       <link>/2019/08/08/instalacao-r-e-rstudio/</link>
       <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
@@ -33,6 +23,16 @@ Windows R 1) Faça o download do R neste link: http://cran.us.r-project.org/;
 2) Clique em &amp;ldquo;Download R for Windows&amp;rdquo; e em &amp;ldquo;install R for the first time&amp;rdquo;;
 3) Mantenha as configurações padrões.
 RStudio 1) Faça o download do RStudio para Desktop para Mac no site oficial do RStudio: https://www.</description>
+    </item>
+    
+    <item>
+      <title>Importação de arquivos</title>
+      <link>/2019/08/08/importacao-de-arquivos/</link>
+      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/08/importacao-de-arquivos/</guid>
+      <description>No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.
+Caso nós fôssemos usar um arquivo que está no nosso computador, nós teríamos que ver onde ele está e informar esse caminho (path) para o RStudio. Ou teríamos de clicar em &amp;ldquo;File&amp;rdquo; &amp;gt; “Import Dataset” e achar o arquivo.</description>
     </item>
     
     <item>

@@ -5,7 +5,7 @@ date: '2019-08-08'
 slug: instalacao-r-e-rstudio
 categories: [install, r, rstudio]
 tags: [r, rstudio]
-weight: 5
+weight: 1
 ---
 
 Caso você não tenha o R e o RStudio na sua máquina, por favor siga o passo a passo deste tutorial para Mac ou Windows. 

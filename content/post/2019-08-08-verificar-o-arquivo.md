@@ -5,7 +5,7 @@ date: '2019-08-08'
 slug: verificar-o-arquivo
 categories: [r, rstudio, ]
 tags: [r, rstudio, ]
-weight: 5
+weight: 3
 ---
 
 ## getwd()
