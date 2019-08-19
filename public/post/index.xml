@@ -43,10 +43,9 @@ RStudio 1) Faça o download do RStudio para Desktop para Mac no site oficial do 
       <guid>/2019/08/08/verificar-o-arquivo/</guid>
       <description>getwd() Saber onde está o arquivo
  setwd() Informar onde está o arquivo
- fread(), read_csv(), read.xlsx() Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
-   glimpse() Olhar o arquivo
- head() Por padrão, a função &amp;ldquo;head( )&amp;rdquo; mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: &amp;ldquo;head(cota_senado, 15)&amp;rdquo; ou &amp;ldquo;head(cota_senado, 3)&amp;ldquo;.
-head(cota_senado)  tail() A função &amp;ldquo;tail( )&amp;rdquo; funciona da forma semelhante.</description>
+setwd()  fread(), read_csv(), read.xlsx() Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
+fread()  read_csv()  read.xlsx()  glimpse() Olhar o arquivo
+glimpse()  head() Por padrão, a função &amp;ldquo;head( )&amp;rdquo; mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: &amp;ldquo;head(cota_senado, 15)&amp;rdquo; ou &amp;ldquo;head(cota_senado, 3)&amp;ldquo;.</description>
     </item>
     
     <item>

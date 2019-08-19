@@ -19,29 +19,29 @@ Saber onde está o arquivo
 Informar onde está o arquivo
 
 ```{r}
-
+setwd()
 ```
 ## fread(), read_csv(), read.xlsx()
 
 Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
 
 ```{r}
-
+fread()
 ```
 
 ```{r}
-
+read_csv()
 ```
 
 ```{r}
-
+read.xlsx()
 ```
 
 ## glimpse()
 Olhar o arquivo
 
 ```{r}
-
+glimpse()
 ```
 
 # head()
