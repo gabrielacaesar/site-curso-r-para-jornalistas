@@ -105,7 +105,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     background: #0055AA;
     color: #fff;
     text-align: center;
-    border-bottom: 4px solid #9c6fb6;
+    border-bottom: 4px solid #fff;
     padding: 1rem;
 }
 #header a {
@@ -121,8 +121,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 .searchbox {
     margin-top: 1rem;
     position: relative;
-    border: 1px solid #915eae;
-    background: #764890;
+    border: 1px solid #A9A9A9;
+    background: #696969;
     border-radius: 4px;
 }
 .searchbox label {
