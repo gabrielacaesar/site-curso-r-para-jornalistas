@@ -12,10 +12,6 @@ features = ["documentation", "menu", "nested sections", "search", "mermaid"]
 min_version = 0.25
 
 [author]
-  name = "Mathieu Cornic"
-  homepage = "https://matcornic.github.io/"
+  name = "Gabriela Caesar"
+  homepage = "http://gabrielacaesar.com/"
 
-[original]
-  name = "Grav Learn"
-  homepage = "https://learn.getgrav.org/"
-  repo = "https://github.com/getgrav/grav-learn"
