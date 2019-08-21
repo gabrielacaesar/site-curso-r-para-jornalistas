@@ -1,8 +1,8 @@
 ---
-title: Dicas com R
+title: Saiba mais sobre o R
 author: Gabriela Caesar
 date: '2019-08-20'
-slug: dicas-com-r
+slug: saiba-mais-sobre-o-r
 categories: []
 tags: [r, rstudio, dicas]
 weight: 8
