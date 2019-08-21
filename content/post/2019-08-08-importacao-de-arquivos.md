@@ -1,29 +1,39 @@
 ---
 title: Importação de arquivos
 author: Gabriela Caesar
-date: '2019-08-08'
+date: '2019-08-20'
 slug: importacao-de-arquivos
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
 weight: 2
 ---
-
-## getwd()
-Saber onde está o arquivo
+  
+## Identificar em qual pasta/diretório estamos
+A função `getwd()` informa em qual pasta/diretório o computador está. 
+Essa função é do pacote `::base`, que reúne funções básicas, e já vem instalada no R.
 
 ```{r}
 getwd()
 ```
-
-## setwd()
-Informar onde está o arquivo
+## Mudar a pasta em que vamos trabalhar
+A função `setwd()` muda a pasta/diretório para o que você informar.
 
 ```{r}
 setwd()
 ```
-## fread(), read_csv(), read.xlsx()
+## Listar os arquivos que estão nessa pasta
+A função `list.files()` mostra todos os arquivos que estão na atual pasta/diretório.
+Essa função é do pacote `::base`, que reúne funções básicas, e já vem instalada no R.
 
-Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
+```{r}
+list.files()
+```
+
+## Ler arquivos com que vamos trabalhar
+Há várias funções para ler os arquivos. A função vai depender, principalmente, do formato do arquivo.
+É possível diversos formatos, como TXT, HTML, XML, DBF etc.
+
+Eis os casos mais frequentes, com CSV, XLSX e JSON:
 
 ```{r}
 fread()
@@ -37,25 +47,29 @@ read_csv()
 read.xlsx()
 ```
 
-
-No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.
-
-Caso nós fôssemos usar um arquivo que está no nosso computador, nós teríamos que ver onde ele está e informar esse caminho (path) para o RStudio. Ou teríamos de clicar em "File" > “Import Dataset” e achar o arquivo. 
-
-Abaixo, usamos a função data.table::fread() para importar o arquivo.
+```{r}
+# json tweets bolsonaro
+```
+## Importar arquivo já definindo as colunas 
+Este caso é importante, principalmente, em arquivos que são muito pesados. Ao já definir a importação de apenas algumas colunas, o tamanho do arquivo é reduzido. 
+Nos dados do Inep, por exemplo, há um arquivo de dicionário de dados, que informa os nomes de todas as colunas, bem como a que se referem os valores preenchidos.
+Esse arquivo é importante para, antes da importação, já sabermos com quais colunas vamos trabalhar.
 
 ```{r}
-cota_senado <- fread(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019")
+# importação do Enem
 ```
-Esta não é a única forma de importar o arquivo. Há várias formas. Abaixo, por exemplo, nós já informamos os nomes das colunas ("col.names"), bem como o separador de colunas ("sep"), o cabeçalho ("header") e a codificação ("encoding").
 
-Observação: nós usamos outro nome (cota_senado2) para não sobrescrever o arquivo anterior.
-
-```{r}
-cota_senado2 <- fread(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019", sep = “;”, header = TRUE, encoding = “UTF-8”, col.names = c(“ano”, “mes”, “senador”, “categoria”, “cnpj_cpj”, “empresa”, “n_documento”, “data”, “detalhamento”, “valor_reembolso”))
-```
-E ainda com outra biblioteca ("read.table"). Perceba que nós estamos importando um arquivo CSV, mas há outras bibliotecas que importam arquivos Excel, por exemplo, ou outros formatos.
+## Importar arquivo já informando a decodificação
+UTF-8 e ISO-8859-1 são exemplos de decodificações - ou "encoding". Ao informar a decodificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
+A decodificação do arquivo também pode ser informada já na importação do arquivo.
 
 ```{r}
-cota_senado3 <- read.csv(“https://gist.githubusercontent.com/gcaesar27/5faede8c1c6ffc82c7145dc3ececcbfe/raw/f3192ff17214c3c5d8eca4ebad42ba6f70d409aa/cota-senado-30-abril-2019")
 ```
+
+## Importar arquivo já informando o separador de colunas
+O separador de um arquivo CSV (sigla para "comma-separated values") é a vírgula. Mas há outros formatos que usam outros separadores. 
+Aqui é possível informar qual é o separador usado no arquivo.
+
+```{r}
+```
+

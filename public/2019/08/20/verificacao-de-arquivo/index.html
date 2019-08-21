@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>tidyverse :: Curso de R para jornalistas</title>
+    <title>Verificação de arquivo :: Curso de R para jornalistas</title>
 
     
     <link href="/css/nucleus.css?1566347018" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/tidyverse/">
+  <body class="" data-url="/2019/08/20/verificacao-de-arquivo/">
     <nav id="sidebar" class="">
 
 
@@ -76,8 +76,8 @@
   
     
     <li data-nav-id="/post/" title="Posts" class="dd-item 
+        parent
         
-        active
         
         ">
       <a href="/post/">
@@ -138,7 +138,7 @@
  
   
     
-      <li data-nav-id="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo" class="dd-item ">
+      <li data-nav-id="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo" class="dd-item active">
         <a href="/2019/08/20/verificacao-de-arquivo/">
         Verificação de arquivo
         
@@ -218,7 +218,19 @@
                     
           
           
-            tidyverse
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Verificação de arquivo
+          
+         
+          
+         
           
         
                  
@@ -227,7 +239,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#mostrar-cabeçalho-do-arquivo">Mostrar cabeçalho do arquivo</a></li>
+<li><a href="#mostrar-as-cinco-linhas-iniciais-do-arquivo">Mostrar as cinco linhas iniciais do arquivo</a></li>
+<li><a href="#mostrar-as-x-linhas-iniciais-do-arquivo-no-caso-15">Mostrar as x linhas iniciais do arquivo - no caso, 15</a></li>
+<li><a href="#mostrar-as-cinco-linhas-finais-do-arquivo">Mostrar as cinco linhas finais do arquivo</a></li>
+<li><a href="#mostrar-as-x-linhas-iniciais-do-arquivo-no-caso-15-1">Mostrar as x linhas iniciais do arquivo, no caso 15</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -237,15 +260,27 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/r">r</a>
+
+  <a class="tag-link" href="/tags/rstudio">rstudio</a>
+
+  <a class="tag-link" href="/tags/data.table">data.table</a>
+
+  <a class="tag-link" href="/tags/base">base</a>
+
+  <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                taxonomy ::
-              
-              tidyverse
+              Verificação de arquivo
             </h1>
           
 
@@ -255,19 +290,38 @@
 
 
 
+<h2 id="mostrar-cabeçalho-do-arquivo">Mostrar cabeçalho do arquivo</h2>
 
-<ul>
-	
-		<li><a href="/2019/08/20/importacao-de-arquivos/">Importação de arquivos</a></li>
-	
-		<li><a href="/2019/08/20/verificacao-de-arquivo/">Verificação de arquivo</a></li>
-	
-</ul>
+<p>A função <code>colnames()</code> mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.</p>
+
+<pre><code class="language-r">colnames()
+</code></pre>
+
+<h2 id="mostrar-as-cinco-linhas-iniciais-do-arquivo">Mostrar as cinco linhas iniciais do arquivo</h2>
+
+<pre><code class="language-r">head()
+</code></pre>
+
+<h2 id="mostrar-as-x-linhas-iniciais-do-arquivo-no-caso-15">Mostrar as x linhas iniciais do arquivo - no caso, 15</h2>
+
+<pre><code class="language-r">head()
+</code></pre>
+
+<h2 id="mostrar-as-cinco-linhas-finais-do-arquivo">Mostrar as cinco linhas finais do arquivo</h2>
+
+<pre><code class="language-r">tail()
+</code></pre>
+
+<h2 id="mostrar-as-x-linhas-iniciais-do-arquivo-no-caso-15-1">Mostrar as x linhas iniciais do arquivo, no caso 15</h2>
+
+<pre><code class="language-r">head()
+</code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -348,6 +402,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -364,6 +419,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -387,8 +445,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/2019/08/20/importacao-de-arquivos/" title="Importação de arquivos"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/post/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -419,3 +479,4 @@
 
   </body>
 </html>
+

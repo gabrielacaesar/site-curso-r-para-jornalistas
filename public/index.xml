@@ -6,7 +6,7 @@
     <description>Recent content on Curso de R para jornalistas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,27 +27,23 @@ RStudio 1) Faça o download do RStudio para Desktop para Mac no site oficial do 
     
     <item>
       <title>Importação de arquivos</title>
-      <link>/2019/08/08/importacao-de-arquivos/</link>
-      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      <link>/2019/08/20/importacao-de-arquivos/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/08/importacao-de-arquivos/</guid>
-      <description>getwd() Saber onde está o arquivo
-getwd()  setwd() Informar onde está o arquivo
-setwd()  fread(), read_csv(), read.xlsx() Ler o arquivo. Há é possível ler outros formatos, como JSON, HTML, XML, DBF etc.
-fread()  read_csv()  read.xlsx()  No caso, nós escolhemos o nome “cota_senado” para o arquivo que hospedamos no site GitHub Gist. Assim, não precisamos trabalhar com um arquivo local, que só estaria disponível para a nossa máquina.</description>
+      <guid>/2019/08/20/importacao-de-arquivos/</guid>
+      <description>Identificar em qual pasta/diretório estamos A função getwd() informa em qual pasta/diretório o computador está. Essa função é do pacote ::base, que reúne funções básicas, e já vem instalada no R.
+getwd()  Mudar a pasta em que vamos trabalhar A função setwd() muda a pasta/diretório para o que você informar.
+setwd()  Listar os arquivos que estão nessa pasta A função list.files() mostra todos os arquivos que estão na atual pasta/diretório.</description>
     </item>
     
     <item>
       <title>Verificação de arquivo</title>
-      <link>/2019/08/08/verificar-o-arquivo/</link>
-      <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
+      <link>/2019/08/20/verificacao-de-arquivo/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/08/verificar-o-arquivo/</guid>
-      <description>glimpse() Olhar o arquivo
-glimpse()  head() Por padrão, a função &amp;ldquo;head( )&amp;rdquo; mostra as seis primeiras linhas. Se quiser ver mais linhas ou menos linhas, faça assim: &amp;ldquo;head(cota_senado, 15)&amp;rdquo; ou &amp;ldquo;head(cota_senado, 3)&amp;ldquo;.
-head(cota_senado)  tail() A função &amp;ldquo;tail( )&amp;rdquo; funciona da forma semelhante. Ela mostra as seis últimas linhas do arquivo. Também podemos indicar o número de linhas que queremos ver.
-tail(cota_senado)  [img]
-tail(cota_senado, 15)  summary() A função &amp;ldquo;summary( )&amp;rdquo; é bastante interessante para usar com arquivos que tenham números.</description>
+      <guid>/2019/08/20/verificacao-de-arquivo/</guid>
+      <description> Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
+colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas iniciais do arquivo, no caso 15 head()  </description>
     </item>
     
     <item>
