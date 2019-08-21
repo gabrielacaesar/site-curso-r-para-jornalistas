@@ -8,13 +8,13 @@ tags: [r, rstudio, data.table, base, tidyverse]
 weight: 2
 ---
   
-## Mostrar cabeçalho do arquivo
+### Mostrar cabeçalho do arquivo
 A função `colnames()` mostra o cabeçalho do arquivo que já foi lido no tutorial anterior. 
 
 ```{r}
 colnames()
 ```
-## Mostrar as cinco linhas iniciais do arquivo
+### Mostrar as cinco linhas iniciais do arquivo
 
 ```{r}
 head()
