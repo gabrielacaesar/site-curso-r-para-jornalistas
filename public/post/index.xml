@@ -43,7 +43,7 @@ setwd()  Listar os arquivos que estão nessa pasta A função list.files() mostr
       
       <guid>/2019/08/20/verificacao-de-arquivo/</guid>
       <description> Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
-colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas iniciais do arquivo, no caso 15 head()  </description>
+colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas finais do arquivo, no caso 15 tail()  </description>
     </item>
     
     <item>

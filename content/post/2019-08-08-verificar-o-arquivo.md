@@ -31,9 +31,9 @@ head()
 tail()
 ```
 
-#### Mostrar as x linhas iniciais do arquivo, no caso 15
+#### Mostrar as x linhas finais do arquivo, no caso 15
 
 ```{r}
-head()
+tail()
 ```
 
