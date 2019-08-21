@@ -12,18 +12,18 @@
     <title>Importação de arquivos :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1566348425" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1566348425" rel="stylesheet">
-    <link href="/css/hybrid.css?1566348425" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1566348425" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1566348425" rel="stylesheet">
-    <link href="/css/auto-complete.css?1566348425" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1566348425" rel="stylesheet">
-    <link href="/css/theme.css?1566348425" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1566348425" rel="stylesheet">
+    <link href="/css/nucleus.css?1566348644" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1566348644" rel="stylesheet">
+    <link href="/css/hybrid.css?1566348644" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1566348644" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1566348644" rel="stylesheet">
+    <link href="/css/auto-complete.css?1566348644" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1566348644" rel="stylesheet">
+    <link href="/css/theme.css?1566348644" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1566348644" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1566348425"></script>
+    <script src="/js/jquery-3.3.1.min.js?1566348644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1566348425"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1566348425"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1566348644"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1566348644"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1566348425"></script>
+<script type="text/javascript" src="/js/search.js?1566348644"></script>
 
     
   </div>
@@ -324,14 +324,11 @@ Essa função é do pacote <code>::base</code>, que reúne funções básicas, e
 <h4 id="ler-arquivos-com-que-vamos-trabalhar">Ler arquivos com que vamos trabalhar</h4>
 
 <p>Há várias funções para ler os arquivos. A função vai depender, principalmente, do formato do arquivo.
-É possível diversos formatos, como TXT, HTML, XML, DBF etc.</p>
+É possível ler diversos formatos, como TXT, HTML, XML, DBF etc.</p>
 
 <p>Eis os casos mais frequentes, com CSV, XLSX e JSON:</p>
 
 <pre><code class="language-r">fread()
-</code></pre>
-
-<pre><code class="language-r">read_csv()
 </code></pre>
 
 <pre><code class="language-r">read.xlsx()
@@ -342,24 +339,28 @@ Essa função é do pacote <code>::base</code>, que reúne funções básicas, e
 
 <h4 id="importar-arquivo-já-definindo-as-colunas">Importar arquivo já definindo as colunas</h4>
 
-<p>Este caso é importante, principalmente, em arquivos que são muito pesados. Ao já definir a importação de apenas algumas colunas, o tamanho do arquivo é reduzido.
-Nos dados do Inep, por exemplo, há um arquivo de dicionário de dados, que informa os nomes de todas as colunas, bem como a que se referem os valores preenchidos.
-Esse arquivo é importante para, antes da importação, já sabermos com quais colunas vamos trabalhar.</p>
+<p>Este caso é importante, principalmente, em arquivos que são muito pesados. Ao já definir a importação de apenas algumas colunas, o tamanho do arquivo é reduzido.</p>
+
+<p>Nos dados do Inep, por exemplo, há um arquivo de dicionário de dados, que informa os nomes de todas as colunas, bem como a que se referem os valores preenchidos.</p>
+
+<p>Esse arquivo é importante para, antes da importação, já sabermos com quais colunas vamos trabalhar.</p>
 
 <pre><code class="language-r"># importação do Enem
 </code></pre>
 
 <h4 id="importar-arquivo-já-informando-a-decodificação">Importar arquivo já informando a decodificação</h4>
 
-<p>UTF-8 e ISO-8859-1 são exemplos de decodificações - ou &ldquo;encoding&rdquo;. Ao informar a decodificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
-A decodificação do arquivo também pode ser informada já na importação do arquivo.</p>
+<p>UTF-8 e ISO-8859-1 são exemplos de decodificações - ou &ldquo;encoding&rdquo;. Ao informar a decodificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.</p>
+
+<p>A decodificação do arquivo também pode ser informada já na importação do arquivo.</p>
 
 <pre><code class="language-r"></code></pre>
 
 <h4 id="importar-arquivo-já-informando-o-separador-de-colunas">Importar arquivo já informando o separador de colunas</h4>
 
-<p>O separador de um arquivo CSV (sigla para &ldquo;comma-separated values&rdquo;) é a vírgula. Mas há outros formatos que usam outros separadores.
-Aqui é possível informar qual é o separador usado no arquivo.</p>
+<p>O separador de um arquivo CSV (sigla para &ldquo;comma-separated values&rdquo;) é a vírgula. Mas há outros formatos que usam outros separadores.</p>
+
+<p>Aqui é possível informar qual é o separador usado no arquivo.</p>
 
 <pre><code class="language-r"></code></pre>
 
@@ -504,20 +505,20 @@ Aqui é possível informar qual é o separador usado no arquivo.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566348425"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566348425"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566348425"></script>
-    <script src="/js/jquery.sticky.js?1566348425"></script>
-    <script src="/js/featherlight.min.js?1566348425"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566348425"></script>
-    <script src="/js/highlight.pack.js?1566348425"></script>
+    <script src="/js/clipboard.min.js?1566348644"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566348644"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566348644"></script>
+    <script src="/js/jquery.sticky.js?1566348644"></script>
+    <script src="/js/featherlight.min.js?1566348644"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566348644"></script>
+    <script src="/js/highlight.pack.js?1566348644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566348425"></script>
-    <script src="/js/learn.js?1566348425"></script>
-    <script src="/js/hugo-learn.js?1566348425"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566348644"></script>
+    <script src="/js/learn.js?1566348644"></script>
+    <script src="/js/hugo-learn.js?1566348644"></script>
 
-    <link href="/mermaid/mermaid.css?1566348425" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566348425"></script>
+    <link href="/mermaid/mermaid.css?1566348644" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566348644"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
