@@ -14,7 +14,7 @@ weight: 8
 [Cientista de dados em R - Datacamp (pago)](https://www.datacamp.com/tracks/data-scientist-with-r)       
 [Programador em R - Datacamp (pago)](https://www.datacamp.com/tracks/r-programmer)       
 [Introdução a R - Leo Barone](https://github.com/leobarone/cebrap_lab_cetic_programacao_r)    
-[Introdução à Programação e Ferramentas Computacionais para as Ciências Sociais - Leo Barone e Jonathan Phillips](https://github.com/leobarone/FLS6397_2018)    
+[Introdução a R para as Ciências Sociais - Leo Barone e Jonathan Phillips](https://github.com/leobarone/FLS6397_2018)    
 [R para jornalistas - Andrew Ba Tran](https://learn.r-journalism.com/en/introduction/)        
 [Introdução a R - Kingaa](http://kingaa.github.io/R_Tutorial/)       
 [Introdução a R - Curso-R ](https://github.com/curso-r/201805-introducao-a-programacao-em-r)       
