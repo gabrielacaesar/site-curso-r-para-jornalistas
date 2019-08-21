@@ -33,7 +33,9 @@ list.files()
 Há várias funções para ler os arquivos. A função vai depender, principalmente, do formato do arquivo.
 É possível ler diversos formatos, como TXT, HTML, XML, DBF etc.
 
-Eis os casos mais frequentes, com CSV, XLSX e JSON:
+Também é possível ler os dados diretamente de um link.
+
+Veja abaixo os casos mais frequentes, com CSV, XLSX e JSON:
 
 ```{r}
 fread()
