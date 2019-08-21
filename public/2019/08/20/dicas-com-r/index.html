@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.0" />
+    <meta name="description" content="Curso de R para jornalistas">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Dicas com R :: Curso de R para jornalistas</title>
+
+    
+    <link href="/css/nucleus.css?1566350353" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1566350353" rel="stylesheet">
+    <link href="/css/hybrid.css?1566350353" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1566350353" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1566350353" rel="stylesheet">
+    <link href="/css/auto-complete.css?1566350353" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1566350353" rel="stylesheet">
+    <link href="/css/theme.css?1566350353" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1566350353" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1566350353"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/2019/08/20/dicas-com-r/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+<img src="https://github.com/gabrielacaesar/site-curso-r-para-jornalistas/raw/master/static/img/icon-512.png" max-width="50%">
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1566350353"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1566350353"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1566350353"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/post/" title="Posts" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/post/">
+          Posts
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/08/instalacao-r-e-rstudio/" title="Instalação do R e do RStudio" class="dd-item ">
+        <a href="/2019/08/08/instalacao-r-e-rstudio/">
+        Instalação do R e do RStudio
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/20/importacao-de-arquivos/" title="Importação de arquivos" class="dd-item ">
+        <a href="/2019/08/20/importacao-de-arquivos/">
+        Importação de arquivos
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo" class="dd-item ">
+        <a href="/2019/08/20/verificacao-de-arquivo/">
+        Verificação de arquivo
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2019/08/20/dicas-com-r/" title="Dicas com R" class="dd-item active">
+        <a href="/2019/08/20/dicas-com-r/">
+        Dicas com R
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" class="dd-item ">
+        <a href="/2016/12/30/a-plain-markdown-post/">
+        A Plain Markdown Post
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Faça o <a href="https://github.com/gabrielacaesar/curso-r-para-jornalistas" target="_blank">download dos códigos</a></p>
+<p></p>
+<p>Criado por Gabriela Caesar</p>
+<p></p>
+<p></p>
+<p>Última atualização em 20/08/2019</p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Dicas com R
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#cursos-recomendados">Cursos recomendados</a></li>
+<li><a href="#textos-recomendados">Textos recomendados</a></li>
+<li><a href="#livros-recomendados">Livros recomendados</a></li>
+<li><a href="#podcasts-recomendados">Podcasts recomendados</a></li>
+<li><a href="#repositórios-úteis">Repositórios úteis</a></li>
+<li><a href="#quem-seguir">Quem seguir</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/r">r</a>
+
+  <a class="tag-link" href="/tags/rstudio">rstudio</a>
+
+  <a class="tag-link" href="/tags/dicas">dicas</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Dicas com R
+            </h1>
+          
+
+        
+
+
+
+
+
+<h2 id="cursos-recomendados">Cursos recomendados</h2>
+
+<p><a href="https://www.datacamp.com/tracks/data-analyst-with-r">Analista de dados em R - Datacamp (pago)</a><br />
+<a href="https://www.datacamp.com/tracks/data-scientist-with-r">Cientista de dados em R - Datacamp (pago)</a><br />
+<a href="https://www.datacamp.com/tracks/r-programmer">Programador em R - Datacamp (pago)</a><br />
+<a href="https://github.com/leobarone/cebrap_lab_cetic_programacao_r">Introdução a R - Leo Barone</a><br />
+<a href="https://github.com/leobarone/FLS6397_2018">Introdução à Programação e Ferramentas Computacionais para as Ciências Sociais - Leo Barone e Jonathan Phillips</a><br />
+<a href="https://learn.r-journalism.com/en/introduction/">R para jornalistas - Andrew Ba Tran</a><br />
+<a href="http://kingaa.github.io/R_Tutorial/">Introdução a R - Kingaa</a><br />
+<a href="https://github.com/curso-r/201805-introducao-a-programacao-em-r">Introdução a R - Curso-R </a><br />
+<a href="https://github.com/RodrigoMenegat/jgd-1">Curso de jornalismo de dados - Rodrigo Menegat</a><br />
+<a href="https://github.com/curso-r/201904-workshop-web-scraping">Webscraping - Curso-R</a><br />
+<a href="https://github.com/adelmofilho/WebScraping">Webscraping - Adelmo Filho</a><br />
+<a href="https://github.com/leobarone/cebrap_lab_raspagem_r">Webscraping - Leo Barone</a><br />
+<a href="https://github.com/rsouza/FGV_Intro_DS">Introdução a Data Science - FGV</a><br />
+<a href="https://github.com/danielduque/Course_Brazilian_Data_Analysis">Análise e manipulação de dados - Daniel Duque</a><br />
+<a href="https://www.youtube.com/user/safe4democracy/videos">Análises de David Robinson no YouTube</a></p>
+
+<h2 id="textos-recomendados">Textos recomendados</h2>
+
+<p><a href="http://sillasgonzaga.com/post/anunciando-um-novo-dataset-no-kaggle-pesquisa-origem-destino-do-metr%C3%B4-sp/">Análise da &lsquo;Pesquisa Origem Destino do Metrô SP&rsquo; - Sillas Gonzaga</a><br />
+<a href="https://github.com/rdsilva/Coda2018-SUS/blob/master/CodaBR2018.Rmd">Análise dos dados do SUS - Rodrigo Silva</a><br />
+<a href="http://sillasgonzaga.com/post/qual-o-melhor-servico-de-streaming/">Análise sobre os serviços de streaming no Brasil - Sillas Gonzaga</a><br />
+<a href="http://sillasgonzaga.com/post/mapeando-a-abertura-de-escolas-municipais-em-sao-paulo-ao-longo-dos-anos/">Análise da abertura de escola em SP - Sillas Gonzaga</a><br />
+<a href="https://caitlinhudon.com/2017/12/22/blue-christmas/">Análise de músicas natalinas - Caitlin Hudon (en)</a><br />
+<a href="http://sillasgonzaga.com/post/bbb-no-r/">Análise das interações no BBB18 - Sillas Gonzaga</a><br />
+<a href="http://sillasgonzaga.com/post/olx01/">Análise para escolher onde morar no Rio - Sillas Gonzaga</a><br />
+<a href="https://rstudio-pubs-static.s3.amazonaws.com/420021_c5d43709e7744a998d62189e754878a0.html">Análise dos dados de pulseira inteligente - Megan Beckett (en)</a><br />
+<a href="http://sillasgonzaga.com/post/literaturabr-01/">Análise da literatura brasileira - Sillas Gonzaga</a><br />
+<a href="https://medium.com/tchiluanda/suporte-do-rstats-%C3%A0s-iniciativas-de-transpar%C3%AAncia-do-tesouro-nacional-brasileiro-dfdd5e1ab831">Análise de R com dados do Tesouro Nacional - Fernando Barbalho</a><br />
+<a href="https://towardsdatascience.com/analyzing-the-guardian-food-recipes-from-2009-to-2019-11b83e12efdf">Análise de comidas e receitas - The Guardian (en)</a><br />
+<a href="https://medium.com/hacks-hackers-london/how-bbc-data-journalists-use-r-for-data-visualization-e29ee74948e1">Texto sobre o uso de R na redação da BBC (en)</a><br />
+<a href="https://towardsdatascience.com/117-days-of-tinder-in-data-755fe9ed853e">Análise com os dados do Tinder - Brayden Gerrard (en)</a><br />
+<a href="https://towardsdatascience.com/data-analysis-and-visualisations-using-r-955a7e90f7dd">Análise com os dados do Titanic - Samarth Malik (en)</a><br />
+<a href="https://rddj.info/">Compilado de links de R (en)</a><br />
+<a href="https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47">Tutorial de webscraping com R - Keith McNulty (en)</a><br />
+<a href="https://medium.com/@kyleake/wikipedia-data-scraping-with-r-rvest-in-action-3c419db9af2d">Tutorial de webscraping com R - Korkrid Kyle Akepanidtaworn (en)</a><br />
+<a href="http://www.storybench.org/scraping-html-tables-and-downloading-files-with-r/">Tutorial de webscraping em R - Martin Frigaard (en)</a><br />
+<a href="https://medium.com/pizzadedados/raspando-sem-codigo-37caa24395ee">Tutorial de webscraping sem saber programação - Jessica Temporal</a><br />
+<a href="https://towardsdatascience.com/data-journalism/home">Lista de matérias de jornalismo de dados - Towards Data Science (en)</a><br />
+<a href="https://flowingdata.com/2016/07/12/r-in-the-data-journalism-workflow-at-fivethirtyeight/">R in the data journalism workflow at FiveThirtyEight (en)</a><br />
+<a href="https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/The-growing-popularity-of-R-in-data-journalism">The growing popularity of R in data journalism (en)</a></p>
+
+<h2 id="livros-recomendados">Livros recomendados</h2>
+
+<p><a href="https://r4ds.had.co.nz/">R for Data Science (en)</a><br />
+<a href="https://bookdown.org/rdpeng/exdata/">Exploratory Data Analysis with R (en)</a><br />
+<a href="http://www.cookbook-r.com/">Cookbook for R (en)</a><br />
+<a href="https://style.tidyverse.org/index.html">The tidyverse style guide (en)</a><br />
+<a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide (en)</a><br />
+<a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization (en)</a><br />
+<a href="https://rkabacoff.github.io/datavis/">Data Visualization with R (en)</a><br />
+<a href="https://github.com/maxto/R-Books">Outros livros mais avançados (en)</a></p>
+
+<h2 id="podcasts-recomendados">Podcasts recomendados</h2>
+
+<p><a href="https://open.spotify.com/show/5k0Ei0MSg5BuiHshr43aSg">Pizza de dados</a><br />
+<a href="https://open.spotify.com/show/2p0Vx75OmfsXktyLBuLuSf">Hipsters Ponto Tech</a><br />
+<a href="https://open.spotify.com/show/6jYjcj4oQ31J85jGhbiRkK?si=HI9MyK6WQmaMwtwVzjpj5A">Cabeça de Lab</a><br />
+<a href="https://open.spotify.com/show/1oMIHOXsrLFENAeM743g93">Data Hackers</a><br />
+<a href="https://open.spotify.com/show/4ejfIbDoXJuJwEdAr9uXpE?si=LyvMZxYIQWKevcRlLHu2RA">Senai Infocast</a><br />
+<a href="https://open.spotify.com/show/6fokzmJXifHItiADsWkN3N">Dev na estrada</a><br />
+<a href="https://open.spotify.com/show/02yJXEJAJiQ0Vm2AO9Xj6X">DataFramed (en)</a><br />
+<a href="https://open.spotify.com/show/0aIvhK1ANin1kSOKRhWG1M">Data Stories (en)</a><br />
+<a href="https://open.spotify.com/show/5CZnmqFEL019QW7yJoKyCI">Data Viz Today (en)</a><br />
+<a href="https://open.spotify.com/artist/4F5TrtYYxsVM1PhbtISE5m">Beyond data (en)</a><br />
+<a href="https://open.spotify.com/show/4n7eAuRtvb4YGm4H2I04q8">Data driven talk (en)</a></p>
+
+<h2 id="repositórios-úteis">Repositórios úteis</h2>
+
+<p><a href="https://github.com/rarcega/instagram-scraper">Download automatizado de fotos/vídeos do Instagram - Python</a><br />
+<a href="https://github.com/twintproject/twint">Download automatizado de tweets sem API - Python</a><br />
+<a href="https://github.com/tweepy/tweepy">Download automatizado de tweets com API - Python</a><br />
+<a href="https://github.com/rodolfo-viana/novedejulho">Nove de Julho - Dados da Alesp - Python</a><br />
+<a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday - sugestões de vários bases de dados</a><br />
+<a href="https://github.com/abraji/cursos_congresso_2019">Oficinas de jornalismo de dados na Abraji</a><br />
+<a href="https://github.com/stanfordjournalism/search-script-scrape">Lista de raspadores de sites americanos</a><br />
+<a href="https://github.com/bbc/bbplot">Pacote para criar gráficos da BBC</a><br />
+<a href="https://github.com/wpinvestigative">Repositório do Washington Post</a><br />
+<a href="https://github.com/the-pudding">Repositório de &lsquo;The Pudding&rsquo;</a><br />
+<a href="https://github.com/srfdata">Repositório de &lsquo;SRF Data&rsquo;</a><br />
+<a href="https://github.com/fivethirtyeight">Repositório de &lsquo;538&rsquo;</a></p>
+
+<h2 id="quem-seguir">Quem seguir</h2>
+
+<p><a href="https://twitter.com/EscolaDeDados">Escola de Dados</a><br />
+<a href="https://twitter.com/abraji">Abraji</a><br />
+<a href="https://twitter.com/RLadiesSaoPaulo">R-Ladies SP</a><br />
+<a href="https://twitter.com/RLadiesGlobal">R-Ladies Global</a><br />
+<a href="https://twitter.com/curso_r">Curso-R</a><br />
+<a href="https://twitter.com/thomas_mock">Thomas Mock</a><br />
+<a href="https://twitter.com/dataandme">Mara Averick</a><br />
+<a href="https://twitter.com/hadleywickham">Hadley Wickham</a><br />
+<a href="https://twitter.com/abtran">Andrew Ba Tran</a><br />
+<a href="https://twitter.com/NataliaMazotte">Natalia Mazotte</a><br />
+<a href="https://twitter.com/turicas">Álvaro Justen</a><br />
+<a href="https://twitter.com/belisards">Adriano Belisário</a><br />
+<a href="https://twitter.com/tarushijio">Tarcízio Silva</a><br />
+<a href="https://twitter.com/drob">David Robinson</a><br />
+<a href="https://twitter.com/sdbernard">Steven Bernard</a><br />
+<a href="https://twitter.com/BeaMilz">Beatriz Milz</a><br />
+<a href="https://twitter.com/bwundervald">Bruna Wundervald</a><br />
+<a href="https://twitter.com/gdequeiroz">Gabriela de Queiroz</a><br />
+<a href="https://twitter.com/AlexSelbyB">Alex Selby-Boothroyd</a><br />
+<a href="https://twitter.com/England_Rob_">Rob England</a><br />
+<a href="https://twitter.com/datujn">Umesh</a><br />
+<a href="https://twitter.com/R4DScommunity">R4DS online learning community</a><br />
+<a href="https://twitter.com/datavizbr">datavizbr</a><br />
+<a href="https://twitter.com/jtrecenti">Julio Trecenti</a><br />
+<a href="https://twitter.com/athos_damiani">Athos Petri Damiani</a><br />
+<a href="https://twitter.com/Williamorim89">William Amorim</a></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1566350353"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566350353"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566350353"></script>
+    <script src="/js/jquery.sticky.js?1566350353"></script>
+    <script src="/js/featherlight.min.js?1566350353"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566350353"></script>
+    <script src="/js/highlight.pack.js?1566350353"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566350353"></script>
+    <script src="/js/learn.js?1566350353"></script>
+    <script src="/js/hugo-learn.js?1566350353"></script>
+
+    <link href="/mermaid/mermaid.css?1566350353" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566350353"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
