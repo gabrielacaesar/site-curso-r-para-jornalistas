@@ -14,7 +14,7 @@ A função `colnames()` mostra o cabeçalho do arquivo que já foi lido no tutor
 ```{r}
 colnames()
 ```
-### Mostrar as cinco linhas iniciais do arquivo
+#### Mostrar as cinco linhas iniciais do arquivo
 
 ```{r}
 head()
@@ -26,12 +26,12 @@ head()
 head()
 ```
 
-## Mostrar as cinco linhas finais do arquivo
+#### Mostrar as cinco linhas finais do arquivo
 ```{r}
 tail()
 ```
 
-## Mostrar as x linhas iniciais do arquivo, no caso 15
+#### Mostrar as x linhas iniciais do arquivo, no caso 15
 
 ```{r}
 head()
