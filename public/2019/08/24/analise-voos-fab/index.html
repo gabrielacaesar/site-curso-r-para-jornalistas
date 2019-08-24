@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Análise - Twitter Bolsonaro :: Curso de R para jornalistas</title>
+    <title>Análise - Voos FAB :: Curso de R para jornalistas</title>
 
     
     <link href="/css/nucleus.css?1566618094" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2019/08/24/analise-twitter-bolsonaro/">
+  <body class="" data-url="/2019/08/24/analise-voos-fab/">
     <nav id="sidebar" class="">
 
 
@@ -157,7 +157,7 @@
  
   
     
-      <li data-nav-id="/2019/08/24/analise-twitter-bolsonaro/" title="Análise - Twitter Bolsonaro" class="dd-item active">
+      <li data-nav-id="/2019/08/24/analise-twitter-bolsonaro/" title="Análise - Twitter Bolsonaro" class="dd-item ">
         <a href="/2019/08/24/analise-twitter-bolsonaro/">
         Análise - Twitter Bolsonaro
         
@@ -214,7 +214,7 @@
  
   
     
-      <li data-nav-id="/2019/08/24/analise-voos-fab/" title="Análise - Voos FAB" class="dd-item ">
+      <li data-nav-id="/2019/08/24/analise-voos-fab/" title="Análise - Voos FAB" class="dd-item active">
         <a href="/2019/08/24/analise-voos-fab/">
         Análise - Voos FAB
         
@@ -326,7 +326,7 @@
             
           
           
-            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Análise - Twitter Bolsonaro
+            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Análise - Voos FAB
           
          
           
@@ -355,11 +355,13 @@
 
   <a class="tag-link" href="/tags/rstudio">rstudio</a>
 
-  <a class="tag-link" href="/tags/data.table">data.table</a>
-
   <a class="tag-link" href="/tags/base">base</a>
 
   <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
+
+  <a class="tag-link" href="/tags/rvest">rvest</a>
+
+  <a class="tag-link" href="/tags/downloader">downloader</a>
 
 </div>
 
@@ -369,7 +371,7 @@
           
             <h1>
               
-              Análise - Twitter Bolsonaro
+              Análise - Voos FAB
             </h1>
           
 
@@ -380,56 +382,71 @@
 <p>instalar as bibliotecas</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
-install.packages(&quot;data.table&quot;)
+install.packages(&quot;rvest&quot;)
+install.packages(&quot;downloader&quot;)
 </code></pre>
 
-<p>ler as bibliotecas</p>
+<p>carregar as bibliotecas</p>
 
 <pre><code class="language-r">library(tidyverse)
-library(data.table)
+library(rvest)
+library(downloader)
 </code></pre>
 
-<p>ler o arquivo</p>
+<p>criar pasta e defini-la como local de trabalho</p>
 
-<pre><code class="language-r">bolsonaro_fav &lt;- fread(&quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&quot;,
-                       encoding = &quot;UTF-8&quot;)
+<pre><code class="language-r">dir.create(&quot;~/Downloads/PDFvoosFAB&quot;)
+setwd(&quot;~/Downloads/PDFvoosFAB&quot;)
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais RTs?</p>
+<p>ler URL da página de interesse</p>
 
-<pre><code class="language-r">fav_RTs &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(retweets_count))
-
-fav_RTs$tweet[1]
-fav_RTs$username[1]
+<pre><code class="language-r">url &lt;- &quot;http://www.fab.mil.br/voos&quot;
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais replies?</p>
+<p>coleta de URLs da página de interesse</p>
 
-<pre><code class="language-r">fav_Replies &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(replies_count))
-
-fav_Replies$tweet[1]
-fav_Replies$username[1]
+<pre><code class="language-r">urls &lt;- url %&gt;%
+  read_html() %&gt;%
+  html_nodes(&quot;a&quot;) %&gt;%
+  html_attr(&quot;href&quot;) %&gt;%
+  as.data.frame() %&gt;%
+  `colnames&lt;-`(&quot;link&quot;)
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais likes?</p>
+<p>filtrar por URLs que contenham o PDF</p>
 
-<pre><code class="language-r">fav_Likes &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(likes_count))
-
-fav_Likes$tweet[1]
-fav_Likes$username[1]
+<pre><code class="language-r">urls_voo &lt;- urls %&gt;%
+  filter(str_detect(link, &quot;fab.mil.br/cabine/voos/&quot;))
 </code></pre>
 
-<p>quais foram as pessoas mais &lsquo;favoritadas&rsquo;?</p>
+<p>criar iteração para baixar PDFs</p>
 
-<pre><code class="language-r">fav_Users &lt;- bolsonaro_fav %&gt;%
-  group_by(username) %&gt;%
-  summarise(int = n()) %&gt;%
-  arrange(desc(int))
+<pre><code class="language-r">i &lt;- 1
 
-head(fav_Users)
+while(i &lt; 142) {
+  tryCatch({
+    pdf_file &lt;- as.character(urls_voo$link[i], stringsAsFactors = FALSE)
+    Sys.sleep(2)
+    download.file(pdf_file, basename(pdf_file), mode = &quot;wb&quot;)
+    Sys.sleep(5)
+  }, error = function(e) return(NULL)
+  )
+  i &lt;- i + 1
+}
+</code></pre>
+
+<p>identificar arquivos com formato PDF na pasta</p>
+
+<pre><code class="language-r">files &lt;- list.files(pattern = &quot;*.pdf&quot;) 
+</code></pre>
+
+<p>empilhar PDFs e, depois, converter em site
+<a href="https://www.pdftoexcel.com/">https://www.pdftoexcel.com/</a></p>
+
+<pre><code class="language-r">teste_merged_2 &lt;- pdf_combine(files[1:50], output = &quot;joined.pdf&quot;)
+teste_merged_2 &lt;- pdf_combine(files[50:100], output = &quot;joined.pdf&quot;)
+teste_merged_2 &lt;- pdf_combine(files[101:141], output = &quot;joined.pdf&quot;)
 </code></pre>
 
 
@@ -533,26 +550,6 @@ head(fav_Users)
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -600,6 +597,26 @@ head(fav_Users)
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -640,10 +657,10 @@ head(fav_Users)
 	 
 	 
 		
-			<a class="nav nav-prev" href="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/2019/08/24/analise-eleicoes-2016/" title="Análise - Eleições 2016"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2019/08/24/analise-mega-sena/" title="Análise - Mega Sena" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2019/08/20/saiba-mais-sobre-o-r/" title="Saiba mais sobre o R" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

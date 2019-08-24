@@ -80,5 +80,20 @@ consulta_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;
 consulta_vice_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;quot;VICE-PREFEITO&amp;quot;) %&amp;gt;% select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, DS_COMPOSICAO_COLIGACAO) %&amp;gt;% rename(&amp;quot;NM_VICE_PREFEITO&amp;quot; = NM_CANDIDATO, &amp;quot;NM_URNA_VICE_PREFEITO&amp;quot; = NM_URNA_CANDIDATO, &amp;quot;SG_PARTIDO_VICE_PREFEITO&amp;quot; = SG_PARTIDO, &amp;quot;DS_SIT_TOT_TURNO_VICE_PREFEITO&amp;quot; = DS_SIT_TOT_TURNO)  cruzamento do dados de prefeito e vice-prefeito</description>
     </item>
     
+    <item>
+      <title>Análise - Voos FAB</title>
+      <link>/2019/08/24/analise-voos-fab/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-voos-fab/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;rvest&amp;quot;) install.packages(&amp;quot;downloader&amp;quot;)  carregar as bibliotecas
+library(tidyverse) library(rvest) library(downloader)  criar pasta e defini-la como local de trabalho
+dir.create(&amp;quot;~/Downloads/PDFvoosFAB&amp;quot;) setwd(&amp;quot;~/Downloads/PDFvoosFAB&amp;quot;)  ler URL da página de interesse
+url &amp;lt;- &amp;quot;http://www.fab.mil.br/voos&amp;quot;  coleta de URLs da página de interesse
+urls &amp;lt;- url %&amp;gt;% read_html() %&amp;gt;% html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_attr(&amp;quot;href&amp;quot;) %&amp;gt;% as.data.frame() %&amp;gt;% `colnames&amp;lt;-`(&amp;quot;link&amp;quot;)  filtrar por URLs que contenham o PDF
+urls_voo &amp;lt;- urls %&amp;gt;% filter(str_detect(link, &amp;quot;fab.mil.br/cabine/voos/&amp;quot;))  criar iteração para baixar PDFs</description>
+    </item>
+    
   </channel>
 </rss>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Análise - Twitter Bolsonaro :: Curso de R para jornalistas</title>
+    <title>rvest :: Curso de R para jornalistas</title>
 
     
     <link href="/css/nucleus.css?1566618094" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2019/08/24/analise-twitter-bolsonaro/">
+  <body class="" data-url="/tags/rvest/">
     <nav id="sidebar" class="">
 
 
@@ -76,8 +76,8 @@
   
     
     <li data-nav-id="/post/" title="Posts" class="dd-item 
-        parent
         
+        active
         
         ">
       <a href="/post/">
@@ -157,7 +157,7 @@
  
   
     
-      <li data-nav-id="/2019/08/24/analise-twitter-bolsonaro/" title="Análise - Twitter Bolsonaro" class="dd-item active">
+      <li data-nav-id="/2019/08/24/analise-twitter-bolsonaro/" title="Análise - Twitter Bolsonaro" class="dd-item ">
         <a href="/2019/08/24/analise-twitter-bolsonaro/">
         Análise - Twitter Bolsonaro
         
@@ -318,19 +318,7 @@
                     
           
           
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Análise - Twitter Bolsonaro
-          
-         
-          
-         
+            rvest
           
         
                  
@@ -349,27 +337,15 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/tags/r">r</a>
-
-  <a class="tag-link" href="/tags/rstudio">rstudio</a>
-
-  <a class="tag-link" href="/tags/data.table">data.table</a>
-
-  <a class="tag-link" href="/tags/base">base</a>
-
-  <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Análise - Twitter Bolsonaro
+                taxonomy ::
+              
+              rvest
             </h1>
           
 
@@ -377,66 +353,19 @@
 
 
 
-<p>instalar as bibliotecas</p>
 
-<pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
-install.packages(&quot;data.table&quot;)
-</code></pre>
 
-<p>ler as bibliotecas</p>
 
-<pre><code class="language-r">library(tidyverse)
-library(data.table)
-</code></pre>
-
-<p>ler o arquivo</p>
-
-<pre><code class="language-r">bolsonaro_fav &lt;- fread(&quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&quot;,
-                       encoding = &quot;UTF-8&quot;)
-</code></pre>
-
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais RTs?</p>
-
-<pre><code class="language-r">fav_RTs &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(retweets_count))
-
-fav_RTs$tweet[1]
-fav_RTs$username[1]
-</code></pre>
-
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais replies?</p>
-
-<pre><code class="language-r">fav_Replies &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(replies_count))
-
-fav_Replies$tweet[1]
-fav_Replies$username[1]
-</code></pre>
-
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais likes?</p>
-
-<pre><code class="language-r">fav_Likes &lt;- bolsonaro_fav %&gt;%
-  arrange(desc(likes_count))
-
-fav_Likes$tweet[1]
-fav_Likes$username[1]
-</code></pre>
-
-<p>quais foram as pessoas mais &lsquo;favoritadas&rsquo;?</p>
-
-<pre><code class="language-r">fav_Users &lt;- bolsonaro_fav %&gt;%
-  group_by(username) %&gt;%
-  summarise(int = n()) %&gt;%
-  arrange(desc(int))
-
-head(fav_Users)
-</code></pre>
+<ul>
+	
+		<li><a href="/2019/08/24/analise-voos-fab/">Análise - Voos FAB</a></li>
+	
+</ul>
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -533,7 +462,6 @@ head(fav_Users)
             
                 
                     
-                    
                 
                 
 
@@ -549,9 +477,6 @@ head(fav_Users)
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -640,10 +565,8 @@ head(fav_Users)
 	 
 	 
 		
-			<a class="nav nav-prev" href="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo"> <i class="fa fa-chevron-left"></i></a>
 		
-		
-			<a class="nav nav-next" href="/2019/08/24/analise-mega-sena/" title="Análise - Mega Sena" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/post/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -674,4 +597,3 @@ head(fav_Users)
 
   </body>
 </html>
-

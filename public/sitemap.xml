@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>/2019/08/24/analise-voos-fab/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/08/20/saiba-mais-sobre-o-r/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
@@ -68,6 +73,12 @@
   </url>
   
   <url>
+    <loc>/tags/downloader/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/openxlx/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -81,6 +92,12 @@
   
   <url>
     <loc>/tags/rstudio/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rvest/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

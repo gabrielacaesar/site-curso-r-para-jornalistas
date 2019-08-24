@@ -5,7 +5,7 @@ date: '2019-08-20'
 slug: saiba-mais-sobre-o-r
 categories: []
 tags: [r, rstudio, dicas]
-weight: 8
+weight: 10
 ---
 
 

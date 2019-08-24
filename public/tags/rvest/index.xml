@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rvest on Curso de R para jornalistas</title>
+    <link>/tags/rvest/</link>
+    <description>Recent content in rvest on Curso de R para jornalistas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/rvest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Análise - Voos FAB</title>
+      <link>/2019/08/24/analise-voos-fab/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-voos-fab/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;rvest&amp;quot;) install.packages(&amp;quot;downloader&amp;quot;)  carregar as bibliotecas
+library(tidyverse) library(rvest) library(downloader)  criar pasta e defini-la como local de trabalho
+dir.create(&amp;quot;~/Downloads/PDFvoosFAB&amp;quot;) setwd(&amp;quot;~/Downloads/PDFvoosFAB&amp;quot;)  ler URL da página de interesse
+url &amp;lt;- &amp;quot;http://www.fab.mil.br/voos&amp;quot;  coleta de URLs da página de interesse
+urls &amp;lt;- url %&amp;gt;% read_html() %&amp;gt;% html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_attr(&amp;quot;href&amp;quot;) %&amp;gt;% as.data.frame() %&amp;gt;% `colnames&amp;lt;-`(&amp;quot;link&amp;quot;)  filtrar por URLs que contenham o PDF
+urls_voo &amp;lt;- urls %&amp;gt;% filter(str_detect(link, &amp;quot;fab.mil.br/cabine/voos/&amp;quot;))  criar iteração para baixar PDFs</description>
+    </item>
+    
+  </channel>
+</rss>
