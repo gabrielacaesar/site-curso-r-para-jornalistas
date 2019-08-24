@@ -6,7 +6,7 @@
     <description>Recent content in data.table on Curso de R para jornalistas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/data.table/index.xml" rel="self" type="application/rss+xml" />
     
@@ -30,6 +30,21 @@ setwd()  Listar os arquivos que estão nessa pasta A função list.files() mostr
       <guid>/2019/08/20/verificacao-de-arquivo/</guid>
       <description> Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
 colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas finais do arquivo, no caso 15 tail()  </description>
+    </item>
+    
+    <item>
+      <title>Análise - Twitter Bolsonaro</title>
+      <link>/2019/08/24/analise-twitter-bolsonaro/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-twitter-bolsonaro/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  ler as bibliotecas
+library(tidyverse) library(data.table)  ler o arquivo
+bolsonaro_fav &amp;lt;- fread(&amp;quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&amp;quot;, encoding = &amp;quot;UTF-8&amp;quot;)  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais RTs?
+fav_RTs &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(retweets_count)) fav_RTs$tweet[1] fav_RTs$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais replies?
+fav_Replies &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(replies_count)) fav_Replies$tweet[1] fav_Replies$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais likes?
+fav_Likes &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(likes_count)) fav_Likes$tweet[1] fav_Likes$username[1]  quais foram as pessoas mais &amp;lsquo;favoritadas&amp;rsquo;?</description>
     </item>
     
   </channel>

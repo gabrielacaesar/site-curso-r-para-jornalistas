@@ -47,6 +47,21 @@ colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x lin
     </item>
     
     <item>
+      <title>Análise - Twitter Bolsonaro</title>
+      <link>/2019/08/24/analise-twitter-bolsonaro/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-twitter-bolsonaro/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  ler as bibliotecas
+library(tidyverse) library(data.table)  ler o arquivo
+bolsonaro_fav &amp;lt;- fread(&amp;quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&amp;quot;, encoding = &amp;quot;UTF-8&amp;quot;)  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais RTs?
+fav_RTs &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(retweets_count)) fav_RTs$tweet[1] fav_RTs$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais replies?
+fav_Replies &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(replies_count)) fav_Replies$tweet[1] fav_Replies$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais likes?
+fav_Likes &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(likes_count)) fav_Likes$tweet[1] fav_Likes$username[1]  quais foram as pessoas mais &amp;lsquo;favoritadas&amp;rsquo;?</description>
+    </item>
+    
+    <item>
       <title>Análise - Mega Sena</title>
       <link>/2019/08/24/analise-mega-sena/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>

@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>/2019/08/24/analise-twitter-bolsonaro/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/08/24/analise-mega-sena/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
   </url>
@@ -52,6 +57,12 @@
   </url>
   
   <url>
+    <loc>/tags/data.table/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/openxlx/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -72,12 +83,6 @@
   <url>
     <loc>/tags/tidyverse/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/data.table/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

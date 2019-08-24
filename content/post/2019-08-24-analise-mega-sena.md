@@ -1,6 +1,6 @@
 ---
 title: Análise - Mega Sena
-author: ~
+author: Gabriela Caesar
 date: '2019-08-24'
 slug: analise-mega-sena
 categories: []
