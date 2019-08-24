@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>tidyverse :: Curso de R para jornalistas</title>
+    <title>Análise - Mega Sena :: Curso de R para jornalistas</title>
 
     
     <link href="/css/nucleus.css?1566616656" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/tidyverse/">
+  <body class="" data-url="/2019/08/24/analise-mega-sena/">
     <nav id="sidebar" class="">
 
 
@@ -76,8 +76,8 @@
   
     
     <li data-nav-id="/post/" title="Posts" class="dd-item 
+        parent
         
-        active
         
         ">
       <a href="/post/">
@@ -157,7 +157,7 @@
  
   
     
-      <li data-nav-id="/2019/08/24/analise-mega-sena/" title="Análise - Mega Sena" class="dd-item ">
+      <li data-nav-id="/2019/08/24/analise-mega-sena/" title="Análise - Mega Sena" class="dd-item active">
         <a href="/2019/08/24/analise-mega-sena/">
         Análise - Mega Sena
         
@@ -261,7 +261,19 @@
                     
           
           
-            tidyverse
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Análise - Mega Sena
+          
+         
+          
+         
           
         
                  
@@ -280,15 +292,27 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/r">r</a>
+
+  <a class="tag-link" href="/tags/rstudio">rstudio</a>
+
+  <a class="tag-link" href="/tags/openxlx">openxlx</a>
+
+  <a class="tag-link" href="/tags/base">base</a>
+
+  <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                taxonomy ::
-              
-              tidyverse
+              Análise - Mega Sena
             </h1>
           
 
@@ -296,23 +320,132 @@
 
 
 
+<p>instalar as bibliotecas</p>
 
+<pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
+install.packages(&quot;openxlsx&quot;)
+</code></pre>
 
+<p>carregar as bibliotecas</p>
 
-<ul>
-	
-		<li><a href="/2019/08/20/importacao-de-arquivos/">Importação de arquivos</a></li>
-	
-		<li><a href="/2019/08/20/verificacao-de-arquivo/">Verificação de arquivo</a></li>
-	
-		<li><a href="/2019/08/24/analise-mega-sena/">Análise - Mega Sena</a></li>
-	
-</ul>
+<pre><code class="language-r">library(tidyverse)
+library(openxlsx)
+</code></pre>
+
+<p>baixar os dados
+link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip">http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip</a>
+converter os dados em algum site para CSV ou Excel
+como este: <a href="http://www.convertcsv.com/html-table-to-csv.htm">http://www.convertcsv.com/html-table-to-csv.htm</a>
+abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
+
+<p>definir o diretório/pasta</p>
+
+<pre><code class="language-r">setwd(&quot;~/Downloads/&quot;)
+</code></pre>
+
+<p>ler o arquivo</p>
+
+<pre><code class="language-r">megasena &lt;- read.xlsx(&quot;megasena.xlsx&quot;)
+</code></pre>
+
+<p>quando foi o primeiro sorteiro do nosso arquivo?</p>
+
+<pre><code class="language-r">megasena_df &lt;- megasena %&gt;%
+  separate(Data.Sorteio, c(&quot;dia&quot;, &quot;mes&quot;, &quot;ano&quot;), sep = &quot;/&quot;, remove = FALSE) %&gt;%
+  arrange(mes, ano)
+</code></pre>
+
+<p>quando foi o último sorteio do nosso arquivo?</p>
+
+<pre><code class="language-r">megasena_df &lt;- megasena_df %&gt;%
+  arrange(desc(ano))
+</code></pre>
+
+<p>em qual concurso mais pessoas foram premiadas?</p>
+
+<pre><code class="language-r">megasena_df &lt;- megasena_df %&gt;%
+  mutate(Ganhadores_Sena = as.numeric(Ganhadores_Sena)) %&gt;%
+  arrange(desc(Ganhadores_Sena))
+</code></pre>
+
+<p>quantas vezes a mega-sena acumulou?</p>
+
+<pre><code class="language-r">megasena_acumulada &lt;- megasena_df %&gt;%
+  group_by(Acumulado) %&gt;%
+  summarise(int = n())
+</code></pre>
+
+<p>ver quais foram números mais sorteados na primeira bola</p>
+
+<pre><code class="language-r">megasena_frequentes_1d &lt;- megasena_df %&gt;%
+  group_by(`1ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `1ª.Dezena`)
+</code></pre>
+
+<p>ver quais foram números mais sorteados na segunda bola</p>
+
+<pre><code class="language-r">megasena_frequentes_2d &lt;- megasena_df %&gt;%
+  group_by(`2ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `2ª.Dezena`)
+</code></pre>
+
+<p>ver quais foram números mais sorteados na terceira bola</p>
+
+<pre><code class="language-r">megasena_frequentes_3d &lt;- megasena_df %&gt;%
+  group_by(`3ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `3ª.Dezena`)
+</code></pre>
+
+<p>ver quais foram números mais sorteados na quarta bola</p>
+
+<pre><code class="language-r">megasena_frequentes_4d &lt;- megasena_df %&gt;%
+  group_by(`4ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `4ª.Dezena`)
+</code></pre>
+
+<p>ver quais foram números mais sorteados na quinta bola</p>
+
+<pre><code class="language-r">megasena_frequentes_5d &lt;- megasena_df %&gt;%
+  group_by(`5ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `5ª.Dezena`)
+</code></pre>
+
+<p>ver quais foram números mais sorteados na sexta bola</p>
+
+<pre><code class="language-r">megasena_frequentes_6d &lt;- megasena_df %&gt;%
+  group_by(`6ª.Dezena`) %&gt;%
+  summarise(int = n()) %&gt;%
+  rename(n_sorteado = `6ª.Dezena`)
+</code></pre>
+
+<p>empilhar todos os arquivos acima</p>
+
+<pre><code class="language-r">megasena_frequentes &lt;- rbind(megasena_frequentes_1d, 
+                             megasena_frequentes_2d, 
+                             megasena_frequentes_3d, 
+                             megasena_frequentes_4d,
+                             megasena_frequentes_5d, 
+                             megasena_frequentes_6d)
+</code></pre>
+
+<p>agrupar por número sorteado e somar a frequência</p>
+
+<pre><code class="language-r">megasena_frequentes &lt;- megasena_frequentes %&gt;%
+  group_by(n_sorteado) %&gt;%
+  summarise(int = sum(int)) %&gt;%
+  arrange(desc(int))
+</code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -409,6 +542,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -424,6 +558,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -464,8 +601,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/2019/08/20/verificacao-de-arquivo/" title="Verificação de arquivo"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/post/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/2019/08/20/saiba-mais-sobre-o-r/" title="Saiba mais sobre o R" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -496,3 +635,4 @@
 
   </body>
 </html>
+

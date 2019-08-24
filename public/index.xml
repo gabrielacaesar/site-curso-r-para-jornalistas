@@ -6,7 +6,7 @@
     <description>Recent content on Curso de R para jornalistas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -44,6 +44,21 @@ setwd()  Listar os arquivos que estão nessa pasta A função list.files() mostr
       <guid>/2019/08/20/verificacao-de-arquivo/</guid>
       <description> Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
 colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas finais do arquivo, no caso 15 tail()  </description>
+    </item>
+    
+    <item>
+      <title>Análise - Mega Sena</title>
+      <link>/2019/08/24/analise-mega-sena/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-mega-sena/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;openxlsx&amp;quot;)  carregar as bibliotecas
+library(tidyverse) library(openxlsx)  baixar os dados link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip converter os dados em algum site para CSV ou Excel como este: http://www.convertcsv.com/html-table-to-csv.htm abrir no Excel para deletar erros, como linhas apenas com o nome da UF
+definir o diretório/pasta
+setwd(&amp;quot;~/Downloads/&amp;quot;)  ler o arquivo
+megasena &amp;lt;- read.xlsx(&amp;quot;megasena.xlsx&amp;quot;)  quando foi o primeiro sorteiro do nosso arquivo?
+megasena_df &amp;lt;- megasena %&amp;gt;% separate(Data.</description>
     </item>
     
     <item>
