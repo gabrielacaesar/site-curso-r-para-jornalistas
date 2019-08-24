@@ -12,18 +12,18 @@
     <title>Importação de arquivos :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1566618094" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1566618094" rel="stylesheet">
-    <link href="/css/hybrid.css?1566618094" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1566618094" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1566618094" rel="stylesheet">
-    <link href="/css/auto-complete.css?1566618094" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1566618094" rel="stylesheet">
-    <link href="/css/theme.css?1566618094" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1566618094" rel="stylesheet">
+    <link href="/css/nucleus.css?1566619503" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1566619503" rel="stylesheet">
+    <link href="/css/hybrid.css?1566619503" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1566619503" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1566619503" rel="stylesheet">
+    <link href="/css/auto-complete.css?1566619503" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1566619503" rel="stylesheet">
+    <link href="/css/theme.css?1566619503" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1566619503" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1566618094"></script>
+    <script src="/js/jquery-3.3.1.min.js?1566619503"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1566618094"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1566618094"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1566619503"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1566619503"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1566618094"></script>
+<script type="text/javascript" src="/js/search.js?1566619503"></script>
 
     
   </div>
@@ -447,7 +447,12 @@ Essa função é do pacote <code>::base</code>, que reúne funções básicas, e
 
 <p>Esse arquivo é importante para, antes da importação, já sabermos com quais colunas vamos trabalhar.</p>
 
-<pre><code class="language-r"># importação do Enem
+<pre><code class="language-r">enem &lt;- fread(&quot;MICRODADOS_ENEM_2018.csv&quot;, select = c(&quot;NU_NOTA_COMP1&quot;,
+                                                     &quot;NU_NOTA_COMP2&quot;,
+                                                     &quot;NU_NOTA_COMP3&quot;,
+                                                     &quot;NU_NOTA_COMP4&quot;,
+                                                     &quot;NU_NOTA_COMP5&quot;,
+                                                     &quot;NU_NOTA_REDACAO&quot;))
 </code></pre>
 
 <h4 id="importar-arquivo-já-informando-a-decodificação">Importar arquivo já informando a decodificação</h4>
@@ -456,7 +461,9 @@ Essa função é do pacote <code>::base</code>, que reúne funções básicas, e
 
 <p>A decodificação do arquivo também pode ser informada já na importação do arquivo.</p>
 
-<pre><code class="language-r"></code></pre>
+<pre><code class="language-r">bolsonaro_fav &lt;- fread(&quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&quot;,
+                       encoding = &quot;UTF-8&quot;)
+</code></pre>
 
 <h4 id="importar-arquivo-já-informando-o-separador-de-colunas">Importar arquivo já informando o separador de colunas</h4>
 
@@ -687,20 +694,20 @@ Essa função é do pacote <code>::base</code>, que reúne funções básicas, e
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566618094"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566618094"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566618094"></script>
-    <script src="/js/jquery.sticky.js?1566618094"></script>
-    <script src="/js/featherlight.min.js?1566618094"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566618094"></script>
-    <script src="/js/highlight.pack.js?1566618094"></script>
+    <script src="/js/clipboard.min.js?1566619503"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566619503"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566619503"></script>
+    <script src="/js/jquery.sticky.js?1566619503"></script>
+    <script src="/js/featherlight.min.js?1566619503"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566619503"></script>
+    <script src="/js/highlight.pack.js?1566619503"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566618094"></script>
-    <script src="/js/learn.js?1566618094"></script>
-    <script src="/js/hugo-learn.js?1566618094"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566619503"></script>
+    <script src="/js/learn.js?1566619503"></script>
+    <script src="/js/hugo-learn.js?1566619503"></script>
 
-    <link href="/mermaid/mermaid.css?1566618094" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566618094"></script>
+    <link href="/mermaid/mermaid.css?1566619503" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566619503"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

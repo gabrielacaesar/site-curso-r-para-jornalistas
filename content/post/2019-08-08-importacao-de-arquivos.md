@@ -56,7 +56,12 @@ Nos dados do Inep, por exemplo, há um arquivo de dicionário de dados, que info
 Esse arquivo é importante para, antes da importação, já sabermos com quais colunas vamos trabalhar.
 
 ```{r}
-# importação do Enem
+enem <- fread("MICRODADOS_ENEM_2018.csv", select = c("NU_NOTA_COMP1",
+                                                     "NU_NOTA_COMP2",
+                                                     "NU_NOTA_COMP3",
+                                                     "NU_NOTA_COMP4",
+                                                     "NU_NOTA_COMP5",
+                                                     "NU_NOTA_REDACAO"))
 ```
 
 #### Importar arquivo já informando a decodificação
@@ -65,6 +70,8 @@ UTF-8 e ISO-8859-1 são exemplos de decodificações - ou "encoding". Ao informa
 A decodificação do arquivo também pode ser informada já na importação do arquivo.
 
 ```{r}
+bolsonaro_fav <- fread("https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv",
+                       encoding = "UTF-8")
 ```
 
 #### Importar arquivo já informando o separador de colunas
