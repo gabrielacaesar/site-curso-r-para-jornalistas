@@ -20,9 +20,12 @@ library(openxlsx)
 ```
 
 baixar os dados
-link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip
-converter os dados em algum site para CSV ou Excel
-como este: http://www.convertcsv.com/html-table-to-csv.htm
+link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip    
+
+converter os dados em algum site para CSV ou Excel    
+
+como este: http://www.convertcsv.com/html-table-to-csv.htm    
+
 abrir no Excel para deletar erros, como linhas apenas com o nome da UF
 
 definir o diretório/pasta

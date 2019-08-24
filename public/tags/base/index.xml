@@ -55,7 +55,10 @@ fav_Likes &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(likes_count)) fav_Like
       <guid>/2019/08/24/analise-mega-sena/</guid>
       <description>instalar as bibliotecas
 install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;openxlsx&amp;quot;)  carregar as bibliotecas
-library(tidyverse) library(openxlsx)  baixar os dados link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip converter os dados em algum site para CSV ou Excel como este: http://www.convertcsv.com/html-table-to-csv.htm abrir no Excel para deletar erros, como linhas apenas com o nome da UF
+library(tidyverse) library(openxlsx)  baixar os dados link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip
+converter os dados em algum site para CSV ou Excel
+como este: http://www.convertcsv.com/html-table-to-csv.htm
+abrir no Excel para deletar erros, como linhas apenas com o nome da UF
 definir o diretório/pasta
 setwd(&amp;quot;~/Downloads/&amp;quot;)  ler o arquivo
 megasena &amp;lt;- read.xlsx(&amp;quot;megasena.xlsx&amp;quot;)  quando foi o primeiro sorteiro do nosso arquivo?
