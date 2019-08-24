@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>A Plain Markdown Post :: Curso de R para jornalistas</title>
+    <title>Análise - Eleições 2016 :: Curso de R para jornalistas</title>
 
     
     <link href="/css/nucleus.css?1566617727" rel="stylesheet">
@@ -33,7 +33,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/2016/12/30/a-plain-markdown-post/">
+  <body class="" data-url="/2019/08/24/analise-eleicoes-2016/">
     <nav id="sidebar" class="">
 
 
@@ -195,7 +195,7 @@
  
   
     
-      <li data-nav-id="/2019/08/24/analise-eleicoes-2016/" title="Análise - Eleições 2016" class="dd-item ">
+      <li data-nav-id="/2019/08/24/analise-eleicoes-2016/" title="Análise - Eleições 2016" class="dd-item active">
         <a href="/2019/08/24/analise-eleicoes-2016/">
         Análise - Eleições 2016
         
@@ -233,7 +233,7 @@
  
   
     
-      <li data-nav-id="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" class="dd-item active">
+      <li data-nav-id="/2016/12/30/a-plain-markdown-post/" title="A Plain Markdown Post" class="dd-item ">
         <a href="/2016/12/30/a-plain-markdown-post/">
         A Plain Markdown Post
         
@@ -307,7 +307,7 @@
             
           
           
-            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > A Plain Markdown Post
+            <a href='/'>Curso de R para jornalistas</a> > <a href='/post/'>Posts</a> > Análise - Eleições 2016
           
          
           
@@ -330,13 +330,27 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/tags/r">r</a>
+
+  <a class="tag-link" href="/tags/rstudio">rstudio</a>
+
+  <a class="tag-link" href="/tags/data.table">data.table</a>
+
+  <a class="tag-link" href="/tags/base">base</a>
+
+  <a class="tag-link" href="/tags/tidyverse">tidyverse</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              A Plain Markdown Post
+              Análise - Eleições 2016
             </h1>
           
 
@@ -344,36 +358,99 @@
 
 
 
-<p>This is a post written in plain Markdown (<code>*.md</code>) instead of R Markdown (<code>*.Rmd</code>). The major differences are:</p>
+<p>instalar as bibliotecas</p>
 
-<ol>
-<li>You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (<code>```{r}</code>);</li>
-<li>A plain Markdown post is rendered through <a href="https://gohugo.io/overview/configuration/">Blackfriday</a>, and an R Markdown document is compiled by <a href="http://rmarkdown.rstudio.com"><strong>rmarkdown</strong></a> and <a href="http://pandoc.org">Pandoc</a>.</li>
-</ol>
-
-<p>There are many differences in syntax between Blackfriday&rsquo;s Markdown and Pandoc&rsquo;s Markdown. For example, you can write a task list with Blackfriday but not with Pandoc:</p>
-
-<ul class="task-list">
-<li><label><input type="checkbox" checked disabled class="task-list-item"> Write an R package.</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> Write a book.</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> &hellip;</label></li>
-<li><label><input type="checkbox" disabled class="task-list-item"> Profit!</label></li>
-</ul>
-
-<p>Similarly, Blackfriday does not support LaTeX math and Pandoc does. I have added the MathJax support to this theme (<a href="https://github.com/yihui/hugo-lithium">hugo-lithium</a>) but there is a caveat for plain Markdown posts: you have to include math expressions in a pair of backticks (inline: <code>`$ $`</code>; display style: <code>`$$ $$`</code>), e.g., <code>$S_n = \sum_{i=1}^n X_i$</code>.<sup class="footnote-ref" id="fnref:This-is-because"><a href="#fn:This-is-because">1</a></sup> For R Markdown posts, you do not need the backticks, because Pandoc can identify and process math expressions.</p>
-
-<p>When creating a new post, you have to decide whether the post format is Markdown or R Markdown, and this can be done via the <code>ext</code> argument of the function <code>blogdown::new_post()</code>, e.g.</p>
-
-<pre><code class="language-r">blogdown::new_post(&quot;Post Title&quot;, ext = '.Rmd')
+<pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
+install.packages(&quot;data.table&quot;)
 </code></pre>
-<div class="footnotes">
 
-<hr />
+<p>carregar as bibliotecas</p>
 
-<ol>
-<li id="fn:This-is-because">This is because we have to protect the math expressions from being interpreted as Markdown. You may not need the backticks if your math expression does not contain any special Markdown syntax such as underscores or asterisks, but it is always a safer choice to use backticks. When you happen to have a pair of literal dollar signs inside the same element, you can escape one dollar sign, e.g., <code>\$50 and $100</code> renders &ldquo;\$50 and $100&rdquo;. <a class="footnote-return" href="#fnref:This-is-because"><sup>[return]</sup></a></li>
-</ol>
-</div>
+<pre><code class="language-r">library(tidyverse)
+library(data.table)
+</code></pre>
+
+<p>pasta em que estão os dados</p>
+
+<pre><code class="language-r">setwd(&quot;~/Downloads/consulta_cand_2016_15ago2019&quot;)
+</code></pre>
+
+<p>dados completos de candidaturas</p>
+
+<pre><code class="language-r">consulta_cand_BR &lt;- fread(&quot;consulta_cand_2016_BRASIL.csv&quot;)
+</code></pre>
+
+<p>dados de prefeito</p>
+
+<pre><code class="language-r">consulta_prefeito &lt;- consulta_cand_BR %&gt;%
+  filter(DS_CARGO == &quot;PREFEITO&quot;) %&gt;%
+  select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO,
+         NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO,
+         DS_COMPOSICAO_COLIGACAO) %&gt;%
+  rename(&quot;NM_PREFEITO&quot; =  NM_CANDIDATO,
+         &quot;NM_URNA_PREFEITO&quot; = NM_URNA_CANDIDATO,
+         &quot;SG_PARTIDO_PREFEITO&quot; = SG_PARTIDO,
+         &quot;DS_SIT_TOT_TURNO_PREFEITO&quot; = DS_SIT_TOT_TURNO)
+</code></pre>
+
+<p>dados de vice-prefeito</p>
+
+<pre><code class="language-r">consulta_vice_prefeito &lt;- consulta_cand_BR %&gt;%
+  filter(DS_CARGO == &quot;VICE-PREFEITO&quot;) %&gt;%
+  select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO,
+         NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO,
+         DS_COMPOSICAO_COLIGACAO) %&gt;%
+  rename(&quot;NM_VICE_PREFEITO&quot; =  NM_CANDIDATO,
+         &quot;NM_URNA_VICE_PREFEITO&quot; = NM_URNA_CANDIDATO,
+         &quot;SG_PARTIDO_VICE_PREFEITO&quot; = SG_PARTIDO,
+         &quot;DS_SIT_TOT_TURNO_VICE_PREFEITO&quot; = DS_SIT_TOT_TURNO)
+</code></pre>
+
+<p>cruzamento do dados de prefeito e vice-prefeito</p>
+
+<pre><code class="language-r">consulta_merged &lt;- consulta_prefeito %&gt;%
+  left_join(consulta_vice_prefeito, 
+            by = c(&quot;SG_UF&quot;, &quot;NM_UE&quot;, &quot;DS_COMPOSICAO_COLIGACAO&quot;))
+</code></pre>
+
+<p>quais são as chapas mais frentes?
+identificamos que chapas &lsquo;puro sangue&rsquo; são as mais frequentes</p>
+
+<pre><code class="language-r">consulta_merged_partido &lt;- consulta_merged %&gt;%
+  select(SG_PARTIDO_PREFEITO, SG_PARTIDO_VICE_PREFEITO) %&gt;%
+  unite(c(SG_PARTIDO_PREFEITO, SG_PARTIDO_VICE_PREFEITO), col = &quot;chapa&quot;, sep = &quot; - &quot;) %&gt;%
+  group_by(chapa) %&gt;%
+  summarise(int = n()) %&gt;%
+  arrange(desc(int))
+</code></pre>
+
+<p>a quais chapas o PSL fez parte?
+identificamos ainda PT-PSL 15 vezes e PSL-PT 3 vezes</p>
+
+<pre><code class="language-r">consulta_partido_psl &lt;- consulta_merged_partido %&gt;%
+  filter(str_detect(chapa, &quot;PSL&quot;))
+</code></pre>
+
+<p>quais foram as chapas PSL-PT e PT-PSL?</p>
+
+<pre><code class="language-r">consulta_chapa_psl &lt;- consulta_merged %&gt;%
+  filter(SG_PARTIDO_PREFEITO == &quot;PSL&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PT&quot; |
+         SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PSL&quot;)
+</code></pre>
+
+<p>em quais casos o PT é cabeça de chapa?
+identificamos PT-PSDB 12 vezes e PT-DEM 5 vezes</p>
+
+<pre><code class="language-r">consulta_partido_pt &lt;- consulta_merged_partido %&gt;%
+  filter(str_detect(chapa, &quot;PT - &quot;))
+</code></pre>
+
+<p>quais foram as chapas PT-PSDB e PT-DEM?</p>
+
+<pre><code class="language-r">consulta_chapa_pt &lt;- consulta_merged %&gt;%
+  filter(SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PSDB&quot; |
+           SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;DEM&quot;)
+</code></pre>
 
 
 <footer class=" footline" >
@@ -508,6 +585,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -535,23 +632,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -564,10 +644,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/2019/08/20/saiba-mais-sobre-o-r/" title="Saiba mais sobre o R"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/2019/08/24/analise-mega-sena/" title="Análise - Mega Sena"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/post/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2019/08/20/saiba-mais-sobre-o-r/" title="Saiba mais sobre o R" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

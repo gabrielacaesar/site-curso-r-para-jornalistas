@@ -47,5 +47,20 @@ fav_Replies &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(replies_count)) fav_
 fav_Likes &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(likes_count)) fav_Likes$tweet[1] fav_Likes$username[1]  quais foram as pessoas mais &amp;lsquo;favoritadas&amp;rsquo;?</description>
     </item>
     
+    <item>
+      <title>Análise - Eleições 2016</title>
+      <link>/2019/08/24/analise-eleicoes-2016/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/24/analise-eleicoes-2016/</guid>
+      <description>instalar as bibliotecas
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  carregar as bibliotecas
+library(tidyverse) library(data.table)  pasta em que estão os dados
+setwd(&amp;quot;~/Downloads/consulta_cand_2016_15ago2019&amp;quot;)  dados completos de candidaturas
+consulta_cand_BR &amp;lt;- fread(&amp;quot;consulta_cand_2016_BRASIL.csv&amp;quot;)  dados de prefeito
+consulta_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;quot;PREFEITO&amp;quot;) %&amp;gt;% select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, DS_COMPOSICAO_COLIGACAO) %&amp;gt;% rename(&amp;quot;NM_PREFEITO&amp;quot; = NM_CANDIDATO, &amp;quot;NM_URNA_PREFEITO&amp;quot; = NM_URNA_CANDIDATO, &amp;quot;SG_PARTIDO_PREFEITO&amp;quot; = SG_PARTIDO, &amp;quot;DS_SIT_TOT_TURNO_PREFEITO&amp;quot; = DS_SIT_TOT_TURNO)  dados de vice-prefeito
+consulta_vice_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;quot;VICE-PREFEITO&amp;quot;) %&amp;gt;% select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, DS_COMPOSICAO_COLIGACAO) %&amp;gt;% rename(&amp;quot;NM_VICE_PREFEITO&amp;quot; = NM_CANDIDATO, &amp;quot;NM_URNA_VICE_PREFEITO&amp;quot; = NM_URNA_CANDIDATO, &amp;quot;SG_PARTIDO_VICE_PREFEITO&amp;quot; = SG_PARTIDO, &amp;quot;DS_SIT_TOT_TURNO_VICE_PREFEITO&amp;quot; = DS_SIT_TOT_TURNO)  cruzamento do dados de prefeito e vice-prefeito</description>
+    </item>
+    
   </channel>
 </rss>
