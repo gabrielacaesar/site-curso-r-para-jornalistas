@@ -42,8 +42,9 @@ setwd()  Listar os arquivos que estão nessa pasta A função list.files() mostr
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/08/20/verificacao-de-arquivo/</guid>
-      <description> Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
-colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 head()  Mostrar as cinco linhas finais do arquivo tail()  Mostrar as x linhas finais do arquivo, no caso 15 tail()  </description>
+      <description>Mostrar cabeçalho do arquivo A função colnames() mostra o cabeçalho do arquivo que já foi lido no tutorial anterior.
+colnames()  Mostrar as cinco linhas iniciais do arquivo A função head() mostra as cinco primeiras linhas do arquivo lido.
+head()  Mostrar as x linhas iniciais do arquivo - no caso, 15 Também podemos definir no head() o número de linhas que desejamos que apareça. No caso abaixo, 15 linhas.</description>
     </item>
     
     <item>
@@ -52,13 +53,9 @@ colnames()  Mostrar as cinco linhas iniciais do arquivo head()  Mostrar as x lin
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/08/24/analise-twitter-bolsonaro/</guid>
-      <description>instalar as bibliotecas
-install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  ler as bibliotecas
-library(tidyverse) library(data.table)  ler o arquivo
-bolsonaro_fav &amp;lt;- fread(&amp;quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&amp;quot;, encoding = &amp;quot;UTF-8&amp;quot;)  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais RTs?
-fav_RTs &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(retweets_count)) fav_RTs$tweet[1] fav_RTs$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais replies?
-fav_Replies &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(replies_count)) fav_Replies$tweet[1] fav_Replies$username[1]  qual tweet &amp;lsquo;favoritado&amp;rsquo; teve mais likes?
-fav_Likes &amp;lt;- bolsonaro_fav %&amp;gt;% arrange(desc(likes_count)) fav_Likes$tweet[1] fav_Likes$username[1]  quais foram as pessoas mais &amp;lsquo;favoritadas&amp;rsquo;?</description>
+      <description>Nesta primeira análise, nós vamos mexer com os dados do Twitter do Bolsonaro. Os dados foram extraídos do perfil do presidente na rede social.
+instalar as bibliotecas Abaixo, nós instalamos (caso seja necessário) os pacotes que serão usados nesta análise com a função install.packages().
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  ler as bibliotecas Em seguida, nós carregamos os pacotes com a função library(). Sempre quando começar uma nova análise, precisamos carregar os pacotes.</description>
     </item>
     
     <item>
@@ -85,13 +82,9 @@ megasena_df &amp;lt;- megasena %&amp;gt;% separate(Data.</description>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/08/24/analise-eleicoes-2016/</guid>
-      <description>instalar as bibliotecas
-install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  carregar as bibliotecas
-library(tidyverse) library(data.table)  pasta em que estão os dados
-setwd(&amp;quot;~/Downloads/consulta_cand_2016_15ago2019&amp;quot;)  dados completos de candidaturas
-consulta_cand_BR &amp;lt;- fread(&amp;quot;consulta_cand_2016_BRASIL.csv&amp;quot;)  dados de prefeito
-consulta_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;quot;PREFEITO&amp;quot;) %&amp;gt;% select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, DS_COMPOSICAO_COLIGACAO) %&amp;gt;% rename(&amp;quot;NM_PREFEITO&amp;quot; = NM_CANDIDATO, &amp;quot;NM_URNA_PREFEITO&amp;quot; = NM_URNA_CANDIDATO, &amp;quot;SG_PARTIDO_PREFEITO&amp;quot; = SG_PARTIDO, &amp;quot;DS_SIT_TOT_TURNO_PREFEITO&amp;quot; = DS_SIT_TOT_TURNO)  dados de vice-prefeito
-consulta_vice_prefeito &amp;lt;- consulta_cand_BR %&amp;gt;% filter(DS_CARGO == &amp;quot;VICE-PREFEITO&amp;quot;) %&amp;gt;% select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO, NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO, DS_COMPOSICAO_COLIGACAO) %&amp;gt;% rename(&amp;quot;NM_VICE_PREFEITO&amp;quot; = NM_CANDIDATO, &amp;quot;NM_URNA_VICE_PREFEITO&amp;quot; = NM_URNA_CANDIDATO, &amp;quot;SG_PARTIDO_VICE_PREFEITO&amp;quot; = SG_PARTIDO, &amp;quot;DS_SIT_TOT_TURNO_VICE_PREFEITO&amp;quot; = DS_SIT_TOT_TURNO)  cruzamento do dados de prefeito e vice-prefeito</description>
+      <description>Esta análise usará os dados eleições de 2016 para mostrar algumas possibilidades do R. O download do arquivo usado abaixo pode ser feito no repositório de dados do TSE. O caminho neste link é &amp;ldquo;Candidatos &amp;gt; 2016 &amp;gt; Candidatos (formato ZIP)&amp;rdquo;.
+instalar as bibliotecas Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar novamente esse código com a função install.packages().
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  carregar as bibliotecas Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</description>
     </item>
     
     <item>
@@ -134,6 +127,24 @@ Curso de jornalismo de dados - Rodrigo Menegat</description>
       <guid>/2016/12/30/a-plain-markdown-post/</guid>
       <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
  You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Análise - Eleições 2016       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Análise - Twitter Bolsonaro       code{white-space: pre;} pre:not([class]) { background-color: white; }  if (window.hljs) { hljs.configure({languages: []}); hljs.initHighlightingOnLoad(); if (document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) { window.setTimeout(function() { hljs.initHighlighting(); }, 0); } }  h1 { font-size: 34px; } h1.title { font-size: 38px; } h2 { font-size: 30px; } h3 { font-size: 24px; } h4 { font-size: 18px; } h5 { font-size: 16px; } h6 { font-size: 12px; } .</description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.0" />
+    <meta name="generator" content="Hugo 0.58.2" />
     <meta name="description" content="Curso de R para jornalistas">
 
 
@@ -12,18 +12,18 @@
     <title>Análise - Eleições 2016 :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1566627450" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1566627450" rel="stylesheet">
-    <link href="/css/hybrid.css?1566627450" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1566627450" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1566627450" rel="stylesheet">
-    <link href="/css/auto-complete.css?1566627450" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1566627450" rel="stylesheet">
-    <link href="/css/theme.css?1566627450" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1566627450" rel="stylesheet">
+    <link href="/css/nucleus.css?1568775631" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1568775631" rel="stylesheet">
+    <link href="/css/hybrid.css?1568775631" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1568775631" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1568775631" rel="stylesheet">
+    <link href="/css/auto-complete.css?1568775631" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1568775631" rel="stylesheet">
+    <link href="/css/theme.css?1568775631" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1568775631" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1566627450"></script>
+    <script src="/js/jquery-3.3.1.min.js?1568775631"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1566627450"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1566627450"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1568775631"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1568775631"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1566627450"></script>
+<script type="text/javascript" src="/js/search.js?1568775631"></script>
 
     
   </div>
@@ -264,6 +264,44 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1/01/01/" title="" class="dd-item ">
+        <a href="/1/01/01/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1/01/01/" title="" class="dd-item ">
+        <a href="/1/01/01/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -339,7 +377,31 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#instalar-as-bibliotecas">instalar as bibliotecas</a></li>
+<li><a href="#carregar-as-bibliotecas">carregar as bibliotecas</a></li>
+<li><a href="#pasta-em-que-estão-os-dados">pasta em que estão os dados</a></li>
+<li><a href="#dados-completos-de-candidaturas">dados completos de candidaturas</a></li>
+<li><a href="#dados-de-prefeito">dados de prefeito</a></li>
+<li><a href="#dados-de-vice-prefeito">dados de vice-prefeito</a></li>
+<li><a href="#cruzamento-do-dados-de-prefeito-e-vice-prefeito">cruzamento do dados de prefeito e vice-prefeito</a></li>
+<li><a href="#quais-são-as-chapas-mais-frentes">quais são as chapas mais frentes?</a></li>
+<li><a href="#a-quais-chapas-o-psl-fez-parte">a quais chapas o PSL fez parte?</a></li>
+<li><a href="#quais-foram-as-chapas-psl-pt-e-pt-psl">quais foram as chapas PSL-PT e PT-PSL?</a></li>
+<li><a href="#em-quais-casos-o-pt-é-cabeça-de-chapa">em quais casos o PT é cabeça de chapa?</a></li>
+<li><a href="#quais-foram-as-chapas-pt-psdb-e-pt-dem">quais foram as chapas PT-PSDB e PT-DEM?</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -377,29 +439,48 @@
 
 
 
-<p>instalar as bibliotecas</p>
+
+
+<p>Esta análise usará os dados eleições de 2016 para mostrar algumas possibilidades do R. O download do arquivo usado abaixo pode ser feito no repositório de dados do TSE. O caminho neste link é &ldquo;Candidatos &gt; 2016 &gt; Candidatos (formato ZIP)&rdquo;.</p>
+
+<h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
+
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar novamente esse código com a função install.packages().</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;data.table&quot;)
 </code></pre>
 
-<p>carregar as bibliotecas</p>
+<h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
+
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(data.table)
 </code></pre>
 
-<p>pasta em que estão os dados</p>
+<h4 id="pasta-em-que-estão-os-dados">pasta em que estão os dados</h4>
+
+<p>Para importar o arquivo do TSE, informamos onde está o arquivo. Neste caso, o arquivo está no caminho &ldquo;Downloads &gt; consulta_cand_2016_15ago2019&rdquo;.</p>
+
+<p>Isso vai de computador para computador. O nome da pasta &ldquo;consulta_cand_15ago2019&rdquo; foi escolhido por mim, e o arquivo CSV está lá dentro.</p>
 
 <pre><code class="language-r">setwd(&quot;~/Downloads/consulta_cand_2016_15ago2019&quot;)
 </code></pre>
 
-<p>dados completos de candidaturas</p>
+<h4 id="dados-completos-de-candidaturas">dados completos de candidaturas</h4>
+
+<p>Depois, usamos a função fread() para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).</p>
 
 <pre><code class="language-r">consulta_cand_BR &lt;- fread(&quot;consulta_cand_2016_BRASIL.csv&quot;)
 </code></pre>
 
-<p>dados de prefeito</p>
+<h4 id="dados-de-prefeito">dados de prefeito</h4>
+
+<p>Como não queremos trabalhar com um arquivo muito grande, nós criamos um novo arquivo chamado &ldquo;consulta_prefeito&rdquo; em que:
+- filtramos a coluna &ldquo;DS_CARGO&rdquo; por &ldquo;PREFEITO&rdquo; (ou seja, não entram os vice-prefeitos e os vereadores);
+- selecionamos quais colunas queremos manter no arquivo;
+- renomeamos algumas colunas do arquivo (o novo nome aparece primeiro e precisa estar entre aspas).</p>
 
 <pre><code class="language-r">consulta_prefeito &lt;- consulta_cand_BR %&gt;%
   filter(DS_CARGO == &quot;PREFEITO&quot;) %&gt;%
@@ -412,7 +493,11 @@ library(data.table)
          &quot;DS_SIT_TOT_TURNO_PREFEITO&quot; = DS_SIT_TOT_TURNO)
 </code></pre>
 
-<p>dados de vice-prefeito</p>
+<h4 id="dados-de-vice-prefeito">dados de vice-prefeito</h4>
+
+<p>E vamos o mesmo processo novamente, mas desta vez queremos manter os dados referentes aos vice-prefeitos e, por isso, já filtramos a coluna &ldquo;DS_CARGO&rdquo; por &ldquo;VICE-PREFEITO&rdquo;.</p>
+
+<p>Da mesma forma, selecionamos apenas algumas colunas para diminuir o tamanho do arquivo. Renomeamos também as colunas, mas considerando que agora queremos informar já no cabeçalho que são dados de vice-prefeitos.</p>
 
 <pre><code class="language-r">consulta_vice_prefeito &lt;- consulta_cand_BR %&gt;%
   filter(DS_CARGO == &quot;VICE-PREFEITO&quot;) %&gt;%
@@ -425,15 +510,26 @@ library(data.table)
          &quot;DS_SIT_TOT_TURNO_VICE_PREFEITO&quot; = DS_SIT_TOT_TURNO)
 </code></pre>
 
-<p>cruzamento do dados de prefeito e vice-prefeito</p>
+<h4 id="cruzamento-do-dados-de-prefeito-e-vice-prefeito">cruzamento do dados de prefeito e vice-prefeito</h4>
+
+<p>Esta etapa é bem importante. Nós agora vamos cruzar os dois arquivos criados anteriormente (&ldquo;consulta_prefeito&rdquo; e &ldquo;consulta_vice_prefeito&rdquo;). O cruzamento desses arquivos se chamará &ldquo;consulta_merged&rdquo;.</p>
+
+<p>Para o cruzamento, não vamos levar em conta apenas uma coluna, mas sim três colunas. Para haver correspondência de um arquivo com o outro, ambos devem ter valores iguais nas colunas &ldquo;SG_UF&rdquo;, &ldquo;NM_UE&rdquo;, &ldquo;DS_COMPOSICAO_COLIGACAO&rdquo;.</p>
+
+<p>Assim, teremos em apenas uma coluna informações sobre os candidatos a prefeito e vice-prefeito que estão na mesma chapa, na mesma cidade e na mesma UF.</p>
 
 <pre><code class="language-r">consulta_merged &lt;- consulta_prefeito %&gt;%
   left_join(consulta_vice_prefeito, 
             by = c(&quot;SG_UF&quot;, &quot;NM_UE&quot;, &quot;DS_COMPOSICAO_COLIGACAO&quot;))
 </code></pre>
 
-<p>quais são as chapas mais frentes?
-identificamos que chapas &lsquo;puro sangue&rsquo; são as mais frequentes</p>
+<h4 id="quais-são-as-chapas-mais-frentes">quais são as chapas mais frentes?</h4>
+
+<p>Nós estamos interessados nos partidos dos candidatos às prefeituras (colunas &ldquo;SG_PARTIDO_PREFEITO&rdquo; e &ldquo;SG_PARTIDO_VICE_PREFEITO&rdquo;). Por isso, nós queremos um arquivo que tenha apenas esses dados.</p>
+
+<p>E, com esses dados, vamos criar uma coluna chama &ldquo;chapa&rdquo;, que unirá esses dados de ambas as colunas, separando os partidos por &ldquo;-&rdquo;.</p>
+
+<p>Em seguida, vamos agrupar os dados por &ldquo;chapa&rdquo; e também contar quantas vezes cada chapa apareceu no arquivo. Queremos esses dados estejam ordenados, em ordem decrescente, pela coluna que mostra o número de ocorrências (coluna &ldquo;int&rdquo;).</p>
 
 <pre><code class="language-r">consulta_merged_partido &lt;- consulta_merged %&gt;%
   select(SG_PARTIDO_PREFEITO, SG_PARTIDO_VICE_PREFEITO) %&gt;%
@@ -443,28 +539,36 @@ identificamos que chapas &lsquo;puro sangue&rsquo; são as mais frequentes</p>
   arrange(desc(int))
 </code></pre>
 
-<p>a quais chapas o PSL fez parte?
-identificamos ainda PT-PSL 15 vezes e PSL-PT 3 vezes</p>
+<h4 id="a-quais-chapas-o-psl-fez-parte">a quais chapas o PSL fez parte?</h4>
+
+<p>Agora que sabemos quais foram as chapas mais frequentes em 2016, nós queremos saber em quais casos o PSL aparece. Há alguma chapa do PSL com o PT, por exemplo? O PSL aparece mais como candidato a prefeito nesses casos? Ou como candidato a vice-prefeito?</p>
 
 <pre><code class="language-r">consulta_partido_psl &lt;- consulta_merged_partido %&gt;%
   filter(str_detect(chapa, &quot;PSL&quot;))
 </code></pre>
 
-<p>quais foram as chapas PSL-PT e PT-PSL?</p>
+<h4 id="quais-foram-as-chapas-psl-pt-e-pt-psl">quais foram as chapas PSL-PT e PT-PSL?</h4>
+
+<p>Para saber quais foram as chapas que apresentam a dobradinha PSL-PT ou PT-PSL, nós faremos um filtro no arquivo &ldquo;consulta_merge&rdquo;.</p>
+
+<p>Queremos saber quais são as chapas em que há PSL como candidato a prefeito e PT como candidato a vice-prefeito. Ou PT como candidato a prefeito e PSL como candidato a vice-prefeito.</p>
 
 <pre><code class="language-r">consulta_chapa_psl &lt;- consulta_merged %&gt;%
   filter(SG_PARTIDO_PREFEITO == &quot;PSL&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PT&quot; |
          SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PSL&quot;)
 </code></pre>
 
-<p>em quais casos o PT é cabeça de chapa?
-identificamos PT-PSDB 12 vezes e PT-DEM 5 vezes</p>
+<h4 id="em-quais-casos-o-pt-é-cabeça-de-chapa">em quais casos o PT é cabeça de chapa?</h4>
+
+<p>Se quisermos saber quais foram as chapas em que o PT foi cabeça de chapa na disputa municipal de 2016, nós podemos usar novamente a função str_detect().</p>
 
 <pre><code class="language-r">consulta_partido_pt &lt;- consulta_merged_partido %&gt;%
   filter(str_detect(chapa, &quot;PT - &quot;))
 </code></pre>
 
-<p>quais foram as chapas PT-PSDB e PT-DEM?</p>
+<h4 id="quais-foram-as-chapas-pt-psdb-e-pt-dem">quais foram as chapas PT-PSDB e PT-DEM?</h4>
+
+<p>Da mesma forma, podemos usar novamente o filter() para identificar chapas em que o PT tenha formado uma chapa com o PSDB ou com o DEM.</p>
 
 <pre><code class="language-r">consulta_chapa_pt &lt;- consulta_merged %&gt;%
   filter(SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PSDB&quot; |
@@ -667,6 +771,38 @@ identificamos PT-PSDB 12 vezes e PT-DEM 5 vezes</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -692,20 +828,20 @@ identificamos PT-PSDB 12 vezes e PT-DEM 5 vezes</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566627450"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566627450"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566627450"></script>
-    <script src="/js/jquery.sticky.js?1566627450"></script>
-    <script src="/js/featherlight.min.js?1566627450"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566627450"></script>
-    <script src="/js/highlight.pack.js?1566627450"></script>
+    <script src="/js/clipboard.min.js?1568775631"></script>
+    <script src="/js/perfect-scrollbar.min.js?1568775631"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1568775631"></script>
+    <script src="/js/jquery.sticky.js?1568775631"></script>
+    <script src="/js/featherlight.min.js?1568775631"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1568775631"></script>
+    <script src="/js/highlight.pack.js?1568775631"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566627450"></script>
-    <script src="/js/learn.js?1566627450"></script>
-    <script src="/js/hugo-learn.js?1566627450"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1568775631"></script>
+    <script src="/js/learn.js?1568775631"></script>
+    <script src="/js/hugo-learn.js?1568775631"></script>
 
-    <link href="/mermaid/mermaid.css?1566627450" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566627450"></script>
+    <link href="/mermaid/mermaid.css?1568775631" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1568775631"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

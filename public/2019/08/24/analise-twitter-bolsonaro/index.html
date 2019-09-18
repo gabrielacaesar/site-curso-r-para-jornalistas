@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.0" />
+    <meta name="generator" content="Hugo 0.58.2" />
     <meta name="description" content="Curso de R para jornalistas">
 
 
@@ -12,18 +12,18 @@
     <title>Análise - Twitter Bolsonaro :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1566627450" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1566627450" rel="stylesheet">
-    <link href="/css/hybrid.css?1566627450" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1566627450" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1566627450" rel="stylesheet">
-    <link href="/css/auto-complete.css?1566627450" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1566627450" rel="stylesheet">
-    <link href="/css/theme.css?1566627450" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1566627450" rel="stylesheet">
+    <link href="/css/nucleus.css?1568775631" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1568775631" rel="stylesheet">
+    <link href="/css/hybrid.css?1568775631" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1568775631" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1568775631" rel="stylesheet">
+    <link href="/css/auto-complete.css?1568775631" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1568775631" rel="stylesheet">
+    <link href="/css/theme.css?1568775631" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1568775631" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1566627450"></script>
+    <script src="/js/jquery-3.3.1.min.js?1568775631"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1566627450"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1566627450"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1568775631"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1568775631"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1566627450"></script>
+<script type="text/javascript" src="/js/search.js?1568775631"></script>
 
     
   </div>
@@ -264,6 +264,44 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1/01/01/" title="" class="dd-item ">
+        <a href="/1/01/01/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1/01/01/" title="" class="dd-item ">
+        <a href="/1/01/01/">
+        
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -339,7 +377,26 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#instalar-as-bibliotecas">instalar as bibliotecas</a></li>
+<li><a href="#ler-as-bibliotecas">ler as bibliotecas</a></li>
+<li><a href="#ler-o-arquivo">ler o arquivo</a></li>
+<li><a href="#qual-tweet-favoritado-teve-mais-rts">qual tweet &lsquo;favoritado&rsquo; teve mais RTs?</a></li>
+<li><a href="#qual-tweet-favoritado-teve-mais-replies">qual tweet &lsquo;favoritado&rsquo; teve mais replies?</a></li>
+<li><a href="#qual-tweet-favoritado-teve-mais-likes">qual tweet &lsquo;favoritado&rsquo; teve mais likes?</a></li>
+<li><a href="#quais-foram-as-pessoas-mais-favoritadas">quais foram as pessoas mais &lsquo;favoritadas&rsquo;?</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -377,25 +434,41 @@
 
 
 
-<p>instalar as bibliotecas</p>
+
+
+<p>Nesta primeira análise, nós vamos mexer com os dados do Twitter do Bolsonaro. Os dados foram extraídos do perfil do presidente na rede social.</p>
+
+<h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
+
+<p>Abaixo, nós instalamos (caso seja necessário) os pacotes que serão usados nesta análise com a função <code>install.packages()</code>.</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;data.table&quot;)
 </code></pre>
 
-<p>ler as bibliotecas</p>
+<h4 id="ler-as-bibliotecas">ler as bibliotecas</h4>
+
+<p>Em seguida, nós carregamos os pacotes com a função <code>library()</code>. Sempre quando começar uma nova análise, precisamos carregar os pacotes.</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(data.table)
 </code></pre>
 
-<p>ler o arquivo</p>
+<h4 id="ler-o-arquivo">ler o arquivo</h4>
+
+<p>Para ler o arquivo (que nesta vez está em um link), nós usamos a função <code>fread()</code>, que faz parte do pacote data.table. Poderíamos ter lido o arquivo com outras funções, mas escolhemos a <code>fread()</code>.</p>
 
 <pre><code class="language-r">bolsonaro_fav &lt;- fread(&quot;https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv&quot;,
                        encoding = &quot;UTF-8&quot;)
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais RTs?</p>
+<h4 id="qual-tweet-favoritado-teve-mais-rts">qual tweet &lsquo;favoritado&rsquo; teve mais RTs?</h4>
+
+<p>Abaixo, nós criamos um novo arquivo chamado &ldquo;fav_RTs&rdquo; que é feito com base no arquivo que criamos anteriormente.</p>
+
+<p>O arquivo &ldquo;fav_RTs&rdquo; é ordenado, em ordem decrescente, considerando os números da coluna &ldquo;retweets_count&rdquo; (que informa o número de vezes em que o tweet foi retuítado). Para isso usamos, as funções <code>arrange(desc)</code>.</p>
+
+<p>Depois, nós apenas perguntamos qual é o conteúdo do tweet (coluna &ldquo;tweet&rdquo;) desse arquivo &ldquo;fav_RTs&rdquo; na primeira linha. E também qual é o usuário (coluna &ldquo;username&rdquo;) desse mesmo arquivo na primeira linha.</p>
 
 <pre><code class="language-r">fav_RTs &lt;- bolsonaro_fav %&gt;%
   arrange(desc(retweets_count))
@@ -404,7 +477,11 @@ fav_RTs$tweet[1]
 fav_RTs$username[1]
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais replies?</p>
+<h4 id="qual-tweet-favoritado-teve-mais-replies">qual tweet &lsquo;favoritado&rsquo; teve mais replies?</h4>
+
+<p>Agora, nós queremos descobrir qual foi o tweet &lsquo;favoritado&rsquo; que teve mais replies. Para isso, nós criamos outro arquivo, chamado de &ldquo;fav_Replies&rdquo;, que é o arquivo original com uma nova ordenação. Desta vez, o arquivo é ordenado considerando a coluna &ldquo;replies_count&rdquo;, em ordem decrescente.</p>
+
+<p>Da mesma forma, queremos saber, em seguida, qual é o primeiro tweet do nosso arquivo e qual é o usuário responsável.</p>
 
 <pre><code class="language-r">fav_Replies &lt;- bolsonaro_fav %&gt;%
   arrange(desc(replies_count))
@@ -413,7 +490,9 @@ fav_Replies$tweet[1]
 fav_Replies$username[1]
 </code></pre>
 
-<p>qual tweet &lsquo;favoritado&rsquo; teve mais likes?</p>
+<h4 id="qual-tweet-favoritado-teve-mais-likes">qual tweet &lsquo;favoritado&rsquo; teve mais likes?</h4>
+
+<p>Fazemos agora o mesmo procedimento só que com a coluna &ldquo;likes_count&rdquo;.</p>
 
 <pre><code class="language-r">fav_Likes &lt;- bolsonaro_fav %&gt;%
   arrange(desc(likes_count))
@@ -422,7 +501,13 @@ fav_Likes$tweet[1]
 fav_Likes$username[1]
 </code></pre>
 
-<p>quais foram as pessoas mais &lsquo;favoritadas&rsquo;?</p>
+<h4 id="quais-foram-as-pessoas-mais-favoritadas">quais foram as pessoas mais &lsquo;favoritadas&rsquo;?</h4>
+
+<p>Por fim, agora queremos saber quais são as pessoas mais favoritados por Bolsonaro. Por isso, criamos um novo arquivo chamado &ldquo;fav_Users&rdquo;, que é feito com base no arquivo original. Primeiro, agrupamos os dados por usuário (coluna &ldquo;username&rdquo;), com a função <code>group_by()</code>.</p>
+
+<p>Em seguida, contamos o número de vezes em que cada usuário aparece, com a função <code>summarise()</code> e <code>n()</code>.</p>
+
+<p>Por fim, colocamos tudo em ordem decrescente (<code>arrange(desc)</code>), considerando a coluna que conta o número de vezes em que cada usuário aparece (coluna &ldquo;int&rdquo;). Também pedimos para ver apenas as cinco primeiras linhas do arquivo, com a função <code>head()</code>.</p>
 
 <pre><code class="language-r">fav_Users &lt;- bolsonaro_fav %&gt;%
   group_by(username) %&gt;%
@@ -628,6 +713,38 @@ head(fav_Users)
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -653,20 +770,20 @@ head(fav_Users)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566627450"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566627450"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566627450"></script>
-    <script src="/js/jquery.sticky.js?1566627450"></script>
-    <script src="/js/featherlight.min.js?1566627450"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566627450"></script>
-    <script src="/js/highlight.pack.js?1566627450"></script>
+    <script src="/js/clipboard.min.js?1568775631"></script>
+    <script src="/js/perfect-scrollbar.min.js?1568775631"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1568775631"></script>
+    <script src="/js/jquery.sticky.js?1568775631"></script>
+    <script src="/js/featherlight.min.js?1568775631"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1568775631"></script>
+    <script src="/js/highlight.pack.js?1568775631"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566627450"></script>
-    <script src="/js/learn.js?1566627450"></script>
-    <script src="/js/hugo-learn.js?1566627450"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1568775631"></script>
+    <script src="/js/learn.js?1568775631"></script>
+    <script src="/js/hugo-learn.js?1568775631"></script>
 
-    <link href="/mermaid/mermaid.css?1566627450" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566627450"></script>
+    <link href="/mermaid/mermaid.css?1568775631" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1568775631"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
