@@ -79,7 +79,7 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</descript
       
       <guid>/2019/08/24/analise-eleicoes-2016/</guid>
       <description>Esta análise usará os dados eleições de 2016 para mostrar algumas possibilidades do R. O download do arquivo usado abaixo pode ser feito no repositório de dados do TSE. O caminho neste link é &amp;ldquo;Candidatos &amp;gt; 2016 &amp;gt; Candidatos (formato ZIP)&amp;rdquo;.
-instalar as bibliotecas Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar novamente esse código com a função install.packages().
+instalar as bibliotecas Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função install.packages().
 install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;data.table&amp;quot;)  carregar as bibliotecas Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</description>
     </item>
     

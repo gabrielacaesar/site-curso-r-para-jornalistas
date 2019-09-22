@@ -12,18 +12,18 @@
     <title>Análise - Eleições 2016 :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1569161509" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569161509" rel="stylesheet">
-    <link href="/css/hybrid.css?1569161509" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569161509" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569161509" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569161509" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569161509" rel="stylesheet">
-    <link href="/css/theme.css?1569161509" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569161509" rel="stylesheet">
+    <link href="/css/nucleus.css?1569161651" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569161651" rel="stylesheet">
+    <link href="/css/hybrid.css?1569161651" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569161651" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569161651" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569161651" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569161651" rel="stylesheet">
+    <link href="/css/theme.css?1569161651" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569161651" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569161509"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569161651"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569161509"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569161509"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569161651"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569161651"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569161509"></script>
+<script type="text/javascript" src="/js/search.js?1569161651"></script>
 
     
   </div>
@@ -445,7 +445,7 @@
 
 <h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
 
-<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar novamente esse código com a função install.packages().</p>
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função <code>install.packages()</code>.</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;data.table&quot;)
@@ -453,7 +453,7 @@ install.packages(&quot;data.table&quot;)
 
 <h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
 
-<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função <code>library()</code>.</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(data.table)
@@ -470,7 +470,7 @@ library(data.table)
 
 <h4 id="dados-completos-de-candidaturas">dados completos de candidaturas</h4>
 
-<p>Depois, usamos a função fread() para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).</p>
+<p>Depois, usamos a função <code>fread()</code> para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).</p>
 
 <pre><code class="language-r">consulta_cand_BR &lt;- fread(&quot;consulta_cand_2016_BRASIL.csv&quot;)
 </code></pre>
@@ -512,7 +512,7 @@ library(data.table)
 
 <h4 id="cruzamento-do-dados-de-prefeito-e-vice-prefeito">cruzamento do dados de prefeito e vice-prefeito</h4>
 
-<p>Esta etapa é bem importante. Nós agora vamos cruzar os dois arquivos criados anteriormente (&ldquo;consulta_prefeito&rdquo; e &ldquo;consulta_vice_prefeito&rdquo;). O cruzamento desses arquivos se chamará &ldquo;consulta_merged&rdquo;.</p>
+<p>Esta etapa é bem importante. Nós agora vamos cruzar, com <code>left_join()</code>, os dois arquivos criados anteriormente (&ldquo;consulta_prefeito&rdquo; e &ldquo;consulta_vice_prefeito&rdquo;). O cruzamento desses arquivos se chamará &ldquo;consulta_merged&rdquo;.</p>
 
 <p>Para o cruzamento, não vamos levar em conta apenas uma coluna, mas sim três colunas. Para haver correspondência de um arquivo com o outro, ambos devem ter valores iguais nas colunas &ldquo;SG_UF&rdquo;, &ldquo;NM_UE&rdquo;, &ldquo;DS_COMPOSICAO_COLIGACAO&rdquo;.</p>
 
@@ -560,7 +560,7 @@ library(data.table)
 
 <h4 id="em-quais-casos-o-pt-é-cabeça-de-chapa">em quais casos o PT é cabeça de chapa?</h4>
 
-<p>Se quisermos saber quais foram as chapas em que o PT foi cabeça de chapa na disputa municipal de 2016, nós podemos usar novamente a função str_detect().</p>
+<p>Se quisermos saber quais foram as chapas em que o PT foi cabeça de chapa na disputa municipal de 2016, nós podemos usar novamente a função <code>str_detect()</code>.</p>
 
 <pre><code class="language-r">consulta_partido_pt &lt;- consulta_merged_partido %&gt;%
   filter(str_detect(chapa, &quot;PT - &quot;))
@@ -568,7 +568,7 @@ library(data.table)
 
 <h4 id="quais-foram-as-chapas-pt-psdb-e-pt-dem">quais foram as chapas PT-PSDB e PT-DEM?</h4>
 
-<p>Da mesma forma, podemos usar novamente o filter() para identificar chapas em que o PT tenha formado uma chapa com o PSDB ou com o DEM.</p>
+<p>Da mesma forma, podemos usar novamente o <code>filter()</code> para identificar chapas em que o PT tenha formado uma chapa com o PSDB ou com o DEM.</p>
 
 <pre><code class="language-r">consulta_chapa_pt &lt;- consulta_merged %&gt;%
   filter(SG_PARTIDO_PREFEITO == &quot;PT&quot; &amp; SG_PARTIDO_VICE_PREFEITO == &quot;PSDB&quot; |
@@ -828,20 +828,20 @@ library(data.table)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569161509"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569161509"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569161509"></script>
-    <script src="/js/jquery.sticky.js?1569161509"></script>
-    <script src="/js/featherlight.min.js?1569161509"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1569161509"></script>
-    <script src="/js/highlight.pack.js?1569161509"></script>
+    <script src="/js/clipboard.min.js?1569161651"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569161651"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569161651"></script>
+    <script src="/js/jquery.sticky.js?1569161651"></script>
+    <script src="/js/featherlight.min.js?1569161651"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1569161651"></script>
+    <script src="/js/highlight.pack.js?1569161651"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569161509"></script>
-    <script src="/js/learn.js?1569161509"></script>
-    <script src="/js/hugo-learn.js?1569161509"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569161651"></script>
+    <script src="/js/learn.js?1569161651"></script>
+    <script src="/js/hugo-learn.js?1569161651"></script>
 
-    <link href="/mermaid/mermaid.css?1569161509" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569161509"></script>
+    <link href="/mermaid/mermaid.css?1569161651" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569161651"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

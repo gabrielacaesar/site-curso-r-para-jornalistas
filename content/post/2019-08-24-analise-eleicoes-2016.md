@@ -11,14 +11,14 @@ weight: 7
 Esta análise usará os dados eleições de 2016 para mostrar algumas possibilidades do R. O download do arquivo usado abaixo pode ser feito no repositório de dados do TSE. O caminho neste link é "Candidatos > 2016 > Candidatos (formato ZIP)".
 
 #### instalar as bibliotecas
-Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar novamente esse código com a função install.packages().
+Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função `install.packages()`.
 
 ```{r}
 install.packages("tidyverse")
 install.packages("data.table")
 ```
 #### carregar as bibliotecas
-Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().
+Em seguida, precisamos carregar os pacotes que serão usados na análise com a função `library()`.
 
 ```{r}
 library(tidyverse)
@@ -32,7 +32,7 @@ Isso vai de computador para computador. O nome da pasta "consulta_cand_15ago2019
 setwd("~/Downloads/consulta_cand_2016_15ago2019")
 ```
 #### dados completos de candidaturas
-Depois, usamos a função fread() para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).
+Depois, usamos a função `fread()` para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).
 
 ```{r}
 consulta_cand_BR <- fread("consulta_cand_2016_BRASIL.csv")
@@ -71,7 +71,7 @@ consulta_vice_prefeito <- consulta_cand_BR %>%
          "DS_SIT_TOT_TURNO_VICE_PREFEITO" = DS_SIT_TOT_TURNO)
 ```
 #### cruzamento do dados de prefeito e vice-prefeito
-Esta etapa é bem importante. Nós agora vamos cruzar os dois arquivos criados anteriormente ("consulta_prefeito" e "consulta_vice_prefeito"). O cruzamento desses arquivos se chamará "consulta_merged". 
+Esta etapa é bem importante. Nós agora vamos cruzar, com `left_join()`, os dois arquivos criados anteriormente ("consulta_prefeito" e "consulta_vice_prefeito"). O cruzamento desses arquivos se chamará "consulta_merged". 
 
 Para o cruzamento, não vamos levar em conta apenas uma coluna, mas sim três colunas. Para haver correspondência de um arquivo com o outro, ambos devem ter valores iguais nas colunas "SG_UF", "NM_UE", "DS_COMPOSICAO_COLIGACAO". 
 
@@ -114,14 +114,14 @@ consulta_chapa_psl <- consulta_merged %>%
          SG_PARTIDO_PREFEITO == "PT" & SG_PARTIDO_VICE_PREFEITO == "PSL")
 ```
 #### em quais casos o PT é cabeça de chapa?
-Se quisermos saber quais foram as chapas em que o PT foi cabeça de chapa na disputa municipal de 2016, nós podemos usar novamente a função str_detect(). 
+Se quisermos saber quais foram as chapas em que o PT foi cabeça de chapa na disputa municipal de 2016, nós podemos usar novamente a função `str_detect()`. 
 
 ```{r}
 consulta_partido_pt <- consulta_merged_partido %>%
   filter(str_detect(chapa, "PT - "))
 ```
 #### quais foram as chapas PT-PSDB e PT-DEM?
-Da mesma forma, podemos usar novamente o filter() para identificar chapas em que o PT tenha formado uma chapa com o PSDB ou com o DEM. 
+Da mesma forma, podemos usar novamente o `filter()` para identificar chapas em que o PT tenha formado uma chapa com o PSDB ou com o DEM. 
 
 ```{r}
 consulta_chapa_pt <- consulta_merged %>%
