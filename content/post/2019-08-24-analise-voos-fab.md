@@ -9,7 +9,7 @@ weight: 8
 ---
 
 #### instalar as bibliotecas
-Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função install.packages().
+Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função `install.packages()`.
 
 ```{r}
 install.packages("tidyverse")
@@ -17,7 +17,7 @@ install.packages("rvest")
 install.packages("downloader")
 ```
 #### carregar as bibliotecas
-Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().
+Em seguida, precisamos carregar os pacotes que serão usados na análise com a função `library()`.
 ```{r}
 library(tidyverse)
 library(rvest)
@@ -32,15 +32,15 @@ Não há arquivo na pasta que acabamos de criar. Mas os arquivos que vamos baixa
 dir.create("~/Downloads/PDFvoosFAB")
 setwd("~/Downloads/PDFvoosFAB")
 ```
-ler URL da página de interesse
+#### ler URL da página de interesse
 Agora, nós informamos qual é o nosso link de interesse. O link deve estar entre aspas. E nós vamos dar o nome de "url".
 ```{r}
 url <- "http://www.fab.mil.br/voos"
 ```
 #### coleta de URLs da página de interesse
-Neste momento, nós vamos criar um novo arquivo chamado "urls", que é formado a partir do arquivo "url". Nós vamos primeiro usar a função read_html() para ler o HTML da página. Depois, nós procuramos por elementos com a tag "a", com a função html_nodes(). E informamos que queremos o atributo "href" dentro dessas tags, com a função html_attr(). 
+Neste momento, nós vamos criar um novo arquivo chamado "urls", que é formado a partir do arquivo "url". Nós vamos primeiro usar a função `read_html()` para ler o HTML da página. Depois, nós procuramos por elementos com a tag "a", com a função `html_nodes()`. E informamos que queremos o atributo "href" dentro dessas tags, com a função `html_attr()`. 
 
-Por fim, para visualizar, nós pedimos para ver o arquivo como dataframe, com a função as.data.frame(). Queremos que o cabeçalho desse arquivo receba o nome "link".
+Por fim, para visualizar, nós pedimos para ver o arquivo como dataframe, com a função `as.data.frame()`. Queremos que o cabeçalho desse arquivo receba o nome "link".
 
 ```{r}
 urls <- url %>%

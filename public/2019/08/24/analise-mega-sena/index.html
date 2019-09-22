@@ -12,18 +12,18 @@
     <title>Análise - Mega Sena :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1569161246" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569161246" rel="stylesheet">
-    <link href="/css/hybrid.css?1569161246" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569161246" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569161246" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569161246" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569161246" rel="stylesheet">
-    <link href="/css/theme.css?1569161246" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569161246" rel="stylesheet">
+    <link href="/css/nucleus.css?1569161509" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569161509" rel="stylesheet">
+    <link href="/css/hybrid.css?1569161509" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569161509" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569161509" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569161509" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569161509" rel="stylesheet">
+    <link href="/css/theme.css?1569161509" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569161509" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569161246"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569161509"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569161246"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569161246"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569161509"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569161509"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569161246"></script>
+<script type="text/javascript" src="/js/search.js?1569161509"></script>
 
     
   </div>
@@ -448,7 +448,7 @@
 
 <h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
 
-<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código abaixo, que usa a função install.packages().</p>
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código abaixo, que usa a função <code>install.packages()</code>.</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;openxlsx&quot;)
@@ -456,7 +456,7 @@ install.packages(&quot;openxlsx&quot;)
 
 <h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
 
-<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função <code>library()</code>.</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(openxlsx)
@@ -487,11 +487,11 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
 <h4 id="quando-foi-o-primeiro-sorteiro-do-nosso-arquivo">quando foi o primeiro sorteiro do nosso arquivo?</h4>
 
-<p>Criamos um novo arquivo chamado &ldquo;megasena_df&rdquo;, criado com base no arquivo &ldquo;megasena&rdquo;. Logo depois, usamos a função separate() para separar o conteúdo da coluna &ldquo;Data.Sorteio&rdquo; em mais colunas, considerando o separador &ldquo;/&rdquo;.</p>
+<p>Criamos um novo arquivo chamado &ldquo;megasena_df&rdquo;, criado com base no arquivo &ldquo;megasena&rdquo;. Logo depois, usamos a função <code>separate()</code> para separar o conteúdo da coluna &ldquo;Data.Sorteio&rdquo; em mais colunas, considerando o separador &ldquo;/&rdquo;.</p>
 
 <p>As novas colunas criadas recebem os nomes de &ldquo;dia&rdquo;, &ldquo;mes&rdquo; e &ldquo;ano&rdquo;. Como queremos manter a coluna &ldquo;Data.Sorteio&rdquo; também em seu formato original, nós adicionamos &ldquo;remove = FALSE&rdquo;.</p>
 
-<p>Por fim, usamos o arrange() para ordenar os dados considerando as colunas &ldquo;mes&rdquo; e &ldquo;ano&rdquo;.</p>
+<p>Por fim, usamos o <code>arrange()</code> para ordenar os dados considerando as colunas &ldquo;mes&rdquo; e &ldquo;ano&rdquo;.</p>
 
 <pre><code class="language-r">megasena_df &lt;- megasena %&gt;%
   separate(Data.Sorteio, c(&quot;dia&quot;, &quot;mes&quot;, &quot;ano&quot;), sep = &quot;/&quot;, remove = FALSE) %&gt;%
@@ -508,7 +508,7 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
 <h4 id="em-qual-concurso-mais-pessoas-foram-premiadas">em qual concurso mais pessoas foram premiadas?</h4>
 
-<p>Desta vez, queremos transformar os dados da coluna &ldquo;Ganhadores_Sena&rdquo; em número e usamos as funções mutate() e as.numeric(). Depois também reordenamos com arrange() e desc().</p>
+<p>Desta vez, queremos transformar os dados da coluna &ldquo;Ganhadores_Sena&rdquo; em número e usamos as funções <code>mutate()</code> e <code>as.numeric()</code>. Depois também reordenamos com <code>arrange()</code> e <code>desc()</code>.</p>
 
 <pre><code class="language-r">megasena_df &lt;- megasena_df %&gt;%
   mutate(Ganhadores_Sena = as.numeric(Ganhadores_Sena)) %&gt;%
@@ -517,7 +517,7 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
 <h4 id="quantas-vezes-a-mega-sena-acumulou">quantas vezes a mega-sena acumulou?</h4>
 
-<p>Para descobrirmos quantas vezes a Mega Sena acumulou, nós vamos agrupar os dados considerando a coluna &ldquo;Acumulado&rdquo;, com a função group_by(). Também queremos contar quantas linhas aparecem em cada variável da coluna &ldquo;Acumulado&rdquo; e, por isso, usamos também summarise() e n().</p>
+<p>Para descobrirmos quantas vezes a Mega Sena acumulou, nós vamos agrupar os dados considerando a coluna &ldquo;Acumulado&rdquo;, com a função <code>group_by()</code>. Também queremos contar quantas linhas aparecem em cada variável da coluna &ldquo;Acumulado&rdquo; e, por isso, usamos também <code>summarise()</code> e <code>n()</code>.</p>
 
 <pre><code class="language-r">megasena_acumulada &lt;- megasena_df %&gt;%
   group_by(Acumulado) %&gt;%
@@ -578,7 +578,7 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
 <h4 id="empilhar-todos-os-arquivos-acima">empilhar todos os arquivos acima</h4>
 
-<p>Agora que nós já temos os números mais frequentes sorteados na primeira, na segunda, na terceira, na quarta, na quinta e na sexta bola do concurso. Os cabeçalhos desses arquivos são iguais. E agora vamos empilhar esses arquivos com a função rbind().</p>
+<p>Agora que nós já temos os números mais frequentes sorteados na primeira, na segunda, na terceira, na quarta, na quinta e na sexta bola do concurso. Os cabeçalhos desses arquivos são iguais. E agora vamos empilhar esses arquivos com a função <code>rbind()</code>.</p>
 
 <pre><code class="language-r">megasena_frequentes &lt;- rbind(megasena_frequentes_1d, 
                              megasena_frequentes_2d, 
@@ -590,9 +590,9 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
 <h4 id="agrupar-por-número-sorteado-e-somar-a-frequência">agrupar por número sorteado e somar a frequência</h4>
 
-<p>O nosso novo arquivo tem os dados de números mais frequentes em cada bola. Mas queremos saber no geral quais foram os números mais frequentes. Por isso, vamos agrupar os dados novamente, com a função group_by().</p>
+<p>O nosso novo arquivo tem os dados de números mais frequentes em cada bola. Mas queremos saber no geral quais foram os números mais frequentes. Por isso, vamos agrupar os dados novamente, com a função <code>group_by()</code>.</p>
 
-<p>Depois, usamos ainda summarise() e sum(). Usamos aqui o sum() porque queremos somar os valores da coluna int, e não apenas contar o número de linhas. Depois, reordenamos os dados, com a função arrange(), para mostrar em ordem decrescente, com a função desc().</p>
+<p>Depois, usamos ainda <code>summarise()</code> e <code>sum()</code>. Usamos aqui o <code>sum()</code> porque queremos somar os valores da coluna int, e não apenas contar o número de linhas. Depois, reordenamos os dados, com a função <code>arrange()</code>, para mostrar em ordem decrescente, com a função <code>desc()</code>.</p>
 
 <pre><code class="language-r">megasena_frequentes &lt;- megasena_frequentes %&gt;%
   group_by(n_sorteado) %&gt;%
@@ -853,20 +853,20 @@ abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569161246"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569161246"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569161246"></script>
-    <script src="/js/jquery.sticky.js?1569161246"></script>
-    <script src="/js/featherlight.min.js?1569161246"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1569161246"></script>
-    <script src="/js/highlight.pack.js?1569161246"></script>
+    <script src="/js/clipboard.min.js?1569161509"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569161509"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569161509"></script>
+    <script src="/js/jquery.sticky.js?1569161509"></script>
+    <script src="/js/featherlight.min.js?1569161509"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1569161509"></script>
+    <script src="/js/highlight.pack.js?1569161509"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569161246"></script>
-    <script src="/js/learn.js?1569161246"></script>
-    <script src="/js/hugo-learn.js?1569161246"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569161509"></script>
+    <script src="/js/learn.js?1569161509"></script>
+    <script src="/js/hugo-learn.js?1569161509"></script>
 
-    <link href="/mermaid/mermaid.css?1569161246" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569161246"></script>
+    <link href="/mermaid/mermaid.css?1569161509" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569161509"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

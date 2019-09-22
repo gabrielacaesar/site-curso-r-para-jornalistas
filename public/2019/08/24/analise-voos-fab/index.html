@@ -12,18 +12,18 @@
     <title>Análise - Voos FAB :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1569161246" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569161246" rel="stylesheet">
-    <link href="/css/hybrid.css?1569161246" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569161246" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569161246" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569161246" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569161246" rel="stylesheet">
-    <link href="/css/theme.css?1569161246" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569161246" rel="stylesheet">
+    <link href="/css/nucleus.css?1569161509" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569161509" rel="stylesheet">
+    <link href="/css/hybrid.css?1569161509" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569161509" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569161509" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569161509" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569161509" rel="stylesheet">
+    <link href="/css/theme.css?1569161509" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569161509" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569161246"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569161509"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569161246"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569161246"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569161509"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569161509"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569161246"></script>
+<script type="text/javascript" src="/js/search.js?1569161509"></script>
 
     
   </div>
@@ -388,6 +388,7 @@
 <li><a href="#instalar-as-bibliotecas">instalar as bibliotecas</a></li>
 <li><a href="#carregar-as-bibliotecas">carregar as bibliotecas</a></li>
 <li><a href="#criar-pasta-e-defini-la-como-local-de-trabalho">criar pasta e defini-la como local de trabalho</a></li>
+<li><a href="#ler-url-da-página-de-interesse">ler URL da página de interesse</a></li>
 <li><a href="#coleta-de-urls-da-página-de-interesse">coleta de URLs da página de interesse</a></li>
 <li><a href="#filtrar-por-urls-que-contenham-o-pdf">filtrar por URLs que contenham o PDF</a></li>
 <li><a href="#criar-iteração-para-baixar-pdfs">criar iteração para baixar PDFs</a></li>
@@ -441,7 +442,7 @@
 
 <h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
 
-<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função install.packages().</p>
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função <code>install.packages()</code>.</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;rvest&quot;)
@@ -450,7 +451,7 @@ install.packages(&quot;downloader&quot;)
 
 <h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
 
-<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função <code>library()</code>.</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(rvest)
@@ -467,17 +468,18 @@ library(downloader)
 setwd(&quot;~/Downloads/PDFvoosFAB&quot;)
 </code></pre>
 
-<p>ler URL da página de interesse
-Agora, nós informamos qual é o nosso link de interesse. O link deve estar entre aspas. E nós vamos dar o nome de &ldquo;url&rdquo;.</p>
+<h4 id="ler-url-da-página-de-interesse">ler URL da página de interesse</h4>
+
+<p>Agora, nós informamos qual é o nosso link de interesse. O link deve estar entre aspas. E nós vamos dar o nome de &ldquo;url&rdquo;.</p>
 
 <pre><code class="language-r">url &lt;- &quot;http://www.fab.mil.br/voos&quot;
 </code></pre>
 
 <h4 id="coleta-de-urls-da-página-de-interesse">coleta de URLs da página de interesse</h4>
 
-<p>Neste momento, nós vamos criar um novo arquivo chamado &ldquo;urls&rdquo;, que é formado a partir do arquivo &ldquo;url&rdquo;. Nós vamos primeiro usar a função read_html() para ler o HTML da página. Depois, nós procuramos por elementos com a tag &ldquo;a&rdquo;, com a função html_nodes(). E informamos que queremos o atributo &ldquo;href&rdquo; dentro dessas tags, com a função html_attr().</p>
+<p>Neste momento, nós vamos criar um novo arquivo chamado &ldquo;urls&rdquo;, que é formado a partir do arquivo &ldquo;url&rdquo;. Nós vamos primeiro usar a função <code>read_html()</code> para ler o HTML da página. Depois, nós procuramos por elementos com a tag &ldquo;a&rdquo;, com a função <code>html_nodes()</code>. E informamos que queremos o atributo &ldquo;href&rdquo; dentro dessas tags, com a função <code>html_attr()</code>.</p>
 
-<p>Por fim, para visualizar, nós pedimos para ver o arquivo como dataframe, com a função as.data.frame(). Queremos que o cabeçalho desse arquivo receba o nome &ldquo;link&rdquo;.</p>
+<p>Por fim, para visualizar, nós pedimos para ver o arquivo como dataframe, com a função <code>as.data.frame()</code>. Queremos que o cabeçalho desse arquivo receba o nome &ldquo;link&rdquo;.</p>
 
 <pre><code class="language-r">urls &lt;- url %&gt;%
   read_html() %&gt;%
@@ -785,20 +787,20 @@ teste_merged_2 &lt;- pdf_combine(files[101:141], output = &quot;joined.pdf&quot;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569161246"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569161246"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569161246"></script>
-    <script src="/js/jquery.sticky.js?1569161246"></script>
-    <script src="/js/featherlight.min.js?1569161246"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1569161246"></script>
-    <script src="/js/highlight.pack.js?1569161246"></script>
+    <script src="/js/clipboard.min.js?1569161509"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569161509"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569161509"></script>
+    <script src="/js/jquery.sticky.js?1569161509"></script>
+    <script src="/js/featherlight.min.js?1569161509"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1569161509"></script>
+    <script src="/js/highlight.pack.js?1569161509"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569161246"></script>
-    <script src="/js/learn.js?1569161246"></script>
-    <script src="/js/hugo-learn.js?1569161246"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569161509"></script>
+    <script src="/js/learn.js?1569161509"></script>
+    <script src="/js/hugo-learn.js?1569161509"></script>
 
-    <link href="/mermaid/mermaid.css?1569161246" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569161246"></script>
+    <link href="/mermaid/mermaid.css?1569161509" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569161509"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
