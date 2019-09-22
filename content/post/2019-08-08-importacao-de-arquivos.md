@@ -64,10 +64,10 @@ enem <- fread("MICRODADOS_ENEM_2018.csv", select = c("NU_NOTA_COMP1",
                                                      "NU_NOTA_REDACAO"))
 ```
 
-#### Importar arquivo já informando a decodificação
-UTF-8 e ISO-8859-1 são exemplos de decodificações - ou "encoding". Ao informar a decodificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
+#### Importar arquivo já informando a codificação
+UTF-8 e ISO-8859-1 são exemplos de codificações - ou "encoding". Ao informar a codificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
 
-A decodificação do arquivo também pode ser informada já na importação do arquivo.
+A codificação do arquivo também pode ser informada já na importação do arquivo.
 
 ```{r}
 bolsonaro_fav <- fread("https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv",

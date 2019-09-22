@@ -17,16 +17,12 @@
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/08/24/analise-mega-sena/</guid>
-      <description>instalar as bibliotecas
-install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;openxlsx&amp;quot;)  carregar as bibliotecas
+      <description>instalar as bibliotecas Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código abaixo, que usa a função install.packages().
+install.packages(&amp;quot;tidyverse&amp;quot;) install.packages(&amp;quot;openxlsx&amp;quot;)  carregar as bibliotecas Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().
 library(tidyverse) library(openxlsx)  baixar os dados link para o download: http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip
 converter os dados em algum site para CSV ou Excel
 como este: http://www.convertcsv.com/html-table-to-csv.htm
-abrir no Excel para deletar erros, como linhas apenas com o nome da UF
-definir o diretório/pasta
-setwd(&amp;quot;~/Downloads/&amp;quot;)  ler o arquivo
-megasena &amp;lt;- read.xlsx(&amp;quot;megasena.xlsx&amp;quot;)  quando foi o primeiro sorteiro do nosso arquivo?
-megasena_df &amp;lt;- megasena %&amp;gt;% separate(Data.</description>
+abrir no Excel para deletar erros, como linhas apenas com o nome da UF</description>
     </item>
     
   </channel>

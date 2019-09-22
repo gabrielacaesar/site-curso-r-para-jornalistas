@@ -12,18 +12,18 @@
     <title>Análise - Voos FAB :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1568775631" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1568775631" rel="stylesheet">
-    <link href="/css/hybrid.css?1568775631" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1568775631" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1568775631" rel="stylesheet">
-    <link href="/css/auto-complete.css?1568775631" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1568775631" rel="stylesheet">
-    <link href="/css/theme.css?1568775631" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1568775631" rel="stylesheet">
+    <link href="/css/nucleus.css?1569161033" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569161033" rel="stylesheet">
+    <link href="/css/hybrid.css?1569161033" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569161033" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569161033" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569161033" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569161033" rel="stylesheet">
+    <link href="/css/theme.css?1569161033" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569161033" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1568775631"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569161033"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1568775631"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1568775631"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569161033"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569161033"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1568775631"></script>
+<script type="text/javascript" src="/js/search.js?1569161033"></script>
 
     
   </div>
@@ -323,7 +323,7 @@
 <p>Criado por Gabriela Caesar</p>
 <p></p>
 <p></p>
-<p>Última atualização em 24/08/2019</p>
+<p>Última atualização em 18/09/2019</p>
 
     </section>
   </div>
@@ -377,7 +377,27 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#instalar-as-bibliotecas">instalar as bibliotecas</a></li>
+<li><a href="#carregar-as-bibliotecas">carregar as bibliotecas</a></li>
+<li><a href="#criar-pasta-e-defini-la-como-local-de-trabalho">criar pasta e defini-la como local de trabalho</a></li>
+<li><a href="#coleta-de-urls-da-página-de-interesse">coleta de URLs da página de interesse</a></li>
+<li><a href="#filtrar-por-urls-que-contenham-o-pdf">filtrar por URLs que contenham o PDF</a></li>
+<li><a href="#criar-iteração-para-baixar-pdfs">criar iteração para baixar PDFs</a></li>
+<li><a href="#identificar-arquivos-com-formato-pdf-na-pasta">identificar arquivos com formato PDF na pasta</a></li>
+<li><a href="#empilhar-pdfs-e-depois-converter-em-site">empilhar PDFs e, depois, converter em site</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -417,32 +437,47 @@
 
 
 
-<p>instalar as bibliotecas</p>
+
+
+<h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
+
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função install.packages().</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;rvest&quot;)
 install.packages(&quot;downloader&quot;)
 </code></pre>
 
-<p>carregar as bibliotecas</p>
+<h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
+
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(rvest)
 library(downloader)
 </code></pre>
 
-<p>criar pasta e defini-la como local de trabalho</p>
+<h4 id="criar-pasta-e-defini-la-como-local-de-trabalho">criar pasta e defini-la como local de trabalho</h4>
+
+<p>Nesta vez, nós vamos criar uma pasta vazia chamada &ldquo;PDFvoosFAB&rdquo;. E nós queremos que essa nova pasta esteja dentro de &ldquo;Downloads&rdquo;. O caminho definido será, portanto, &ldquo;~/Downloads/PDFvoosFAB&rdquo;.</p>
+
+<p>Não há arquivo na pasta que acabamos de criar. Mas os arquivos que vamos baixar ficarão nesta pasta.</p>
 
 <pre><code class="language-r">dir.create(&quot;~/Downloads/PDFvoosFAB&quot;)
 setwd(&quot;~/Downloads/PDFvoosFAB&quot;)
 </code></pre>
 
-<p>ler URL da página de interesse</p>
+<p>ler URL da página de interesse
+Agora, nós informamos qual é o nosso link de interesse. O link deve estar entre aspas. E nós vamos dar o nome de &ldquo;url&rdquo;.</p>
 
 <pre><code class="language-r">url &lt;- &quot;http://www.fab.mil.br/voos&quot;
 </code></pre>
 
-<p>coleta de URLs da página de interesse</p>
+<h4 id="coleta-de-urls-da-página-de-interesse">coleta de URLs da página de interesse</h4>
+
+<p>Neste momento, nós vamos criar um novo arquivo chamado &ldquo;urls&rdquo;, que é formado a partir do arquivo &ldquo;url&rdquo;. Nós vamos primeiro usar a função read_html() para ler o HTML da página. Depois, nós procuramos por elementos com a tag &ldquo;a&rdquo;, com a função html_nodes(). E informamos que queremos o atributo &ldquo;href&rdquo; dentro dessas tags, com a função html_attr().</p>
+
+<p>Por fim, para visualizar, nós pedimos para ver o arquivo como dataframe, com a função as.data.frame(). Queremos que o cabeçalho desse arquivo receba o nome &ldquo;link&rdquo;.</p>
 
 <pre><code class="language-r">urls &lt;- url %&gt;%
   read_html() %&gt;%
@@ -452,13 +487,19 @@ setwd(&quot;~/Downloads/PDFvoosFAB&quot;)
   `colnames&lt;-`(&quot;link&quot;)
 </code></pre>
 
-<p>filtrar por URLs que contenham o PDF</p>
+<h4 id="filtrar-por-urls-que-contenham-o-pdf">filtrar por URLs que contenham o PDF</h4>
+
+<p>No código anterior, nós coletamos todos os links dentro do site. Mas nós queremos apenas os links dos PDF que reúnem dados sobre os voos da FAB. Por isso, agora nós vamos filtrar para manter apenas os links que contenham o texto &ldquo;fab.mil.br/cabine/voos/&rdquo;.</p>
 
 <pre><code class="language-r">urls_voo &lt;- urls %&gt;%
   filter(str_detect(link, &quot;fab.mil.br/cabine/voos/&quot;))
 </code></pre>
 
-<p>criar iteração para baixar PDFs</p>
+<h4 id="criar-iteração-para-baixar-pdfs">criar iteração para baixar PDFs</h4>
+
+<p>Esta etapa é crucial. Criamos uma estrutura de repetição no código abaixo para acessar cada link e fazer o download do PDF. O nome do PDF é o nome original dado ao arquivo pela FAB. Estabelecemos alguns segundos de intervalo entre as requisições para não sobrecarregar o site.</p>
+
+<p>A variável &ldquo;i&rdquo; começa com o valor &ldquo;1&rdquo;. E, por isso, primeiro nós vamos o primeiro PDF da lista. Depois de baixar esse PDF, o código vai acessar o segundo link e baixar o PDF. Isso será feito até o link 141, porque nós informamos isso na estrutura de repetição. Depois de fazer isso, nós podemos já conferir naquela pasta se os arquivos estão lá.</p>
 
 <pre><code class="language-r">i &lt;- 1
 
@@ -474,12 +515,16 @@ while(i &lt; 142) {
 }
 </code></pre>
 
-<p>identificar arquivos com formato PDF na pasta</p>
+<h4 id="identificar-arquivos-com-formato-pdf-na-pasta">identificar arquivos com formato PDF na pasta</h4>
+
+<p>Neste momento, queremos saber quais são os arquivos que têm o formato PDF e que estão no nosso atual diretório/pasta.</p>
 
 <pre><code class="language-r">files &lt;- list.files(pattern = &quot;*.pdf&quot;) 
 </code></pre>
 
-<p>empilhar PDFs e, depois, converter em site
+<h4 id="empilhar-pdfs-e-depois-converter-em-site">empilhar PDFs e, depois, converter em site</h4>
+
+<p>Como eu não consegui descobrir bons pacotes de R que façam a conversão de PDF para CSV/XLSX, nós vamos empilhar os PDFs em um único arquivo para, depois, converter esse arquivo em um site de conversão. Não temos plano e, por isso, não podemos subir um arquivo PDF muito grande, com muitas páginas. Então, vamos criar três PDFs e subir cada um no site.
 <a href="https://www.pdftoexcel.com/">https://www.pdftoexcel.com/</a></p>
 
 <pre><code class="language-r">teste_merged_2 &lt;- pdf_combine(files[1:50], output = &quot;joined.pdf&quot;)
@@ -740,20 +785,20 @@ teste_merged_2 &lt;- pdf_combine(files[101:141], output = &quot;joined.pdf&quot;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1568775631"></script>
-    <script src="/js/perfect-scrollbar.min.js?1568775631"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1568775631"></script>
-    <script src="/js/jquery.sticky.js?1568775631"></script>
-    <script src="/js/featherlight.min.js?1568775631"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1568775631"></script>
-    <script src="/js/highlight.pack.js?1568775631"></script>
+    <script src="/js/clipboard.min.js?1569161033"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569161033"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569161033"></script>
+    <script src="/js/jquery.sticky.js?1569161033"></script>
+    <script src="/js/featherlight.min.js?1569161033"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1569161033"></script>
+    <script src="/js/highlight.pack.js?1569161033"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1568775631"></script>
-    <script src="/js/learn.js?1568775631"></script>
-    <script src="/js/hugo-learn.js?1568775631"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569161033"></script>
+    <script src="/js/learn.js?1569161033"></script>
+    <script src="/js/hugo-learn.js?1569161033"></script>
 
-    <link href="/mermaid/mermaid.css?1568775631" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1568775631"></script>
+    <link href="/mermaid/mermaid.css?1569161033" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569161033"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

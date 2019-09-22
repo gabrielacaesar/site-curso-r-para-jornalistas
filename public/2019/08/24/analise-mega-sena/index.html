@@ -12,18 +12,18 @@
     <title>Análise - Mega Sena :: Curso de R para jornalistas</title>
 
     
-    <link href="/css/nucleus.css?1568775631" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1568775631" rel="stylesheet">
-    <link href="/css/hybrid.css?1568775631" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1568775631" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1568775631" rel="stylesheet">
-    <link href="/css/auto-complete.css?1568775631" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1568775631" rel="stylesheet">
-    <link href="/css/theme.css?1568775631" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1568775631" rel="stylesheet">
+    <link href="/css/nucleus.css?1569161033" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569161033" rel="stylesheet">
+    <link href="/css/hybrid.css?1569161033" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569161033" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569161033" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569161033" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569161033" rel="stylesheet">
+    <link href="/css/theme.css?1569161033" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569161033" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1568775631"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569161033"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1568775631"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1568775631"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569161033"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569161033"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1568775631"></script>
+<script type="text/javascript" src="/js/search.js?1569161033"></script>
 
     
   </div>
@@ -323,7 +323,7 @@
 <p>Criado por Gabriela Caesar</p>
 <p></p>
 <p></p>
-<p>Última atualização em 24/08/2019</p>
+<p>Última atualização em 18/09/2019</p>
 
     </section>
   </div>
@@ -377,7 +377,36 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#instalar-as-bibliotecas">instalar as bibliotecas</a></li>
+<li><a href="#carregar-as-bibliotecas">carregar as bibliotecas</a></li>
+<li><a href="#baixar-os-dados">baixar os dados</a></li>
+<li><a href="#definir-o-diretório-pasta">definir o diretório/pasta</a></li>
+<li><a href="#ler-o-arquivo">ler o arquivo</a></li>
+<li><a href="#quando-foi-o-primeiro-sorteiro-do-nosso-arquivo">quando foi o primeiro sorteiro do nosso arquivo?</a></li>
+<li><a href="#quando-foi-o-último-sorteio-do-nosso-arquivo">quando foi o último sorteio do nosso arquivo?</a></li>
+<li><a href="#em-qual-concurso-mais-pessoas-foram-premiadas">em qual concurso mais pessoas foram premiadas?</a></li>
+<li><a href="#quantas-vezes-a-mega-sena-acumulou">quantas vezes a mega-sena acumulou?</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-primeira-bola">ver quais foram números mais sorteados na primeira bola</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-segunda-bola">ver quais foram números mais sorteados na segunda bola</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-terceira-bola">ver quais foram números mais sorteados na terceira bola</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-quarta-bola">ver quais foram números mais sorteados na quarta bola</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-quinta-bola">ver quais foram números mais sorteados na quinta bola</a></li>
+<li><a href="#ver-quais-foram-números-mais-sorteados-na-sexta-bola">ver quais foram números mais sorteados na sexta bola</a></li>
+<li><a href="#empilhar-todos-os-arquivos-acima">empilhar todos os arquivos acima</a></li>
+<li><a href="#agrupar-por-número-sorteado-e-somar-a-frequência">agrupar por número sorteado e somar a frequência</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -415,65 +444,89 @@
 
 
 
-<p>instalar as bibliotecas</p>
+
+
+<h4 id="instalar-as-bibliotecas">instalar as bibliotecas</h4>
+
+<p>Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código abaixo, que usa a função install.packages().</p>
 
 <pre><code class="language-r">install.packages(&quot;tidyverse&quot;)
 install.packages(&quot;openxlsx&quot;)
 </code></pre>
 
-<p>carregar as bibliotecas</p>
+<h4 id="carregar-as-bibliotecas">carregar as bibliotecas</h4>
+
+<p>Em seguida, precisamos carregar os pacotes que serão usados na análise com a função library().</p>
 
 <pre><code class="language-r">library(tidyverse)
 library(openxlsx)
 </code></pre>
 
-<p>baixar os dados
-link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip">http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip</a></p>
+<h4 id="baixar-os-dados">baixar os dados</h4>
 
-<p>converter os dados em algum site para CSV ou Excel</p>
+<p>link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip">http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_megase.zip</a><br />
+converter os dados em algum site para CSV ou Excel<br />
+como este: <a href="http://www.convertcsv.com/html-table-to-csv.htm">http://www.convertcsv.com/html-table-to-csv.htm</a><br />
+abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
 
-<p>como este: <a href="http://www.convertcsv.com/html-table-to-csv.htm">http://www.convertcsv.com/html-table-to-csv.htm</a></p>
+<h4 id="definir-o-diretório-pasta">definir o diretório/pasta</h4>
 
-<p>abrir no Excel para deletar erros, como linhas apenas com o nome da UF</p>
+<p>Para importar o arquivo do TSE, informamos onde está o arquivo. Neste caso, o arquivo está na pasta “Downloads”.</p>
 
-<p>definir o diretório/pasta</p>
+<p>Isso vai de computador para computador. O arquivo XLSX está na pasta &ldquo;Downloads&rdquo;.</p>
 
 <pre><code class="language-r">setwd(&quot;~/Downloads/&quot;)
 </code></pre>
 
-<p>ler o arquivo</p>
+<h4 id="ler-o-arquivo">ler o arquivo</h4>
+
+<p>Importamos o nosso arquivo XLSX.</p>
 
 <pre><code class="language-r">megasena &lt;- read.xlsx(&quot;megasena.xlsx&quot;)
 </code></pre>
 
-<p>quando foi o primeiro sorteiro do nosso arquivo?</p>
+<h4 id="quando-foi-o-primeiro-sorteiro-do-nosso-arquivo">quando foi o primeiro sorteiro do nosso arquivo?</h4>
+
+<p>Criamos um novo arquivo chamado &ldquo;megasena_df&rdquo;, criado com base no arquivo &ldquo;megasena&rdquo;. Logo depois, usamos a função separate() para separar o conteúdo da coluna &ldquo;Data.Sorteio&rdquo; em mais colunas, considerando o separador &ldquo;/&rdquo;.</p>
+
+<p>As novas colunas criadas recebem os nomes de &ldquo;dia&rdquo;, &ldquo;mes&rdquo; e &ldquo;ano&rdquo;. Como queremos manter a coluna &ldquo;Data.Sorteio&rdquo; também em seu formato original, nós adicionamos &ldquo;remove = FALSE&rdquo;.</p>
+
+<p>Por fim, usamos o arrange() para ordenar os dados considerando as colunas &ldquo;mes&rdquo; e &ldquo;ano&rdquo;.</p>
 
 <pre><code class="language-r">megasena_df &lt;- megasena %&gt;%
   separate(Data.Sorteio, c(&quot;dia&quot;, &quot;mes&quot;, &quot;ano&quot;), sep = &quot;/&quot;, remove = FALSE) %&gt;%
   arrange(mes, ano)
 </code></pre>
 
-<p>quando foi o último sorteio do nosso arquivo?</p>
+<h4 id="quando-foi-o-último-sorteio-do-nosso-arquivo">quando foi o último sorteio do nosso arquivo?</h4>
+
+<p>Agora apenas reordenamos o arquivo em ordem decrescente, considerando a coluna &ldquo;ano&rdquo;.</p>
 
 <pre><code class="language-r">megasena_df &lt;- megasena_df %&gt;%
   arrange(desc(ano))
 </code></pre>
 
-<p>em qual concurso mais pessoas foram premiadas?</p>
+<h4 id="em-qual-concurso-mais-pessoas-foram-premiadas">em qual concurso mais pessoas foram premiadas?</h4>
+
+<p>Desta vez, queremos transformar os dados da coluna &ldquo;Ganhadores_Sena&rdquo; em número e usamos as funções mutate() e as.numeric(). Depois também reordenamos com arrange() e desc().</p>
 
 <pre><code class="language-r">megasena_df &lt;- megasena_df %&gt;%
   mutate(Ganhadores_Sena = as.numeric(Ganhadores_Sena)) %&gt;%
   arrange(desc(Ganhadores_Sena))
 </code></pre>
 
-<p>quantas vezes a mega-sena acumulou?</p>
+<h4 id="quantas-vezes-a-mega-sena-acumulou">quantas vezes a mega-sena acumulou?</h4>
+
+<p>Para descobrirmos quantas vezes a Mega Sena acumulou, nós vamos agrupar os dados considerando a coluna &ldquo;Acumulado&rdquo;, com a função group_by(). Também queremos contar quantas linhas aparecem em cada variável da coluna &ldquo;Acumulado&rdquo; e, por isso, usamos também summarise() e n().</p>
 
 <pre><code class="language-r">megasena_acumulada &lt;- megasena_df %&gt;%
   group_by(Acumulado) %&gt;%
   summarise(int = n())
 </code></pre>
 
-<p>ver quais foram números mais sorteados na primeira bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-primeira-bola">ver quais foram números mais sorteados na primeira bola</h4>
+
+<p>A partir de agora, começamos a missão para descobrir quais foram os números mais sorteados nos concursos da Mega Sena. Vamos agrupar os dados apenas da coluna &ldquo;1ª.Dezena&rdquo;, que tem os primeiros números sorteados em cada concurso. Depois, vamos contar quantas vezes cada número apareceu. E depois vamos renomear a coluna para &ldquo;n_sorteado&rdquo;.</p>
 
 <pre><code class="language-r">megasena_frequentes_1d &lt;- megasena_df %&gt;%
   group_by(`1ª.Dezena`) %&gt;%
@@ -481,7 +534,9 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `1ª.Dezena`)
 </code></pre>
 
-<p>ver quais foram números mais sorteados na segunda bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-segunda-bola">ver quais foram números mais sorteados na segunda bola</h4>
+
+<p>Faremos o mesmo procedimento anterior, só que com as demais colunas. Ou seja, com os dados da segunda bola sorteada. Depois, com os dados da terceira bola sorteada, da quarta bola sorteada etc.</p>
 
 <pre><code class="language-r">megasena_frequentes_2d &lt;- megasena_df %&gt;%
   group_by(`2ª.Dezena`) %&gt;%
@@ -489,7 +544,7 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `2ª.Dezena`)
 </code></pre>
 
-<p>ver quais foram números mais sorteados na terceira bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-terceira-bola">ver quais foram números mais sorteados na terceira bola</h4>
 
 <pre><code class="language-r">megasena_frequentes_3d &lt;- megasena_df %&gt;%
   group_by(`3ª.Dezena`) %&gt;%
@@ -497,7 +552,7 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `3ª.Dezena`)
 </code></pre>
 
-<p>ver quais foram números mais sorteados na quarta bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-quarta-bola">ver quais foram números mais sorteados na quarta bola</h4>
 
 <pre><code class="language-r">megasena_frequentes_4d &lt;- megasena_df %&gt;%
   group_by(`4ª.Dezena`) %&gt;%
@@ -505,7 +560,7 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `4ª.Dezena`)
 </code></pre>
 
-<p>ver quais foram números mais sorteados na quinta bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-quinta-bola">ver quais foram números mais sorteados na quinta bola</h4>
 
 <pre><code class="language-r">megasena_frequentes_5d &lt;- megasena_df %&gt;%
   group_by(`5ª.Dezena`) %&gt;%
@@ -513,7 +568,7 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `5ª.Dezena`)
 </code></pre>
 
-<p>ver quais foram números mais sorteados na sexta bola</p>
+<h4 id="ver-quais-foram-números-mais-sorteados-na-sexta-bola">ver quais foram números mais sorteados na sexta bola</h4>
 
 <pre><code class="language-r">megasena_frequentes_6d &lt;- megasena_df %&gt;%
   group_by(`6ª.Dezena`) %&gt;%
@@ -521,7 +576,9 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
   rename(n_sorteado = `6ª.Dezena`)
 </code></pre>
 
-<p>empilhar todos os arquivos acima</p>
+<h4 id="empilhar-todos-os-arquivos-acima">empilhar todos os arquivos acima</h4>
+
+<p>Agora que nós já temos os números mais frequentes sorteados na primeira, na segunda, na terceira, na quarta, na quinta e na sexta bola do concurso. Os cabeçalhos desses arquivos são iguais. E agora vamos empilhar esses arquivos com a função rbind().</p>
 
 <pre><code class="language-r">megasena_frequentes &lt;- rbind(megasena_frequentes_1d, 
                              megasena_frequentes_2d, 
@@ -531,7 +588,11 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
                              megasena_frequentes_6d)
 </code></pre>
 
-<p>agrupar por número sorteado e somar a frequência</p>
+<h4 id="agrupar-por-número-sorteado-e-somar-a-frequência">agrupar por número sorteado e somar a frequência</h4>
+
+<p>O nosso novo arquivo tem os dados de números mais frequentes em cada bola. Mas queremos saber no geral quais foram os números mais frequentes. Por isso, vamos agrupar os dados novamente, com a função group_by().</p>
+
+<p>Depois, usamos ainda summarise() e sum(). Usamos aqui o sum() porque queremos somar os valores da coluna int, e não apenas contar o número de linhas. Depois, reordenamos os dados, com a função arrange(), para mostrar em ordem decrescente, com a função desc().</p>
 
 <pre><code class="language-r">megasena_frequentes &lt;- megasena_frequentes %&gt;%
   group_by(n_sorteado) %&gt;%
@@ -792,20 +853,20 @@ link para o download: <a href="http://www1.caixa.gov.br/loterias/_arquivos/loter
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1568775631"></script>
-    <script src="/js/perfect-scrollbar.min.js?1568775631"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1568775631"></script>
-    <script src="/js/jquery.sticky.js?1568775631"></script>
-    <script src="/js/featherlight.min.js?1568775631"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1568775631"></script>
-    <script src="/js/highlight.pack.js?1568775631"></script>
+    <script src="/js/clipboard.min.js?1569161033"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569161033"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569161033"></script>
+    <script src="/js/jquery.sticky.js?1569161033"></script>
+    <script src="/js/featherlight.min.js?1569161033"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1569161033"></script>
+    <script src="/js/highlight.pack.js?1569161033"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1568775631"></script>
-    <script src="/js/learn.js?1568775631"></script>
-    <script src="/js/hugo-learn.js?1568775631"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569161033"></script>
+    <script src="/js/learn.js?1569161033"></script>
+    <script src="/js/hugo-learn.js?1569161033"></script>
 
-    <link href="/mermaid/mermaid.css?1568775631" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1568775631"></script>
+    <link href="/mermaid/mermaid.css?1569161033" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569161033"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
