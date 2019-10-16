@@ -5,7 +5,7 @@ date: '2019-10-16'
 slug: verificacao-de-arquivo
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
-weight: 2
+weight: 3
 ---
 
 #### Ler o arquivo
