@@ -20,7 +20,7 @@ Também recomendo que você baixe um editor de texto, como o [Sublime](https://w
 3) Mantenha as configurações padrões.     
 
 #### RStudio
-1) Faça o download do RStudio para Desktop para Mac no site oficial do RStudio: [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download);     
+1) Faça o download do RStudio para Desktop para Windows no site oficial do RStudio: [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download);     
 2) Clique em "RStudio 1.2.1335 - Windows 7+ (64-bit)" (ou uma versão mais nova);     
 3) Mantenha as configurações padrões.     
 
