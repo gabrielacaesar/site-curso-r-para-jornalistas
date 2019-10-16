@@ -50,7 +50,8 @@ weight: 10
 [R in the data journalism workflow at FiveThirtyEight (en)](https://flowingdata.com/2016/07/12/r-in-the-data-journalism-workflow-at-fivethirtyeight/)     
 [The growing popularity of R in data journalism (en)](https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/The-growing-popularity-of-R-in-data-journalism)     
 [Hollywood age gaps](https://julialedur.com.br/hollywood-age-gaps)    
-[Freddie Mercury's voice](https://julialedur.com.br/freddie-mercurys-voice)       
+[Freddie Mercury's voice](https://julialedur.com.br/freddie-mercurys-voice)      
+[Fórum de dúvida e discussão de jornalismo de dados](https://forum.jornalismodedados.org/)         
 
 ## Livros recomendados
 [R for Data Science (en)](https://r4ds.had.co.nz/)      
