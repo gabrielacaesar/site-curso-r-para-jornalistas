@@ -23,7 +23,7 @@ A função `colnames()` mostra o cabeçalho do arquivo que já foi lido no tutor
 colnames(arquivo)
 ```
 #### Mostrar as cinco linhas iniciais do arquivo
-A função `head()` mostra as cinco primeiras linhas do arquivo lido.
+A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido.
 
 ```{r}
 head(arquivo)
@@ -37,7 +37,7 @@ head(arquivo, 15)
 ```
 
 #### Mostrar as cinco linhas finais do arquivo
-A função `tail()` mostra as cinco últimas linhas do arquivo lido.
+A função `tail()` mostra, por padrão, as cinco últimas linhas do arquivo lido.
 
 ```{r}
 tail(arquivo)
@@ -51,81 +51,81 @@ tail(arquivo, 15)
 ```
 
 #### Abrir o arquivo
-A função View()
+A função `View()` abre o arquivo em uma das abas do RStudio e te permite, por exemplo, olhar o arquivi e também buscar por termos. 
 
 ```{r}
 View(arquivo)
 ```
 
 #### Mostrar resumo do arquivo
-A função glimpse()
+A função `glimpse()` é do pacote `dplyr` e te dá informações sobre o arquivo.
 ```{r}
 library(dplyr)
 glimpse(arquivo)
 ```
 
 #### Mostrar resumo do arquivo
-A função str()
+A função `str()` também dá algumas informações sobre o arquivo.
 ```{r}
 str(arquivo)
 ```
 
 #### Mostrar dados matemáticos das colunas
-A função summary()
+A função `summary()` é outra função para conseguir algumas informações sobre o arquivo.
 ```{r}
 summary(arquivo)
 ```
 
 #### Mostrar as correspondências únicas
-A função unique()
+A função `unique()` mostra as correspondências únicas de determinada coluna.
 ```{r}
-unique(arquivo)
+unique(arquivo$username)
 ```
 
 #### Mostrar o tamanho
-A função length()
+A função `length()` mostra o tamanho de determinada coluna.
 ```{r}
-length(arquivo)
+length(arquivo$username)
 ```
 
 #### Mostrar
-A função which()
+A função `which()` xxxx
 ```{r}
 
 ```
 
 #### Mostrar 
-A função typeof()
+A função `typeof()` xxxx
 ```{r}
 typeof(arquivo)
 ```
 
 #### Mostrar o número de linhas
-A função nrow()
+A função `nrow()` xxxx
 ```{r}
 
 ```
 
 #### Mostrar conteúdo de linha informada
-Se quisermos xxx, basta colocarmos o nome do arquivo e, logo depois, o número da linha entre colchetes. Fica assim: df[1]
+Se quisermos xxx, basta colocarmos o nome do arquivo e, logo depois, o número da linha entre colchetes. Fica assim: `df[1]`
 ```{r}
 arquivo[1]
 ```
 
 #### Mostrar conteúdo de coluna informada
-Na mesma forma, podemos repetir esse procedimento e ainda delimitar também a coluna. Fica assim: df$column[1]
+Na mesma forma, podemos repetir esse procedimento e ainda delimitar também a coluna. Fica assim: `df$column[1]`
 ```{r}
 arquivo$username[1]
 ```
 
 #### Fazer o download em CSV
-A função write.csv()
+A função `write.csv()` faz o download do arquivo em formato CSV.
 ```{r}
 
 ```
 
 #### Fazer o download em XLSX
-A função write.xlsx2()
+A função `write.xlsx2()` faz o download do arquivo em formato XLSX.
 ```{r}
 
 ```
