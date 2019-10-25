@@ -247,7 +247,7 @@ consulta_prefeito <- consulta_cand_BR %>%
          "SG_PARTIDO_PREFEITO" = SG_PARTIDO,
          "DS_SIT_TOT_TURNO_PREFEITO" = DS_SIT_TOT_TURNO)
 
-consulta_vice_prefeito <- dados_brutos_BRASIL %>%
+consulta_vice_prefeito <- consulta_cand_BR %>%
   filter(DS_CARGO == "VICE-PREFEITO") %>%
   select(SG_UF, SG_UE, NM_UE, NM_CANDIDATO,
          NM_URNA_CANDIDATO, SG_PARTIDO, DS_SIT_TOT_TURNO,
