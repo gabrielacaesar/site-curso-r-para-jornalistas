@@ -211,9 +211,11 @@ unique(consulta_cand_BR_PSL$DS_COMPOSICAO_COLIGACAO)
 Se a gente quisesse saber quais candidatos nasceram em outubro, a gente poderia pegar o conteúdo da coluna DT_NASCIMENTO, que está no formato "dd/mm/YY", e pedir para separar as informações considerando o separador "/". A função para isso se chama `separate()`. Se quisermos manter a coluna original, podemos incluir `remove = FALSE`.
 
 ```{r}
-novo_consulta_cand_BR_outubro <- novo_consulta_cand_BR %>%
+novo_consulta_cand_BR_out <- novo_consulta_cand_BR %>%
   separate(DT_NASCIMENTO, c("dia",  "mes", "ano"), sep = "/", remove = FALSE) %>%
   filter(mes == "10")
+  
+unique(novo_consulta_cand_BR_out$mes)
   
 ```
 
