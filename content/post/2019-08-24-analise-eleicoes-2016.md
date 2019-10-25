@@ -180,7 +180,7 @@ Para apagar a coluna, podemos fazer assim:
 ```{r}
 novo_consulta_cand_BR$coluna_zoada <- NULL
 ```
-#### substituir texto em células
+#### substituir texto
 Também podemos usar `str_replace()` ou `str_replace_all()` para fazer substituições no arquivo. Por exemplo, queremos substituir "AVANTE" por "Avante". 
 ```{r}
 novo_consulta_cand_BR <- novo_consulta_cand_BR %>%
@@ -188,7 +188,7 @@ novo_consulta_cand_BR <- novo_consulta_cand_BR %>%
 
 unique(novo_consulta_cand_BR$SG_PARTIDO)
 ```
-#### remover texto em células
+#### remover texto
 Nessa mesma coluna (SG_PARTIDO), nós queremos apagar os espacços que aparecem em alguns partidos, como "PC do B" e "PT do B". Por isso, vamos usar `str_remove_all()`. 
 ```{r}
 novo_consulta_cand_BR <- novo_consulta_cand_BR %>%
@@ -197,7 +197,7 @@ novo_consulta_cand_BR <- novo_consulta_cand_BR %>%
 unique(novo_consulta_cand_BR$SG_PARTIDO)
 ```
 
-#### detectar texto em células
+#### detectar texto
 Usamos a função `str_detect()` para encontrar determinado texto. Por exemplo, na coluna "DS_COMPOSICAO_COLIGACAO" nós queremos filtrar apenas as linhas que contenham o texto "PSL". O "PSL" não aparece sozinho nas linhas, então o `str_detect()` nos ajuda nisso.
 
 ```{r}
