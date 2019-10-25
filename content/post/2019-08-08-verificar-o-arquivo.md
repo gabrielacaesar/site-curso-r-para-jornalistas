@@ -50,7 +50,7 @@ Também na função `tail()` podemos definir quantas linhas no fim do arquivo de
 tail(arquivo, 15)
 ```
 
-#### Abrir o arquivo
+#### Abrir o arquivo no RStudio
 A função `View()` abre o arquivo em uma das abas do RStudio e te permite, por exemplo, olhar o arquivi e também buscar por termos. 
 
 ```{r}
