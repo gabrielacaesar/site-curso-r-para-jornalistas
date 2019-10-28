@@ -8,7 +8,7 @@ tags: [r, rstudio, data.table, base, tidyverse]
 weight: 4
 ---
 
-#### Ler o arquivo
+#### ler o arquivo
 A `fread()` é uma das funções possíveis para ler o arquivo. 
 
 ```{r}
@@ -16,97 +16,97 @@ library(data.table)
 arquivo <- fread("https://raw.githubusercontent.com/gabrielacaesar/curso-r-para-jornalistas/master/data/jairbolsonaro-twitter/BolsonaroFollowing.csv")
 ```
   
-#### Mostrar cabeçalho do arquivo
+#### mostrar cabeçalho do arquivo
 A função `colnames()` mostra o cabeçalho do arquivo que já foi lido no tutorial anterior. 
 
 ```{r}
 colnames(arquivo)
 ```
-#### Mostrar as cinco linhas iniciais do arquivo
+#### mostrar as cinco linhas iniciais do arquivo
 A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido.
 
 ```{r}
 head(arquivo)
 ```
 
-#### Mostrar as linhas iniciais do arquivo - no caso, 15
+#### mostrar as linhas iniciais do arquivo - no caso, 15
 Também podemos definir no `head()` o número de linhas que desejamos que apareça. No caso abaixo, 15 linhas.
 
 ```{r}
 head(arquivo, 15)
 ```
 
-#### Mostrar as cinco linhas finais do arquivo
+#### mostrar as cinco linhas finais do arquivo
 A função `tail()` mostra, por padrão, as cinco últimas linhas do arquivo lido.
 
 ```{r}
 tail(arquivo)
 ```
 
-#### Mostrar as linhas finais do arquivo, no caso 15
+#### mostrar as linhas finais do arquivo, no caso 15
 Também na função `tail()` podemos definir quantas linhas no fim do arquivo desejamos ver.
 
 ```{r}
 tail(arquivo, 15)
 ```
 
-#### Abrir o arquivo no RStudio
+#### abrir o arquivo no RStudio
 A função `View()` abre o arquivo em uma das abas do RStudio e te permite, por exemplo, olhar o arquivi e também buscar por termos. 
 
 ```{r}
 View(arquivo)
 ```
 
-#### Mostrar resumo do arquivo
+#### mostrar resumo do arquivo
 A função `glimpse()` é do pacote `dplyr` e te dá informações sobre o arquivo.
 ```{r}
 library(dplyr)
 glimpse(arquivo)
 ```
 
-#### Mostrar resumo do arquivo
+#### mostrar resumo do arquivo
 A função `str()` também dá algumas informações sobre o arquivo.
 ```{r}
 str(arquivo)
 ```
 
-#### Mostrar dados matemáticos das colunas
+#### mostrar dados matemáticos das colunas
 A função `summary()` é outra função para conseguir algumas informações sobre o arquivo.
 ```{r}
 summary(arquivo)
 ```
 
-#### Mostrar as correspondências únicas
+#### mostrar as correspondências únicas
 A função `unique()` mostra as correspondências únicas de determinada coluna.
 ```{r}
 unique(arquivo$username)
 ```
 
-#### Mostrar o tamanho
+#### mostrar o tamanho
 A função `length()` mostra o tamanho de determinada coluna.
 ```{r}
 length(arquivo$username)
 ```
 
-#### Mostrar 
+#### mostrar 
 A função `typeof()` xxxx
 ```{r}
 typeof(arquivo)
 ```
 
-#### Mostrar conteúdo de linha informada
+#### mostrar conteúdo de linha informada
 Se quisermos xxx, basta colocarmos o nome do arquivo e, logo depois, o número da linha entre colchetes. Fica assim: `df[1]`
 ```{r}
 arquivo[1]
 ```
 
-#### Mostrar conteúdo de coluna informada
+#### mostrar conteúdo de coluna informada
 Na mesma forma, podemos repetir esse procedimento e ainda delimitar também a coluna. Fica assim: `df$column[1]`
 ```{r}
 arquivo$username[1]
 ```
 
-#### Fazer o download em CSV
+#### fazer o download em CSV
 A função `write.csv()` faz o download do arquivo em formato CSV.
 ```{r}
 download.csv(arquivo, "arquivo.csv")
