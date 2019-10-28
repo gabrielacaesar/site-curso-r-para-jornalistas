@@ -8,6 +8,8 @@ tags: [r, rstudio, openxlx, base, tidyverse]
 weight: 6
 ---
 
+O objetivo desta análise é identificar quais foram os números mais frequentes nos sorteios da Mega Sena.
+
 #### instalar as bibliotecas
 Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código abaixo, que usa a função `install.packages()`.
 
