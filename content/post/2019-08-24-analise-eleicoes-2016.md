@@ -272,6 +272,6 @@ consulta_chapa_psl_pt_eleita <- consulta_chapa_psl_pt %>%
 #### fazer o download de CSV
 Para baixar a versão final do nosso arquivo, nós podemos fazer assim, com a função `download.csv()`:
 ```{r}
-download.csv(consulta_merged, "consulta_merged.csv")
+download.csv(consulta_chapa_psl_pt_eleita, "consulta_chapa_psl_pt_eleita-27out2019.csv")
 ```
 
