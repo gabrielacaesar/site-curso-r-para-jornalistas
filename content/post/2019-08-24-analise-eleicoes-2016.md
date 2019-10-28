@@ -44,7 +44,7 @@ Usamos a função `list.files()` para checar quais arquivos estão na pasta em q
 list.files()
 ```
 
-#### dados completos de candidaturas
+#### importar o arquivo
 Depois, usamos a função `fread()` para importar o arquivo. O nome do arquivo precisa estar entre aspas, como mostramos abaixo, e também deve informar o formato da extensão do arquivo (no caso, CSV).
 
 ```{r}
