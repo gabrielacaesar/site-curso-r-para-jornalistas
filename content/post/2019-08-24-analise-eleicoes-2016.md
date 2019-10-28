@@ -58,7 +58,7 @@ View(consulta_cand_BR)
 ```
 
 #### ver as cincos primeiras linhas
-A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido.
+A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido. Também possível informar que queremos ver, por exemplo, as oito primeiras linhas do arquivo lido, com `head(consulta_cand_BR, 8)`.
 
 ```{r}
 head(consulta_cand_BR)
@@ -260,7 +260,13 @@ consulta_vice_prefeito <- consulta_cand_BR %>%
 consulta_merged <- consulta_prefeito %>%
   left_join(consulta_vice_prefeito, 
             by = c("SG_UF", "NM_UE", "DS_COMPOSICAO_COLIGACAO"))
-            
+
+consulta_chapa_psl_pt <- consulta_merged %>%
+  filter(SG_PARTIDO_PREFEITO == "PSL" & SG_PARTIDO_VICE_PREFEITO == "PT" |
+         SG_PARTIDO_PREFEITO == "PT" & SG_PARTIDO_VICE_PREFEITO == "PSL")
+
+consulta_chapa_psl_pt_eleita <- consulta_chapa_psl_pt %>%
+  filter(DS_SIT_TOT_TURNO_PREFEITO == "ELEITO")
 ```
 
 #### fazer o download de CSV
