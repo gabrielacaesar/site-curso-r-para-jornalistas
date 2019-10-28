@@ -38,7 +38,7 @@ Isso vai de computador para computador. O nome da pasta "consulta_cand_24out2019
 setwd("~/Downloads/consulta_cand_2016_24out2019")
 ```
 
-#### lista de arquivamos na pasta
+#### lista de arquivos na pasta
 Usamos a função `list.files()` para checar quais arquivos estão na pasta em que queremos trabalhar.
 ```{r}
 list.files()
