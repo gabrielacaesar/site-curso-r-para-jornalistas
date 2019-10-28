@@ -57,8 +57,8 @@ A função `View()` abre o arquivo em uma das abas do RStudio e te permite, por 
 View(consulta_cand_BR)
 ```
 
-#### ver as cincos primeiras linhas
-A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido. Também possível informar que queremos ver, por exemplo, as oito primeiras linhas do arquivo lido, com `head(consulta_cand_BR, 8)`.
+#### ver as seis primeiras linhas
+A função `head()` mostra, por padrão, as seis primeiras linhas do arquivo lido. Também possível informar que queremos ver, por exemplo, as oito primeiras linhas do arquivo lido, com `head(consulta_cand_BR, 8)`.
 
 ```{r}
 head(consulta_cand_BR)
@@ -270,8 +270,8 @@ consulta_chapa_psl_pt_eleita <- consulta_chapa_psl_pt %>%
 ```
 
 #### fazer o download de CSV
-Para baixar a versão final do nosso arquivo, nós podemos fazer assim, com a função `download.csv()`:
+Para baixar a versão final do nosso arquivo, nós podemos fazer assim, com a função `write.csv()`:
 ```{r}
-download.csv(consulta_chapa_psl_pt_eleita, "consulta_chapa_psl_pt_eleita-27out2019.csv")
+write.csv(consulta_chapa_psl_pt_eleita, "consulta_chapa_psl_pt_eleita-27out2019.csv")
 ```
 
