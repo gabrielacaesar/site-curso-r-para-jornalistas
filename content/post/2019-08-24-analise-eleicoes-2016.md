@@ -4,7 +4,7 @@ author: Gabriela Caesar
 date: '2019-10-27'
 slug: analise-eleicoes-2016
 categories: []
-tags: [r, rstudio, data.table, base, tidyverse]
+tags: [r, rstudio, data.table, base, tidyverse, abjutils]
 weight: 7
 ---
 

@@ -7,6 +7,7 @@ categories: []
 tags: [r, rstudio, base, tidyverse, rvest, downloader]
 weight: 8
 ---
+Esta análise fará uso da técnica de webscraping para coletar todas as URLs da página que reúne os PDFs de voos de autoridades com aviões da FAB. O objetivo é automatizar o download dos PDFs e depois empilhá-los para, enfim, converter um PDF maior em arquivo editável, como um XLSX.
 
 #### instalar as bibliotecas
 Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função `install.packages()`.
@@ -86,8 +87,8 @@ files <- list.files(pattern = "*.pdf")
 Como eu não consegui descobrir bons pacotes de R que façam a conversão de PDF para CSV/XLSX, nós vamos empilhar os PDFs em um único arquivo para, depois, converter esse arquivo em um site de conversão. Não temos plano e, por isso, não podemos subir um arquivo PDF muito grande, com muitas páginas. Então, vamos criar três PDFs e subir cada um no site. 
 https://www.pdftoexcel.com/
 ```{r}
-teste_merged_2 <- pdf_combine(files[1:50], output = "joined.pdf")
-teste_merged_2 <- pdf_combine(files[50:100], output = "joined.pdf")
-teste_merged_2 <- pdf_combine(files[101:141], output = "joined.pdf")
+teste_merged_1 <- pdf_combine(files[1:50], output = "joined_1.pdf")
+teste_merged_2 <- pdf_combine(files[50:100], output = "joined_2.pdf")
+teste_merged_3 <- pdf_combine(files[101:141], output = "joined_3.pdf")
 ```
 
