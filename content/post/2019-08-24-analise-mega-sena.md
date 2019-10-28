@@ -1,7 +1,7 @@
 ---
 title: Análise - Mega Sena
 author: Gabriela Caesar
-date: '2019-08-24'
+date: '2019-10-27'
 slug: analise-mega-sena
 categories: []
 tags: [r, rstudio, openxlx, base, tidyverse]

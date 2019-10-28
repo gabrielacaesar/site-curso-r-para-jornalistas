@@ -1,7 +1,7 @@
 ---
 title: Saiba mais sobre o R
 author: Gabriela Caesar
-date: '2019-08-20'
+date: '2019-10-27'
 slug: saiba-mais-sobre-o-r
 categories: []
 tags: [r, rstudio, dicas]

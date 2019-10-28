@@ -1,7 +1,7 @@
 ---
 title: Verificação de arquivo
 author: Gabriela Caesar
-date: '2019-10-16'
+date: '2019-10-27'
 slug: verificacao-de-arquivo
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
@@ -88,22 +88,10 @@ A função `length()` mostra o tamanho de determinada coluna.
 length(arquivo$username)
 ```
 
-#### Mostrar
-A função `which()` xxxx
-```{r}
-
-```
-
 #### Mostrar 
 A função `typeof()` xxxx
 ```{r}
 typeof(arquivo)
-```
-
-#### Mostrar o número de linhas
-A função `nrow()` xxxx
-```{r}
-
 ```
 
 #### Mostrar conteúdo de linha informada
@@ -121,12 +109,6 @@ arquivo$username[1]
 #### Fazer o download em CSV
 A função `write.csv()` faz o download do arquivo em formato CSV.
 ```{r}
-
-```
-
-#### Fazer o download em XLSX
-A função `write.xlsx2()` faz o download do arquivo em formato XLSX.
-```{r}
-
+download.csv(arquivo, "arquivo.csv")
 ```
 

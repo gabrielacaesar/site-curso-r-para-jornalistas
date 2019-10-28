@@ -1,7 +1,7 @@
 ---
 title: Análise - Twitter Bolsonaro
 author: Gabriela Caesar
-date: '2019-08-24'
+date: '2019-10-27'
 slug: analise-twitter-bolsonaro
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]

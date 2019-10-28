@@ -1,7 +1,7 @@
 ---
 title: Importação de arquivos
 author: Gabriela Caesar
-date: '2019-08-20'
+date: '2019-10-27'
 slug: importacao-de-arquivos
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
@@ -19,7 +19,7 @@ getwd()
 A função `setwd()` muda a pasta/diretório para o que você informar.
 
 ```{r}
-setwd()
+setwd("~/Downloads")
 ```
 #### Listar os arquivos que estão nessa pasta
 A função `list.files()` mostra todos os arquivos que estão na atual pasta/diretório.
@@ -30,24 +30,23 @@ list.files()
 ```
 
 #### Ler arquivos com que vamos trabalhar
-Há várias funções para ler os arquivos. A função vai depender, principalmente, do formato do arquivo.
-É possível ler diversos formatos, como TXT, HTML, XML, DBF etc.
+Há várias funções para ler os arquivos. A função vai depender, principalmente, do formato do arquivo. É possível ler diversos formatos, como TXT, HTML, XML, DBF etc.
 
 Também é possível ler os dados diretamente de um link.
 
-Veja abaixo os casos mais frequentes, com CSV, XLSX e JSON:
+```{r}
+bolsonaro_fav <- fread("https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv")
+```
+#### Importar arquivo já informando a codificação
+UTF-8 e ISO-8859-1 são exemplos de codificações - ou "encoding". Ao informar a codificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
+
+A codificação do arquivo também pode ser informada já na importação do arquivo.
 
 ```{r}
-fread()
+bolsonaro_fav <- fread("https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv",
+                       encoding = "UTF-8")
 ```
 
-```{r}
-read.xlsx()
-```
-
-```{r}
-# json tweets bolsonaro
-```
 #### Importar arquivo já definindo as colunas 
 Este caso é importante, principalmente, em arquivos que são muito pesados. Ao já definir a importação de apenas algumas colunas, o tamanho do arquivo é reduzido.
 
@@ -64,21 +63,12 @@ enem <- fread("MICRODADOS_ENEM_2018.csv", select = c("NU_NOTA_COMP1",
                                                      "NU_NOTA_REDACAO"))
 ```
 
-#### Importar arquivo já informando a codificação
-UTF-8 e ISO-8859-1 são exemplos de codificações - ou "encoding". Ao informar a codificação certa, você evita ter um arquivo com os acentos errados, o que dificulta a leitura e o entedimento das informações.
-
-A codificação do arquivo também pode ser informada já na importação do arquivo.
-
-```{r}
-bolsonaro_fav <- fread("https://github.com/gabrielacaesar/curso-r-para-jornalistas/raw/master/data/jairbolsonaro-twitter/BolsonaroFavorites.csv",
-                       encoding = "UTF-8")
-```
-
 #### Importar arquivo já informando o separador de colunas
 O separador de um arquivo CSV (sigla para "comma-separated values") é a vírgula. Mas há outros formatos que usam outros separadores.
 
 Aqui é possível informar qual é o separador usado no arquivo.
 
 ```{r}
+consulta_cand_BR <- fread("consulta_cand_2010_BR.txt", sep = ";")
 ```
 

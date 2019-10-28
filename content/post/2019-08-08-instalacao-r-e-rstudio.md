@@ -1,7 +1,7 @@
 ---
 title: Instalação do R e do RStudio
 author: Gabriela Caesar
-date: '2019-08-08'
+date: '2019-10-27'
 slug: instalacao-r-e-rstudio
 categories: [install, r, rstudio]
 tags: [r, rstudio]

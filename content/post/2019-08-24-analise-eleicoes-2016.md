@@ -1,7 +1,7 @@
 ---
 title: Análise - Eleições 2016
 author: Gabriela Caesar
-date: '2019-10-25'
+date: '2019-10-27'
 slug: analise-eleicoes-2016
 categories: []
 tags: [r, rstudio, data.table, base, tidyverse]
