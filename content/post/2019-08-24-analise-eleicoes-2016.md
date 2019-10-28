@@ -84,7 +84,7 @@ length(consulta_cand_BR$DS_CARGO)
 length(unique(consulta_cand_BR$DS_CARGO))
 ```
 
-### filtrar o arquivo
+#### filtrar o arquivo
 Usamos a função `filter()` para filtrar o arquivo, já que só queremos os dados referentes a candidatos a prefeito. Abaixo, filtramos a coluna "DS_CARGO" por "PREFEITO" (ou seja, não entram os vice-prefeitos e os vereadores);
 ```{r}
 consulta_prefeito <- consulta_cand_BR %>%
