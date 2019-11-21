@@ -10,6 +10,8 @@ weight: 7
 
 Esta análise usará os dados eleições de 2016 para mostrar algumas possibilidades do R. O download do arquivo usado abaixo pode ser feito no [repositório de dados do TSE](http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais). O caminho neste link é "Candidatos > 2016 > Candidatos (formato ZIP)".
 
+Baixe o código desta análise [aqui](https://github.com/gabrielacaesar/curso-r-para-jornalistas/blob/master/eleicoes-2016.R).
+
 #### instalar as bibliotecas
 Caso você ainda não tenha instalado os pacotes abaixo, você precisa rodar esse código com a função `install.packages()`.
 
