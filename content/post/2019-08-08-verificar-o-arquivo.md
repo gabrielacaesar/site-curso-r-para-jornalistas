@@ -22,8 +22,8 @@ A função `colnames()` mostra o cabeçalho do arquivo que já foi lido no tutor
 ```{r}
 colnames(arquivo)
 ```
-#### mostrar as cinco linhas iniciais do arquivo
-A função `head()` mostra, por padrão, as cinco primeiras linhas do arquivo lido.
+#### mostrar as seis linhas iniciais do arquivo
+A função `head()` mostra, por padrão, as seis primeiras linhas do arquivo lido.
 
 ```{r}
 head(arquivo)
@@ -36,8 +36,8 @@ Também podemos definir no `head()` o número de linhas que desejamos que apare�
 head(arquivo, 15)
 ```
 
-#### mostrar as cinco linhas finais do arquivo
-A função `tail()` mostra, por padrão, as cinco últimas linhas do arquivo lido.
+#### mostrar as seis linhas finais do arquivo
+A função `tail()` mostra, por padrão, as seis últimas linhas do arquivo lido.
 
 ```{r}
 tail(arquivo)
@@ -89,13 +89,13 @@ length(arquivo$username)
 ```
 
 #### mostrar 
-A função `typeof()` xxxx
+A função `typeof()` mostra qual é o tipo do arquivo (texto, número etc).
 ```{r}
 typeof(arquivo)
 ```
 
 #### mostrar conteúdo de linha informada
-Se quisermos xxx, basta colocarmos o nome do arquivo e, logo depois, o número da linha entre colchetes. Fica assim: `df[1]`
+Se quisermos ver determinado conteúdo, basta colocarmos o nome do arquivo e, logo depois, o número da linha entre colchetes. Fica assim: `df[1]`
 ```{r}
 arquivo[1]
 ```
@@ -109,6 +109,6 @@ arquivo$username[1]
 #### fazer o download em CSV
 A função `write.csv()` faz o download do arquivo em formato CSV.
 ```{r}
-download.csv(arquivo, "arquivo.csv")
+write.csv(arquivo, "arquivo_da_oficina.csv")
 ```
 
