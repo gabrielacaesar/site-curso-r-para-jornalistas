@@ -54,7 +54,8 @@ weight: 1
 [The growing popularity of R in data journalism (en)](https://channel9.msdn.com/Events/useR-international-R-User-conferences/useR-International-R-User-2017-Conference/The-growing-popularity-of-R-in-data-journalism)     
 [Hollywood age gaps (en)](https://julialedur.com.br/hollywood-age-gaps)    
 [Freddie Mercury's voice (en)](https://julialedur.com.br/freddie-mercurys-voice)      
-[Fórum de dúvida e discussão de jornalismo de dados](https://forum.jornalismodedados.org/)         
+[Fórum de dúvida e discussão de jornalismo de dados](https://forum.jornalismodedados.org/)       
+[Wiki R](https://www.ufrgs.br/wiki-r/index.php?title=Manipulando_Dados_com_dplyr_e_tidyr)       
 
 ## Livros recomendados
 [R for Data Science (en)](https://r4ds.had.co.nz/)      
